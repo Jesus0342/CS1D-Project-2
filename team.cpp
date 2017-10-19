@@ -4,6 +4,9 @@ Team::Team()
 {
 }
 
+/*********************
+ * MUTATOR FUNCTIONS *
+ *********************/
 void Team::setName(QString tName)
 {
     name = tName;
@@ -44,6 +47,9 @@ void Team::setStarPlayer(QString tStarPlayer)
     starPlayer = tStarPlayer;
 }
 
+/**********************
+ * ACCESSOR FUNCTIONS *
+ **********************/
 QString Team::getName()
 {
     return name;

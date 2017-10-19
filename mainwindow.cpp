@@ -19,9 +19,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QVector<Team> teams = Database::getInstance()->returnTeamList();
-
-    QVector<Team>::iterator teamIt = teams.begin();
+    UnsortedMap teams = Database::getInstance()->returnTeamList();
 
     ui->tableWidget->setRowCount(teams.size());
 
@@ -32,35 +30,33 @@ void MainWindow::on_pushButton_clicked()
     {
         for(int j = 0; j < numCols; j++)
         {
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getName()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getName()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getStadiumName()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumName()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getSeatingCapacity()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getSeatingCapacity()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getLocation()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getLocation()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getConference()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getConference()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getSurfaceType()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getSurfaceType()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getStadiumRoofType()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumRoofType()));
             j++;
 
-            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teamIt->getStarPlayer()));
+            ui->tableWidget->setItem(i, j, new QTableWidgetItem(teams[i].getStarPlayer()));
             j++;
         }
-
-        qDebug() << teamIt->getLocation();
-
-        teamIt++;
     }
 
     ui->tableWidget->resizeColumnsToContents();
+
+    ui->tableWidget->selectRow(4);
 }

@@ -27,10 +27,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     database.cpp \
-    team.cpp
+    team.cpp \
+    unsortedmap.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
-    team.h
+    team.h \
+    unsortedmap.h
 
 FORMS    += mainwindow.ui
