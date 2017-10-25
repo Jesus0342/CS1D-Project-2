@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
-    <height>388</height>
+    <width>600</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,54 +16,171 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTableWidget" name="tableWidget">
-      <column>
-       <property name="text">
-        <string>Team Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Stadium Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Stadium Capacity</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Location</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Conference</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Surface Type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Stadium Roof Type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Star Player</string>
-       </property>
-      </column>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>OK</string>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>2</number>
       </property>
+      <widget class="QWidget" name="page_home">
+       <widget class="QLabel" name="label_home">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>20</y>
+          <width>271</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Home&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_selectAction">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>380</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>&lt;Select Here&gt;</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>View NFL Information</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_viewNFLInfo">
+       <widget class="QComboBox" name="comboBox_selectTeamInfo">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>360</y>
+          <width>181</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>&lt;Select Here&gt;</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>NFL Team Information</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="pushButton_backViewNFLInfo">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>440</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_viewNFLInfo">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>561</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;NFL Information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_viewTeamInfo">
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>34</y>
+          <width>482</width>
+          <height>350</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Team Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Capacity</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Location</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Conference</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Surface Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Roof Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Star Player</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>390</y>
+          <width>482</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>OK</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_backViewTeamInfo">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>450</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -73,7 +190,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>491</width>
+     <width>600</width>
      <height>21</height>
     </rect>
    </property>
