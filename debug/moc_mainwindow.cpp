@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[8];
-    char stringdata0[211];
+    QByteArrayData data[9];
+    char stringdata0[235];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,17 +35,19 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 44), // "on_comboBox_selectAction_curr..."
 QT_MOC_LITERAL(2, 56, 0), // ""
 QT_MOC_LITERAL(3, 57, 5), // "index"
-QT_MOC_LITERAL(4, 63, 37), // "on_pushButton_backViewNFLInfo..."
-QT_MOC_LITERAL(5, 101, 38), // "on_pushButton_backViewTeamInf..."
-QT_MOC_LITERAL(6, 140, 46), // "on_comboBox_selectTeamInfo_cu..."
-QT_MOC_LITERAL(7, 187, 23) // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(4, 63, 46), // "on_comboBox_selectTeamInfo_cu..."
+QT_MOC_LITERAL(5, 110, 37), // "on_pushButton_backViewNFLInfo..."
+QT_MOC_LITERAL(6, 148, 38), // "on_pushButton_backViewTeamInf..."
+QT_MOC_LITERAL(7, 187, 42), // "on_comboBox_searchTeam_curren..."
+QT_MOC_LITERAL(8, 230, 4) // "arg1"
 
     },
     "MainWindow\0on_comboBox_selectAction_currentIndexChanged\0"
-    "\0index\0on_pushButton_backViewNFLInfo_clicked\0"
+    "\0index\0on_comboBox_selectTeamInfo_currentIndexChanged\0"
+    "on_pushButton_backViewNFLInfo_clicked\0"
     "on_pushButton_backViewTeamInfo_clicked\0"
-    "on_comboBox_selectTeamInfo_currentIndexChanged\0"
-    "on_pushButton_3_clicked"
+    "on_comboBox_searchTeam_currentIndexChanged\0"
+    "arg1"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,17 +66,17 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    1,   39,    2, 0x08 /* Private */,
-       4,    0,   42,    2, 0x08 /* Private */,
-       5,    0,   43,    2, 0x08 /* Private */,
-       6,    1,   44,    2, 0x08 /* Private */,
-       7,    0,   47,    2, 0x08 /* Private */,
+       4,    1,   42,    2, 0x08 /* Private */,
+       5,    0,   45,    2, 0x08 /* Private */,
+       6,    0,   46,    2, 0x08 /* Private */,
+       7,    1,   47,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    8,
 
        0        // eod
 };
@@ -86,10 +88,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_comboBox_selectAction_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_backViewNFLInfo_clicked(); break;
-        case 2: _t->on_pushButton_backViewTeamInfo_clicked(); break;
-        case 3: _t->on_comboBox_selectTeamInfo_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->on_pushButton_3_clicked(); break;
+        case 1: _t->on_comboBox_selectTeamInfo_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->on_pushButton_backViewNFLInfo_clicked(); break;
+        case 3: _t->on_pushButton_backViewTeamInfo_clicked(); break;
+        case 4: _t->on_comboBox_searchTeam_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }

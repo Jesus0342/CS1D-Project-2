@@ -18,13 +18,13 @@ public:
 private slots:
     void on_comboBox_selectAction_currentIndexChanged(int index);
 
+    void on_comboBox_selectTeamInfo_currentIndexChanged(int index);
+
     void on_pushButton_backViewNFLInfo_clicked();
 
     void on_pushButton_backViewTeamInfo_clicked();
 
-    void on_comboBox_selectTeamInfo_currentIndexChanged(int index);
-
-    void on_pushButton_3_clicked();
+    void on_comboBox_searchTeam_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

@@ -104,7 +104,7 @@
        </widget>
       </widget>
       <widget class="QWidget" name="page_viewTeamInfo">
-       <widget class="QTableWidget" name="tableWidget">
+       <widget class="QTableWidget" name="tableWidget_teamInfo">
         <property name="geometry">
          <rect>
           <x>40</x>
@@ -154,19 +154,6 @@
          </property>
         </column>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>390</y>
-          <width>482</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>OK</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pushButton_backViewTeamInfo">
         <property name="geometry">
          <rect>
@@ -178,6 +165,16 @@
         </property>
         <property name="text">
          <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_searchTeam">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>420</y>
+          <width>221</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
       </widget>
