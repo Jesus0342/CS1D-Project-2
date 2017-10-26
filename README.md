@@ -39,10 +39,15 @@ d.	Provide the capability to delete traditional souvenirs
 
 The initial souvenir list is follows:
 a.	Signed helmets		 	  $71.99
+
 b.	Autographed Football		  $79.39
+
 c.	Team pennant			  $17.99
+
 d.	Team picture 			  $19.99
+
 e.	Team jersey			$189.99
+
 (Each team needs its own souvenir list so it can be modified)
 
 Please let me know your partners by October 18th (three points will be deducted from your score if you do not meet this deadline). All projects are due by December 11th.   No late projects will be accepted.  Your team must demonstrate your project to me before it will be graded.   Each teammate must identify their accomplishments on the project. Not all team members will necessarily earn the same score. 
