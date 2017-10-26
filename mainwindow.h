@@ -18,7 +18,7 @@ public:
 private slots:
     void on_comboBox_selectAction_currentIndexChanged(int index);
 
-    void on_comboBox_selectTeamInfo_currentIndexChanged(int index);
+    void on_comboBox_displayOptions_currentIndexChanged(int index);
 
     void on_comboBox_selectTeam_currentIndexChanged(const QString &arg1);
 

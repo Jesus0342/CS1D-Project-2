@@ -36,7 +36,7 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
     ui->comboBox_selectAction->setCurrentIndex(0);
 }
 
-void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
+void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
 {
     switch(index)
     {
@@ -114,7 +114,7 @@ void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
         break;
     }
 
-    ui->comboBox_selectTeamInfo->setCurrentIndex(0);
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_comboBox_selectTeam_currentIndexChanged(const QString &arg1)

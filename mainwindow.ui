@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -56,7 +56,7 @@
        </widget>
       </widget>
       <widget class="QWidget" name="page_viewNFLInfo">
-       <widget class="QComboBox" name="comboBox_selectTeamInfo">
+       <widget class="QComboBox" name="comboBox_displayOptions">
         <property name="geometry">
          <rect>
           <x>210</x>

@@ -35,7 +35,7 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 44), // "on_comboBox_selectAction_curr..."
 QT_MOC_LITERAL(2, 56, 0), // ""
 QT_MOC_LITERAL(3, 57, 5), // "index"
-QT_MOC_LITERAL(4, 63, 46), // "on_comboBox_selectTeamInfo_cu..."
+QT_MOC_LITERAL(4, 63, 46), // "on_comboBox_displayOptions_cu..."
 QT_MOC_LITERAL(5, 110, 42), // "on_comboBox_selectTeam_curren..."
 QT_MOC_LITERAL(6, 153, 4), // "arg1"
 QT_MOC_LITERAL(7, 158, 37), // "on_pushButton_backViewNFLInfo..."
@@ -43,7 +43,7 @@ QT_MOC_LITERAL(8, 196, 38) // "on_pushButton_backViewTeamInf..."
 
     },
     "MainWindow\0on_comboBox_selectAction_currentIndexChanged\0"
-    "\0index\0on_comboBox_selectTeamInfo_currentIndexChanged\0"
+    "\0index\0on_comboBox_displayOptions_currentIndexChanged\0"
     "on_comboBox_selectTeam_currentIndexChanged\0"
     "arg1\0on_pushButton_backViewNFLInfo_clicked\0"
     "on_pushButton_backViewTeamInfo_clicked"
@@ -87,7 +87,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_comboBox_selectAction_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->on_comboBox_selectTeamInfo_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->on_comboBox_displayOptions_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->on_comboBox_selectTeam_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 3: _t->on_pushButton_backViewNFLInfo_clicked(); break;
         case 4: _t->on_pushButton_backViewTeamInfo_clicked(); break;

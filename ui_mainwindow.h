@@ -38,7 +38,7 @@ public:
     QLabel *label_home;
     QComboBox *comboBox_selectAction;
     QWidget *page_viewNFLInfo;
-    QComboBox *comboBox_selectTeamInfo;
+    QComboBox *comboBox_displayOptions;
     QPushButton *pushButton_backViewNFLInfo;
     QLabel *label_viewNFLInfo;
     QLabel *label_NFLInfoPrompt;
@@ -90,9 +90,9 @@ public:
         stackedWidget->addWidget(page_home);
         page_viewNFLInfo = new QWidget();
         page_viewNFLInfo->setObjectName(QStringLiteral("page_viewNFLInfo"));
-        comboBox_selectTeamInfo = new QComboBox(page_viewNFLInfo);
-        comboBox_selectTeamInfo->setObjectName(QStringLiteral("comboBox_selectTeamInfo"));
-        comboBox_selectTeamInfo->setGeometry(QRect(210, 150, 181, 22));
+        comboBox_displayOptions = new QComboBox(page_viewNFLInfo);
+        comboBox_displayOptions->setObjectName(QStringLiteral("comboBox_displayOptions"));
+        comboBox_displayOptions->setGeometry(QRect(210, 150, 181, 22));
         pushButton_backViewNFLInfo = new QPushButton(page_viewNFLInfo);
         pushButton_backViewNFLInfo->setObjectName(QStringLiteral("pushButton_backViewNFLInfo"));
         pushButton_backViewNFLInfo->setGeometry(QRect(10, 480, 75, 23));
@@ -198,7 +198,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -213,8 +213,8 @@ public:
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
          << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
         );
-        comboBox_selectTeamInfo->clear();
-        comboBox_selectTeamInfo->insertItems(0, QStringList()
+        comboBox_displayOptions->clear();
+        comboBox_displayOptions->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
          << QApplication::translate("MainWindow", "1 - NFL Team Information", Q_NULLPTR)
          << QApplication::translate("MainWindow", "2 - NFL Teams", Q_NULLPTR)
