@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>550</height>
+    <width>651</width>
+    <height>586</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -59,8 +59,8 @@
        <widget class="QComboBox" name="comboBox_selectTeamInfo">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>360</y>
+          <x>210</x>
+          <y>150</y>
           <width>181</width>
           <height>22</height>
          </rect>
@@ -72,15 +72,50 @@
         </item>
         <item>
          <property name="text">
-          <string>NFL Team Information</string>
+          <string>1 - NFL Team Information</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2 - NFL Teams</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>3 - NFL Stadiums</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>4 - NFL Team Conferences</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>5 - Open Roof Type Stadiums</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>6 - Star Players</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>7 - Stadium Seating Capacity</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>8 - Stadium Surface Type</string>
          </property>
         </item>
        </widget>
        <widget class="QPushButton" name="pushButton_backViewNFLInfo">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>440</y>
+          <x>10</x>
+          <y>480</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -92,7 +127,7 @@
        <widget class="QLabel" name="label_viewNFLInfo">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>30</x>
           <y>10</y>
           <width>561</width>
           <height>91</height>
@@ -102,15 +137,28 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;NFL Information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label_NFLInfoPrompt">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>110</y>
+          <width>311</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Select the information that you would like to view.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="page_viewTeamInfo">
        <widget class="QTableWidget" name="tableWidget_teamInfo">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>34</y>
-          <width>482</width>
-          <height>350</height>
+          <x>21</x>
+          <y>80</y>
+          <width>591</width>
+          <height>311</height>
          </rect>
         </property>
         <column>
@@ -158,7 +206,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>450</y>
+          <y>480</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -170,11 +218,37 @@
        <widget class="QComboBox" name="comboBox_searchTeam">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>420</y>
+          <x>210</x>
+          <y>440</y>
           <width>221</width>
           <height>22</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_viewTeamInfo">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>10</y>
+          <width>481</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;NFL Team Information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>410</y>
+          <width>331</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Select the name of a team to view their information.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>
@@ -187,7 +261,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>651</width>
      <height>21</height>
     </rect>
    </property>

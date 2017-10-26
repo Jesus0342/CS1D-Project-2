@@ -26,6 +26,7 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
 {
     switch(index)
     {
+        // Takes the fan to the NFL Information page.
         case 1 :
         {
             ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
@@ -40,6 +41,10 @@ void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
 {
     switch(index)
     {
+        /*****************************************************************
+         * CASE 1 - Displays all information related to the selected
+         * football team.
+         *****************************************************************/
         case 1 :
         {
             ui->stackedWidget->setCurrentWidget(ui->page_viewTeamInfo);
@@ -113,19 +118,42 @@ void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
     ui->comboBox_selectTeamInfo->setCurrentIndex(0);
 }
 
+void MainWindow::on_comboBox_searchTeam_currentIndexChanged(const QString &arg1)
+{
+    // Stores the selected team name a QTableWidgetItem (QList always has 1 item because all team names
+    // are unique).
+    QList<QTableWidgetItem*> searchTeam = ui->tableWidget_teamInfo->findItems(arg1, Qt::MatchExactly);
+
+    // Goes to the row where the selected team's information is found.
+    if(!searchTeam.empty())
+    {
+        // QTableWidgetItem pointer stores the item so that the row and column can be accessed.
+        QTableWidgetItem *team = searchTeam.front();
+
+        // Goes to the cell where the selected team name appears.
+        ui->tableWidget_teamInfo->setCurrentCell(team->row(), team->column());
+
+        // Highlights the row where the selected team name appears.
+        ui->tableWidget_teamInfo->selectRow(team->row());
+    }
+}
+
 void MainWindow::on_pushButton_backViewNFLInfo_clicked()
 {
+    // Returns to the home page.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
 }
 
 void MainWindow::on_pushButton_backViewTeamInfo_clicked()
 {
+    // Returns to the NFL information page.
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 
     ui->comboBox_searchTeam->clear();
-}
 
-void MainWindow::on_comboBox_searchTeam_currentIndexChanged(const QString &arg1)
-{
-    QList<QTableWidgetItem*> searchTeam = ui->tableWidget_teamInfo->findItems(arg1, Qt::MatchExactly);
+    // Goes back to the top of the table.
+    ui->tableWidget_teamInfo->setCurrentCell(0, 0);
+
+    // Clears all selected rows.
+    ui->tableWidget_teamInfo->clearSelection();
 }

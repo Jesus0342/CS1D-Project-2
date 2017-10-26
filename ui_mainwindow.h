@@ -41,10 +41,13 @@ public:
     QComboBox *comboBox_selectTeamInfo;
     QPushButton *pushButton_backViewNFLInfo;
     QLabel *label_viewNFLInfo;
+    QLabel *label_NFLInfoPrompt;
     QWidget *page_viewTeamInfo;
     QTableWidget *tableWidget_teamInfo;
     QPushButton *pushButton_backViewTeamInfo;
     QComboBox *comboBox_searchTeam;
+    QLabel *label_viewTeamInfo;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -53,7 +56,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(600, 550);
+        MainWindow->resize(651, 586);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -75,13 +78,16 @@ public:
         page_viewNFLInfo->setObjectName(QStringLiteral("page_viewNFLInfo"));
         comboBox_selectTeamInfo = new QComboBox(page_viewNFLInfo);
         comboBox_selectTeamInfo->setObjectName(QStringLiteral("comboBox_selectTeamInfo"));
-        comboBox_selectTeamInfo->setGeometry(QRect(180, 360, 181, 22));
+        comboBox_selectTeamInfo->setGeometry(QRect(210, 150, 181, 22));
         pushButton_backViewNFLInfo = new QPushButton(page_viewNFLInfo);
         pushButton_backViewNFLInfo->setObjectName(QStringLiteral("pushButton_backViewNFLInfo"));
-        pushButton_backViewNFLInfo->setGeometry(QRect(20, 440, 75, 23));
+        pushButton_backViewNFLInfo->setGeometry(QRect(10, 480, 75, 23));
         label_viewNFLInfo = new QLabel(page_viewNFLInfo);
         label_viewNFLInfo->setObjectName(QStringLiteral("label_viewNFLInfo"));
-        label_viewNFLInfo->setGeometry(QRect(10, 10, 561, 91));
+        label_viewNFLInfo->setGeometry(QRect(30, 10, 561, 91));
+        label_NFLInfoPrompt = new QLabel(page_viewNFLInfo);
+        label_NFLInfoPrompt->setObjectName(QStringLiteral("label_NFLInfoPrompt"));
+        label_NFLInfoPrompt->setGeometry(QRect(150, 110, 311, 21));
         stackedWidget->addWidget(page_viewNFLInfo);
         page_viewTeamInfo = new QWidget();
         page_viewTeamInfo->setObjectName(QStringLiteral("page_viewTeamInfo"));
@@ -105,13 +111,19 @@ public:
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         tableWidget_teamInfo->setHorizontalHeaderItem(7, __qtablewidgetitem7);
         tableWidget_teamInfo->setObjectName(QStringLiteral("tableWidget_teamInfo"));
-        tableWidget_teamInfo->setGeometry(QRect(40, 34, 482, 350));
+        tableWidget_teamInfo->setGeometry(QRect(21, 80, 591, 311));
         pushButton_backViewTeamInfo = new QPushButton(page_viewTeamInfo);
         pushButton_backViewTeamInfo->setObjectName(QStringLiteral("pushButton_backViewTeamInfo"));
-        pushButton_backViewTeamInfo->setGeometry(QRect(10, 450, 75, 23));
+        pushButton_backViewTeamInfo->setGeometry(QRect(10, 480, 75, 23));
         comboBox_searchTeam = new QComboBox(page_viewTeamInfo);
         comboBox_searchTeam->setObjectName(QStringLiteral("comboBox_searchTeam"));
-        comboBox_searchTeam->setGeometry(QRect(160, 420, 221, 22));
+        comboBox_searchTeam->setGeometry(QRect(210, 440, 221, 22));
+        label_viewTeamInfo = new QLabel(page_viewTeamInfo);
+        label_viewTeamInfo->setObjectName(QStringLiteral("label_viewTeamInfo"));
+        label_viewTeamInfo->setGeometry(QRect(80, 10, 481, 51));
+        label = new QLabel(page_viewTeamInfo);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(150, 410, 331, 20));
         stackedWidget->addWidget(page_viewTeamInfo);
 
         verticalLayout->addWidget(stackedWidget);
@@ -119,7 +131,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 21));
+        menuBar->setGeometry(QRect(0, 0, 651, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -130,7 +142,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -148,10 +160,18 @@ public:
         comboBox_selectTeamInfo->clear();
         comboBox_selectTeamInfo->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "NFL Team Information", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "1 - NFL Team Information", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "2 - NFL Teams", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "3 - NFL Stadiums", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "4 - NFL Team Conferences", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "5 - Open Roof Type Stadiums", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "6 - Star Players", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "7 - Stadium Seating Capacity", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "8 - Stadium Surface Type", Q_NULLPTR)
         );
         pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
         label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
+        label_NFLInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the information that you would like to view.</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_teamInfo->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_teamInfo->horizontalHeaderItem(1);
@@ -169,6 +189,8 @@ public:
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_teamInfo->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
         pushButton_backViewTeamInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };
