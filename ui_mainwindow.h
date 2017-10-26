@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -54,6 +55,10 @@ public:
     QLabel *label_viewStadiumsTitle;
     QWidget *page_viewConferences;
     QLabel *label_ConferencesTitle;
+    QTableWidget *tableWidget_conferences;
+    QPushButton *pushButton_backConferences;
+    QCheckBox *checkBox_americanConference;
+    QCheckBox *checkBox_nationalConference;
     QWidget *page_viewOpenRoof;
     QLabel *label_OpenRoofTitle;
     QWidget *page_viewStarPlayers;
@@ -156,6 +161,24 @@ public:
         label_ConferencesTitle = new QLabel(page_viewConferences);
         label_ConferencesTitle->setObjectName(QStringLiteral("label_ConferencesTitle"));
         label_ConferencesTitle->setGeometry(QRect(70, 10, 491, 51));
+        tableWidget_conferences = new QTableWidget(page_viewConferences);
+        if (tableWidget_conferences->columnCount() < 2)
+            tableWidget_conferences->setColumnCount(2);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget_conferences->setHorizontalHeaderItem(0, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget_conferences->setHorizontalHeaderItem(1, __qtablewidgetitem9);
+        tableWidget_conferences->setObjectName(QStringLiteral("tableWidget_conferences"));
+        tableWidget_conferences->setGeometry(QRect(150, 80, 341, 311));
+        pushButton_backConferences = new QPushButton(page_viewConferences);
+        pushButton_backConferences->setObjectName(QStringLiteral("pushButton_backConferences"));
+        pushButton_backConferences->setGeometry(QRect(10, 490, 75, 23));
+        checkBox_americanConference = new QCheckBox(page_viewConferences);
+        checkBox_americanConference->setObjectName(QStringLiteral("checkBox_americanConference"));
+        checkBox_americanConference->setGeometry(QRect(120, 410, 191, 17));
+        checkBox_nationalConference = new QCheckBox(page_viewConferences);
+        checkBox_nationalConference->setObjectName(QStringLiteral("checkBox_nationalConference"));
+        checkBox_nationalConference->setGeometry(QRect(330, 410, 191, 17));
         stackedWidget->addWidget(page_viewConferences);
         page_viewOpenRoof = new QWidget();
         page_viewOpenRoof->setObjectName(QStringLiteral("page_viewOpenRoof"));
@@ -198,7 +221,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -250,6 +273,13 @@ public:
         label_viewTeamsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Teams</span></p></body></html>", Q_NULLPTR));
         label_viewStadiumsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Stadiums</span></p></body></html>", Q_NULLPTR));
         label_ConferencesTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Conferences</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget_conferences->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem9 = tableWidget_conferences->horizontalHeaderItem(1);
+        ___qtablewidgetitem9->setText(QApplication::translate("MainWindow", "Conference", Q_NULLPTR));
+        pushButton_backConferences->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        checkBox_americanConference->setText(QApplication::translate("MainWindow", "American Football Conference Only", Q_NULLPTR));
+        checkBox_nationalConference->setText(QApplication::translate("MainWindow", "National Football Conference Only", Q_NULLPTR));
         label_OpenRoofTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Open Roof Stadiums</span></p></body></html>", Q_NULLPTR));
         label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", Q_NULLPTR));
         label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", Q_NULLPTR));
