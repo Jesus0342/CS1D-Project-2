@@ -68,7 +68,9 @@ Please let me know your partners by October 18th (three points will be deducted 
 
 Schedule:
 First checkpoint – November 1st – 5 points
+
 Second checkpoint – November 15th – 5 points
+
 Final checkpoint – December 11th – 30 points
 
 
