@@ -128,8 +128,4 @@ void MainWindow::on_pushButton_backViewTeamInfo_clicked()
 void MainWindow::on_comboBox_searchTeam_currentIndexChanged(const QString &arg1)
 {
     QList<QTableWidgetItem*> searchTeam = ui->tableWidget_teamInfo->findItems(arg1, Qt::MatchExactly);
-
-    QList<QTableWidgetItem*>::iterator team = searchTeam.begin();
-
-    qDebug() << team[0]->row();
 }

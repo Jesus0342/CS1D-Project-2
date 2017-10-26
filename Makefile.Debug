@@ -220,7 +220,7 @@ debug/moc_mainwindow.cpp: C:/Qt/5.8/mingw53_32/include/QtWidgets/QMainWindow \
 		mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.8/mingw53_32/bin/moc.exe
-	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -I"C:/Users/jsanchez97/Desktop/New folder/CS1D-Project-2" -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -I"C:/Users/jsanchez97/Desktop/New folder/CS1D-Project-2" -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o debug\moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -476,13 +476,8 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.8/mingw53_32/include/QtGui/qinputmethod.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QButtonGroup \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.8/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.8/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.8/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.8/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.8/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/QComboBox \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qcombobox.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qstyleoption.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractspinbox.h \
@@ -493,12 +488,23 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qstyle.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.8/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.8/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qmenu.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/QStackedWidget \
+		C:/Qt/5.8/mingw53_32/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QStatusBar \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QTableWidget \
@@ -512,6 +518,7 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.8/mingw53_32/include/QtWidgets/QWidget \
+		C:/Qt/5.8/mingw53_32/include/QtCore/QtAlgorithms \
 		database.h \
 		C:/Qt/5.8/mingw53_32/include/QtCore/QFileInfo \
 		C:/Qt/5.8/mingw53_32/include/QtCore/qfileinfo.h \
