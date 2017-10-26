@@ -20,11 +20,11 @@ private slots:
 
     void on_comboBox_selectTeamInfo_currentIndexChanged(int index);
 
+    void on_comboBox_selectTeam_currentIndexChanged(const QString &arg1);
+
     void on_pushButton_backViewNFLInfo_clicked();
 
     void on_pushButton_backViewTeamInfo_clicked();
-
-    void on_comboBox_searchTeam_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

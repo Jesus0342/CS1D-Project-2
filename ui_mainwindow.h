@@ -45,9 +45,23 @@ public:
     QWidget *page_viewTeamInfo;
     QTableWidget *tableWidget_teamInfo;
     QPushButton *pushButton_backViewTeamInfo;
-    QComboBox *comboBox_searchTeam;
+    QComboBox *comboBox_selectTeam;
+    QLabel *label_TeamInfoTitle;
+    QLabel *label_teamInfoPrompt;
+    QWidget *page_viewTeams;
+    QLabel *label_viewTeamsTitle;
+    QWidget *page_viewStadiums;
+    QLabel *label_viewStadiumsTitle;
+    QWidget *page_viewConferences;
+    QLabel *label_ConferencesTitle;
+    QWidget *page_viewOpenRoof;
+    QLabel *label_OpenRoofTitle;
+    QWidget *page_viewStarPlayers;
+    QLabel *label_starPlayersTitle;
+    QWidget *page_viewSeatingCapacity;
+    QLabel *label_seatingCapacityTitle;
+    QWidget *page_viewSurfaceType;
     QLabel *label_viewTeamInfo;
-    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -69,10 +83,10 @@ public:
         page_home->setObjectName(QStringLiteral("page_home"));
         label_home = new QLabel(page_home);
         label_home->setObjectName(QStringLiteral("label_home"));
-        label_home->setGeometry(QRect(150, 20, 271, 91));
+        label_home->setGeometry(QRect(180, 10, 271, 91));
         comboBox_selectAction = new QComboBox(page_home);
         comboBox_selectAction->setObjectName(QStringLiteral("comboBox_selectAction"));
-        comboBox_selectAction->setGeometry(QRect(180, 380, 191, 22));
+        comboBox_selectAction->setGeometry(QRect(220, 410, 191, 22));
         stackedWidget->addWidget(page_home);
         page_viewNFLInfo = new QWidget();
         page_viewNFLInfo->setObjectName(QStringLiteral("page_viewNFLInfo"));
@@ -115,16 +129,58 @@ public:
         pushButton_backViewTeamInfo = new QPushButton(page_viewTeamInfo);
         pushButton_backViewTeamInfo->setObjectName(QStringLiteral("pushButton_backViewTeamInfo"));
         pushButton_backViewTeamInfo->setGeometry(QRect(10, 480, 75, 23));
-        comboBox_searchTeam = new QComboBox(page_viewTeamInfo);
-        comboBox_searchTeam->setObjectName(QStringLiteral("comboBox_searchTeam"));
-        comboBox_searchTeam->setGeometry(QRect(210, 440, 221, 22));
-        label_viewTeamInfo = new QLabel(page_viewTeamInfo);
-        label_viewTeamInfo->setObjectName(QStringLiteral("label_viewTeamInfo"));
-        label_viewTeamInfo->setGeometry(QRect(80, 10, 481, 51));
-        label = new QLabel(page_viewTeamInfo);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(150, 410, 331, 20));
+        comboBox_selectTeam = new QComboBox(page_viewTeamInfo);
+        comboBox_selectTeam->setObjectName(QStringLiteral("comboBox_selectTeam"));
+        comboBox_selectTeam->setGeometry(QRect(210, 440, 221, 22));
+        label_TeamInfoTitle = new QLabel(page_viewTeamInfo);
+        label_TeamInfoTitle->setObjectName(QStringLiteral("label_TeamInfoTitle"));
+        label_TeamInfoTitle->setGeometry(QRect(80, 10, 481, 51));
+        label_teamInfoPrompt = new QLabel(page_viewTeamInfo);
+        label_teamInfoPrompt->setObjectName(QStringLiteral("label_teamInfoPrompt"));
+        label_teamInfoPrompt->setGeometry(QRect(150, 410, 331, 20));
         stackedWidget->addWidget(page_viewTeamInfo);
+        page_viewTeams = new QWidget();
+        page_viewTeams->setObjectName(QStringLiteral("page_viewTeams"));
+        label_viewTeamsTitle = new QLabel(page_viewTeams);
+        label_viewTeamsTitle->setObjectName(QStringLiteral("label_viewTeamsTitle"));
+        label_viewTeamsTitle->setGeometry(QRect(80, 10, 481, 51));
+        stackedWidget->addWidget(page_viewTeams);
+        page_viewStadiums = new QWidget();
+        page_viewStadiums->setObjectName(QStringLiteral("page_viewStadiums"));
+        label_viewStadiumsTitle = new QLabel(page_viewStadiums);
+        label_viewStadiumsTitle->setObjectName(QStringLiteral("label_viewStadiumsTitle"));
+        label_viewStadiumsTitle->setGeometry(QRect(80, 10, 481, 51));
+        stackedWidget->addWidget(page_viewStadiums);
+        page_viewConferences = new QWidget();
+        page_viewConferences->setObjectName(QStringLiteral("page_viewConferences"));
+        label_ConferencesTitle = new QLabel(page_viewConferences);
+        label_ConferencesTitle->setObjectName(QStringLiteral("label_ConferencesTitle"));
+        label_ConferencesTitle->setGeometry(QRect(70, 10, 491, 51));
+        stackedWidget->addWidget(page_viewConferences);
+        page_viewOpenRoof = new QWidget();
+        page_viewOpenRoof->setObjectName(QStringLiteral("page_viewOpenRoof"));
+        label_OpenRoofTitle = new QLabel(page_viewOpenRoof);
+        label_OpenRoofTitle->setObjectName(QStringLiteral("label_OpenRoofTitle"));
+        label_OpenRoofTitle->setGeometry(QRect(70, 10, 481, 61));
+        stackedWidget->addWidget(page_viewOpenRoof);
+        page_viewStarPlayers = new QWidget();
+        page_viewStarPlayers->setObjectName(QStringLiteral("page_viewStarPlayers"));
+        label_starPlayersTitle = new QLabel(page_viewStarPlayers);
+        label_starPlayersTitle->setObjectName(QStringLiteral("label_starPlayersTitle"));
+        label_starPlayersTitle->setGeometry(QRect(80, 10, 481, 51));
+        stackedWidget->addWidget(page_viewStarPlayers);
+        page_viewSeatingCapacity = new QWidget();
+        page_viewSeatingCapacity->setObjectName(QStringLiteral("page_viewSeatingCapacity"));
+        label_seatingCapacityTitle = new QLabel(page_viewSeatingCapacity);
+        label_seatingCapacityTitle->setObjectName(QStringLiteral("label_seatingCapacityTitle"));
+        label_seatingCapacityTitle->setGeometry(QRect(20, 10, 601, 61));
+        stackedWidget->addWidget(page_viewSeatingCapacity);
+        page_viewSurfaceType = new QWidget();
+        page_viewSurfaceType->setObjectName(QStringLiteral("page_viewSurfaceType"));
+        label_viewTeamInfo = new QLabel(page_viewSurfaceType);
+        label_viewTeamInfo->setObjectName(QStringLiteral("label_viewTeamInfo"));
+        label_viewTeamInfo->setGeometry(QRect(80, 10, 481, 71));
+        stackedWidget->addWidget(page_viewSurfaceType);
 
         verticalLayout->addWidget(stackedWidget);
 
@@ -142,7 +198,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -155,7 +211,7 @@ public:
         comboBox_selectAction->clear();
         comboBox_selectAction->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "View NFL Information", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
         );
         comboBox_selectTeamInfo->clear();
         comboBox_selectTeamInfo->insertItems(0, QStringList()
@@ -189,8 +245,15 @@ public:
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_teamInfo->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
         pushButton_backViewTeamInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
-        label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", Q_NULLPTR));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", Q_NULLPTR));
+        label_TeamInfoTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", Q_NULLPTR));
+        label_teamInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", Q_NULLPTR));
+        label_viewTeamsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Teams</span></p></body></html>", Q_NULLPTR));
+        label_viewStadiumsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Stadiums</span></p></body></html>", Q_NULLPTR));
+        label_ConferencesTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Conferences</span></p></body></html>", Q_NULLPTR));
+        label_OpenRoofTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Open Roof Stadiums</span></p></body></html>", Q_NULLPTR));
+        label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", Q_NULLPTR));
+        label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", Q_NULLPTR));
+        label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Surface Type</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

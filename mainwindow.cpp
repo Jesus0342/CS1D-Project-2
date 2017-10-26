@@ -12,9 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Always opens the program to the home page of the stacked widget.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
-
-    ui->comboBox_searchTeam->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
@@ -65,11 +64,11 @@ void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
             qSort(teamNames);
 
             // Adds the names of the teams to the searchTeam combo box.
-            ui->comboBox_searchTeam->insertItem(0, "<Select Team Name>");
+            ui->comboBox_selectTeam->insertItem(0, "<Select Team Name>");
 
             for(int i = 1; i <= teamNames.size(); i++)
             {
-                ui->comboBox_searchTeam->insertItem(i, teamNames[i - 1]);
+                ui->comboBox_selectTeam->insertItem(i, teamNames[i - 1]);
             }
 
             // Sets the row count for the table.
@@ -118,7 +117,7 @@ void MainWindow::on_comboBox_selectTeamInfo_currentIndexChanged(int index)
     ui->comboBox_selectTeamInfo->setCurrentIndex(0);
 }
 
-void MainWindow::on_comboBox_searchTeam_currentIndexChanged(const QString &arg1)
+void MainWindow::on_comboBox_selectTeam_currentIndexChanged(const QString &arg1)
 {
     // Stores the selected team name a QTableWidgetItem (QList always has 1 item because all team names
     // are unique).
@@ -149,7 +148,7 @@ void MainWindow::on_pushButton_backViewTeamInfo_clicked()
     // Returns to the NFL information page.
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 
-    ui->comboBox_searchTeam->clear();
+    ui->comboBox_selectTeam->clear();
 
     // Goes back to the top of the table.
     ui->tableWidget_teamInfo->setCurrentCell(0, 0);
