@@ -65,6 +65,10 @@ public:
     QLabel *label_starPlayersTitle;
     QWidget *page_viewSeatingCapacity;
     QLabel *label_seatingCapacityTitle;
+    QTableWidget *tableWidget_seatingCapacity;
+    QPushButton *pushButton_backSeatingCapacity;
+    QLabel *label_totalCapacityTxt;
+    QLabel *label_totalCapacity;
     QWidget *page_viewSurfaceType;
     QLabel *label_viewTeamInfo;
     QMenuBar *menuBar;
@@ -75,7 +79,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(651, 586);
+        MainWindow->resize(651, 575);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -197,6 +201,26 @@ public:
         label_seatingCapacityTitle = new QLabel(page_viewSeatingCapacity);
         label_seatingCapacityTitle->setObjectName(QStringLiteral("label_seatingCapacityTitle"));
         label_seatingCapacityTitle->setGeometry(QRect(20, 10, 601, 61));
+        tableWidget_seatingCapacity = new QTableWidget(page_viewSeatingCapacity);
+        if (tableWidget_seatingCapacity->columnCount() < 3)
+            tableWidget_seatingCapacity->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(0, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(1, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(2, __qtablewidgetitem12);
+        tableWidget_seatingCapacity->setObjectName(QStringLiteral("tableWidget_seatingCapacity"));
+        tableWidget_seatingCapacity->setGeometry(QRect(90, 80, 461, 341));
+        pushButton_backSeatingCapacity = new QPushButton(page_viewSeatingCapacity);
+        pushButton_backSeatingCapacity->setObjectName(QStringLiteral("pushButton_backSeatingCapacity"));
+        pushButton_backSeatingCapacity->setGeometry(QRect(10, 480, 75, 23));
+        label_totalCapacityTxt = new QLabel(page_viewSeatingCapacity);
+        label_totalCapacityTxt->setObjectName(QStringLiteral("label_totalCapacityTxt"));
+        label_totalCapacityTxt->setGeometry(QRect(160, 430, 231, 31));
+        label_totalCapacity = new QLabel(page_viewSeatingCapacity);
+        label_totalCapacity->setObjectName(QStringLiteral("label_totalCapacity"));
+        label_totalCapacity->setGeometry(QRect(390, 430, 131, 31));
         stackedWidget->addWidget(page_viewSeatingCapacity);
         page_viewSurfaceType = new QWidget();
         page_viewSurfaceType->setObjectName(QStringLiteral("page_viewSurfaceType"));
@@ -221,7 +245,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(8);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -283,6 +307,15 @@ public:
         label_OpenRoofTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Open Roof Stadiums</span></p></body></html>", Q_NULLPTR));
         label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", Q_NULLPTR));
         label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem10 = tableWidget_seatingCapacity->horizontalHeaderItem(0);
+        ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem11 = tableWidget_seatingCapacity->horizontalHeaderItem(1);
+        ___qtablewidgetitem11->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem12 = tableWidget_seatingCapacity->horizontalHeaderItem(2);
+        ___qtablewidgetitem12->setText(QApplication::translate("MainWindow", "Seating Capacity", Q_NULLPTR));
+        pushButton_backSeatingCapacity->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_totalCapacityTxt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Total NFL Seating Capacity:</span></p></body></html>", Q_NULLPTR));
+        label_totalCapacity->setText(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
         label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Surface Type</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 

@@ -67,6 +67,11 @@ private slots:
      */
     void on_pushButton_backConferences_clicked();
 
+    /**
+     * @brief Returns the fan to the NFL Information page.
+     */
+    void on_pushButton_backSeatingCapacity_clicked();
+
     /***********************
      * CHECK BOX FUNCTIONS *
      ***********************/

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>651</width>
-    <height>586</height>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -398,6 +398,70 @@
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Stadium Seating Capacity&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_seatingCapacity">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>80</y>
+          <width>461</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Team Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Seating Capacity</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_backSeatingCapacity">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_totalCapacityTxt">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>430</y>
+          <width>231</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Total NFL Seating Capacity:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_totalCapacity">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>430</y>
+          <width>131</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

@@ -78,3 +78,58 @@ QVector<Team>::iterator UnsortedMap::end()
 {
     return map.end();
 }
+
+long UnsortedMap::calculateTotalSeatingCapacity()
+{
+    // Total seating capacity accumulator.
+    long totalSeatingCapacity = 0;
+
+    // Iterator to traverse the map.
+    QVector<Team>::iterator teamIt = begin();
+
+    // Iterator to check if the current stadium's seating capacity has
+    // already been added to the total seating capacity.
+    QVector<Team>::iterator compIt;
+
+    // Traverses the entire map to accumulate totalSeatingCapacity.
+    while(teamIt != end())
+    {
+        // Resets compIt to the beginning of the map.
+        compIt = begin();
+
+        // Determines whether or not the stadium's seating capacity has already
+        // been counted.
+        bool alreadyCounted = false;
+
+        // Traverses the list up until teamIt to check if any of the teams before
+        // teamIt play in the same stadium.
+        while(compIt < teamIt && !alreadyCounted)
+        {
+            // Sets alreadyCounted to true if a previous team plays at the same
+            // stadium as the current team.
+            if(compIt->getStadiumName() == teamIt->getStadiumName())
+            {
+                alreadyCounted = true;
+            }
+
+            // Moves compIt to the next team.
+            compIt++;
+        }
+
+        // Accumulates totalSeatingCapacity if the current team does not play
+        // at the same stadium as a previous team.
+        if(!alreadyCounted)
+        {
+            // Converts the current stadium's seating capacity to a long.
+            long currentSeatingCapacity = teamIt->getSeatingCapacity().replace(",", "").toLong();
+
+            // Accumulates the seating capacity.
+            totalSeatingCapacity += currentSeatingCapacity;
+        }
+
+        // Moves teamIt to the next team in the map.
+        teamIt++;
+    }
+
+    return totalSeatingCapacity;
+}

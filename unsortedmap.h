@@ -2,7 +2,6 @@
 #define UNSORTEDMAP_H
 
 #include <QVector>
-
 #include "team.h"
 
 /**
@@ -68,6 +67,13 @@ public:
      * @return map.end()
      */
     QVector<Team>::iterator end();
+
+    /**
+     * @brief calculateTotalSeatingCapacity calculates the total seating capacity of
+     *        all NFL stadiums.
+     * @return total seating capacity of all NFL stadiums.
+     */
+    long calculateTotalSeatingCapacity();
 };
 
 #endif // MAP_H

@@ -153,6 +153,78 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->tableWidget_conferences->sortByColumn(0, Qt::AscendingOrder);
     }
         break;
+    /*********************************************************************
+     * CASE 7 - Displays the NFL stadiums and teams sorted from lowest to
+     * highest seating capacity and displays the total NFL seating capacity.
+     *********************************************************************/
+    case 7 :
+    {
+        // Goes to view seating capacity page.
+        ui->stackedWidget->setCurrentWidget(ui->page_viewSeatingCapacity);
+
+        // Sets the row count for the table.
+        ui->tableWidget_seatingCapacity->setRowCount(teams.size());
+
+        int numRows = ui->tableWidget_seatingCapacity->rowCount();
+        int numCols = ui->tableWidget_seatingCapacity->columnCount();
+
+        // Sets the information for all teams on the table widget.
+        for(int i = 0; i < numRows; i++)
+        {
+            for(int j = 0; j < numCols; j++)
+            {
+                ui->tableWidget_seatingCapacity->setItem(i, j, new QTableWidgetItem(teams[i].getName()));
+                j++;
+
+                ui->tableWidget_seatingCapacity->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumName()));
+                j++;
+
+                ui->tableWidget_seatingCapacity->setItem(i, j, new QTableWidgetItem(teams[i].getSeatingCapacity()));
+                j++;
+            }
+        }
+
+        // Resizes the columns of the table widget.
+        ui->tableWidget_seatingCapacity->resizeColumnsToContents();
+
+        // Sorts the table by seating capacity (least to greatest).
+        ui->tableWidget_seatingCapacity->sortByColumn(2, Qt::AscendingOrder);
+
+        // Returns the total seating capacity for all NFL teams.
+        long seatingCapacity = teams.calculateTotalSeatingCapacity();
+
+        // Converts the total seating capacity into a string.
+        QString seatingCapacityStr = QString::number(seatingCapacity);
+
+        int count = 1;
+
+        // Adds commas to the number to increase readability.
+        for(int i = seatingCapacityStr.size(); i >= 0; i--)
+        {
+            if(count == 3)
+            {
+                seatingCapacityStr.insert(i - 1, ',');
+
+                count = 1;
+            }
+            else
+            {
+                count++;
+            }
+        }
+
+        // Sets the total seating capacity in the totalCapacity label.
+        ui->label_totalCapacity->setText(seatingCapacityStr);
+
+        // Changes the font in the totalCapacity label.
+        QFont font = ui->label_totalCapacity->font();
+        font.setPointSize(12);
+        font.setBold(true);
+
+        // Sets the font.
+        ui->label_totalCapacity->setFont(font);
+    }
+        break;
     }
 
     ui->comboBox_displayOptions->setCurrentIndex(0);
@@ -210,6 +282,11 @@ void MainWindow::on_pushButton_backConferences_clicked()
     ui->checkBox_nationalConference->setChecked(false);
 
     // Returns to NFL information page.
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+}
+
+void MainWindow::on_pushButton_backSeatingCapacity_clicked()
+{
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
 
