@@ -67,7 +67,7 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         }
 
         // Sorts the names of the teams in ascending order.
-        qSort(teamNames);
+        std::sort(teamNames.begin(), teamNames.end());
 
         // Adds the names of the teams to the selectTeam combo box.
         ui->comboBox_selectTeam->insertItem(0, "<Select Team Name>");
@@ -114,6 +114,60 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
             }
         }
 
+        // Resizes the columns of the table widget.
+        ui->tableWidget_teamInfo->resizeColumnsToContents();
+    }
+        break;
+    /*********************************************************************
+     * CASE 2 - Display the NFL teams sorted alphabetically by team name
+     *********************************************************************/
+    case 2:
+    {
+        // Goes to the view team info page.
+        ui->stackedWidget->setCurrentWidget(ui->page_viewTeams);
+
+        // Sets the row count for the table.
+        ui->tableWidget_teams->setRowCount(teams.size());
+
+        int numRows = ui->tableWidget_teams->rowCount();
+        int numCols = ui->tableWidget_teams->columnCount();
+
+        ui->tableWidget_teams->sortByColumn(0, Qt::AscendingOrder);
+
+
+
+        // Sets the information for all teams on the table widget.
+        for(int i = 0; i < numRows; i++)
+        {
+            for(int j = 0; j < numCols; j++)
+            {
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getName()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumName()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getSeatingCapacity()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getLocation()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getConference()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getSurfaceType()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumRoofType()));
+                j++;
+
+                ui->tableWidget_teams->setItem(i, j, new QTableWidgetItem(teams[i].getStarPlayer()));
+                j++;
+            }
+        }
+
+        ui->tableWidget_teams->setSortingEnabled(true);
         // Resizes the columns of the table widget.
         ui->tableWidget_teamInfo->resizeColumnsToContents();
     }
@@ -372,4 +426,18 @@ void MainWindow::on_checkBox_nationalConference_toggled(bool checked)
     {
         on_comboBox_displayOptions_currentIndexChanged(4);
     }
+}
+
+void MainWindow::on_pushButton_backViewTeams_clicked()
+{
+    // Returns to the NFL information page.
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_selectTeam->clear();
+
+    // Goes back to the top of the table.
+    ui->tableWidget_teamInfo->setCurrentCell(0, 0);
+
+    // Clears all selected rows.
+    ui->tableWidget_teamInfo->clearSelection();
 }

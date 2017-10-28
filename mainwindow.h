@@ -88,6 +88,8 @@ private slots:
      */
     void on_checkBox_nationalConference_toggled(bool checked);
 
+    void on_pushButton_backViewTeams_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

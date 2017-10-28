@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>8</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -264,6 +264,69 @@
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;NFL Teams&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_teams">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>591</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Team Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Capacity</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Location</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Conference</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Surface Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Stadium Roof Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Star Player</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_backViewTeams">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
         </property>
        </widget>
       </widget>
