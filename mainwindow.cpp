@@ -297,6 +297,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         // Sorts the table by seating capacity (least to greatest).
         ui->tableWidget_seatingCapacity->sortByColumn(2, Qt::AscendingOrder);
 
+        ui->tableWidget_seatingCapacity->setSortingEnabled(true);
+
         // Returns the total seating capacity for all NFL teams.
         long seatingCapacity = teams.calculateTotalSeatingCapacity();
 
