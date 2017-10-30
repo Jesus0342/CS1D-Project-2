@@ -207,6 +207,26 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->tableWidget_conferences->sortByColumn(0, Qt::AscendingOrder);
     }
         break;
+
+    /*********************************************************************
+     * CASE 6 - Displays the list of NFL star players and their corres-
+     * ponding team name sorted by team name.
+     *********************************************************************/
+    case 6 :
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_viewStarPlayers);
+        QSqlQueryModel *mod = new QSqlQueryModel();
+        QSqlQuery *qry = new QSqlQuery();
+        qry->prepare("SELECT TeamName FROM NFL_INFORMATION order by TeamName ASC");
+        qry->exec();
+        mod->setQuery(*qry);
+        ui->comboBox_starPlayer->setModel(mod);
+
+        on_radioButton_starPlayer_all_clicked();
+        ui->radioButton_starPlayer_all->setChecked(true);
+        break;
+    }
+
     /*********************************************************************
      * CASE 7 - Displays the NFL stadiums and teams sorted from lowest to
      * highest seating capacity and displays the total NFL seating capacity.
@@ -440,4 +460,84 @@ void MainWindow::on_pushButton_backViewTeams_clicked()
 
     // Clears all selected rows.
     ui->tableWidget_teamInfo->clearSelection();
+}
+
+/**
+ * @brief MainWindow::starPlayers_loadTable
+ * @param team
+ * Star Players Load Table- Displays the list of all Star Players
+ * with their team names ordered asc. Also able to filter star
+ * players according to their team names.
+ */
+void MainWindow::starPlayers_loadTable(QString team)
+{
+   QString q;
+   if (team=="all")
+   {
+      q = "SELECT TeamName, StarPlayer FROM NFL_INFORMATION order by TeamName ASC";
+   }
+   else
+   {
+       q = ("SELECT TeamName, StarPlayer FROM NFL_INFORMATION where TeamName='"+team+"'");
+   }
+   QStringList colNames= {"Starting College", "Star Player"};
+   ui->tableWidget_starPlayers->setColumnCount(2);
+   ui->tableWidget_starPlayers->setHorizontalHeaderLabels(colNames);
+   QSqlQuery query;
+   query.exec(q);
+   ui->tableWidget_starPlayers->setRowCount(0);
+   int i=0;
+   while(query.next())
+   {
+       ui->tableWidget_starPlayers->insertRow(i);
+       ui->tableWidget_starPlayers->setItem(i,0, new QTableWidgetItem(query.value(0).toString()));
+       ui->tableWidget_starPlayers->setItem(i,1, new QTableWidgetItem(query.value(1).toString()));
+       i++;
+   }
+   ui->tableWidget_starPlayers->show();
+
+}
+
+/**
+ * @brief MainWindow::on_comboBox_starPlayer_currentIndexChanged
+ * @param arg1
+ * Combo box- populated with team names. Table Widget view of
+ * star players will be filtered by the chosen team.
+ */
+void MainWindow::on_comboBox_starPlayer_currentIndexChanged(const QString &arg1)
+{
+    starPlayers_loadTable(arg1);
+}
+
+/**
+ * @brief MainWindow::on_radioButton_starPlayer_all_clicked
+ * When radio button VIEW ALL star players is clicked, table display
+ * will update to show all team names with their star players.
+ */
+void MainWindow::on_radioButton_starPlayer_all_clicked()
+{
+    starPlayers_loadTable("all");
+    ui->comboBox_starPlayer->hide();
+}
+
+/**
+ * @brief MainWindow::on_radioButton_starPlayer_filter_clicked
+ * When Radio button FILTER star players is clicked, combo box
+ * of list of team names will be shown.
+ */
+void MainWindow::on_radioButton_starPlayer_filter_clicked()
+{
+    starPlayers_loadTable(ui->comboBox_starPlayer->currentText());
+    ui->comboBox_starPlayer->show();
+}
+
+/**
+ * @brief MainWindow::on_pushButton_starPlayers_backMenu_clicked
+ * Back to main menu button- located in star players page.
+ * When clicked, fan will be redirected to the main menu.
+ */
+void MainWindow::on_pushButton_starPlayers_backMenu_clicked()
+{
+    // Returns to Menu
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }

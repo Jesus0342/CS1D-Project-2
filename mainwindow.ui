@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -64,6 +64,9 @@
           <width>181</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
         </property>
         <item>
          <property name="text">
@@ -448,6 +451,65 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;NFL Star Players&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
+       <widget class="QTableWidget" name="tableWidget_starPlayers">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>261</width>
+          <height>411</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_starPlayer">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>230</y>
+          <width>291</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton_starPlayer_all">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>210</y>
+          <width>84</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>View All</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton_starPlayer_filter">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>210</y>
+          <width>84</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Filter by Team</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_starPlayers_backMenu">
+        <property name="geometry">
+         <rect>
+          <x>489</x>
+          <y>460</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back to Main Menu</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="page_viewSeatingCapacity">
        <widget class="QLabel" name="label_seatingCapacityTitle">
@@ -553,7 +615,7 @@
      <x>0</x>
      <y>0</y>
      <width>651</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -89,6 +89,13 @@ private slots:
     void on_checkBox_nationalConference_toggled(bool checked);
 
     void on_pushButton_backViewTeams_clicked();
+    void starPlayers_loadTable(QString team);
+    void on_comboBox_starPlayer_currentIndexChanged(const QString &arg1);
+    void on_radioButton_starPlayer_all_clicked();
+
+    void on_radioButton_starPlayer_filter_clicked();
+
+    void on_pushButton_starPlayers_backMenu_clicked();
 
 private:
     Ui::MainWindow *ui;
