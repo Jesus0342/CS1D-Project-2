@@ -114,6 +114,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
             }
         }
 
+        ui->tableWidget_teamInfo->setSortingEnabled(true);
+
         // Resizes the columns of the table widget.
         ui->tableWidget_teamInfo->resizeColumnsToContents();
     }
@@ -133,8 +135,6 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         int numCols = ui->tableWidget_teams->columnCount();
 
         ui->tableWidget_teams->sortByColumn(0, Qt::AscendingOrder);
-
-
 
         // Sets the information for all teams on the table widget.
         for(int i = 0; i < numRows; i++)
@@ -168,8 +168,9 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         }
 
         ui->tableWidget_teams->setSortingEnabled(true);
+
         // Resizes the columns of the table widget.
-        ui->tableWidget_teamInfo->resizeColumnsToContents();
+        ui->tableWidget_teams->resizeColumnsToContents();
     }
         break;
 
@@ -220,6 +221,9 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         int numRows = ui->tableWidget_conferences->rowCount();
         int numCols = ui->tableWidget_conferences->columnCount();
 
+        // Displays the information sorted by team name.
+        ui->tableWidget_conferences->sortByColumn(0, Qt::AscendingOrder);
+
         // Sets the information for all teams on the table widget.
         for(int i = 0; i < numRows; i++)
         {
@@ -235,9 +239,6 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
 
         // Resizes the columns of the table widget.
         ui->tableWidget_conferences->resizeColumnsToContents();
-
-        // Displays the information sorted by team name.
-        ui->tableWidget_conferences->sortByColumn(0, Qt::AscendingOrder);
     }
         break;
 
@@ -257,9 +258,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
 
         on_radioButton_starPlayer_all_clicked();
         ui->radioButton_starPlayer_all->setChecked(true);
-        break;
     }
-
+        break;
     /*********************************************************************
      * CASE 7 - Displays the NFL stadiums and teams sorted from lowest to
      * highest seating capacity and displays the total NFL seating capacity.
@@ -531,6 +531,9 @@ void MainWindow::starPlayers_loadTable(QString team)
        ui->tableWidget_starPlayers->setItem(i,1, new QTableWidgetItem(query.value(1).toString()));
        i++;
    }
+
+   ui->tableWidget_starPlayers->resizeColumnsToContents();
+
    ui->tableWidget_starPlayers->show();
 
 }
