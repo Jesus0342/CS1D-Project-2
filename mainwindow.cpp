@@ -172,6 +172,39 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->tableWidget_teamInfo->resizeColumnsToContents();
     }
         break;
+
+    /*********************************************************************
+     * CASE 3 - Displays the NFL stadiums in ascending order.
+     *********************************************************************/
+    case 3:
+    {
+        // Goes to view stadiums page.
+        ui->stackedWidget->setCurrentWidget(ui->page_viewStadiums);
+
+        // Sets the row count for the table.
+        ui->tableWidget_viewStadiums->setRowCount(teams.size());
+
+        int numRows = ui->tableWidget_viewStadiums->rowCount();
+        int numCols = ui->tableWidget_viewStadiums->columnCount();
+
+        // Sets the column header width
+        ui->tableWidget_viewStadiums->setColumnWidth(0, 300);
+
+        for(int indexR = 0; indexR < numRows; indexR++)
+        {
+            for(int indexC = 0; indexC < numCols; indexC++)
+            {
+                ui->tableWidget_viewStadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getStadiumName()));
+                indexC++;
+            }
+        }
+
+        // controls the sorting by clicking on the horizontal header(Stadium)
+        ui->tableWidget_viewStadiums->setSortingEnabled(true);
+
+    }
+        break;
+
     /*********************************************************************
      * CASE 4 - Displays the NFL teams in the selected conference, sorted
      * by team name.
@@ -364,6 +397,10 @@ void MainWindow::on_pushButton_backSeatingCapacity_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
 
+void MainWindow::on_pushButton_backViewStadiums_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+}
 /***********************
  * CHECK BOX FUNCTIONS *
  ***********************/
@@ -541,3 +578,5 @@ void MainWindow::on_pushButton_starPlayers_backMenu_clicked()
     // Returns to Menu
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
+
+

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -56,6 +56,8 @@ public:
     QPushButton *pushButton_backViewTeams;
     QWidget *page_viewStadiums;
     QLabel *label_viewStadiumsTitle;
+    QTableWidget *tableWidget_viewStadiums;
+    QPushButton *pushButton_backViewStadiums;
     QWidget *page_viewConferences;
     QLabel *label_ConferencesTitle;
     QTableWidget *tableWidget_conferences;
@@ -191,6 +193,17 @@ public:
         label_viewStadiumsTitle = new QLabel(page_viewStadiums);
         label_viewStadiumsTitle->setObjectName(QStringLiteral("label_viewStadiumsTitle"));
         label_viewStadiumsTitle->setGeometry(QRect(80, 10, 481, 51));
+        tableWidget_viewStadiums = new QTableWidget(page_viewStadiums);
+        if (tableWidget_viewStadiums->columnCount() < 1)
+            tableWidget_viewStadiums->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget_viewStadiums->setHorizontalHeaderItem(0, __qtablewidgetitem16);
+        tableWidget_viewStadiums->setObjectName(QStringLiteral("tableWidget_viewStadiums"));
+        tableWidget_viewStadiums->setGeometry(QRect(150, 110, 341, 311));
+        tableWidget_viewStadiums->setMinimumSize(QSize(341, 0));
+        pushButton_backViewStadiums = new QPushButton(page_viewStadiums);
+        pushButton_backViewStadiums->setObjectName(QStringLiteral("pushButton_backViewStadiums"));
+        pushButton_backViewStadiums->setGeometry(QRect(10, 480, 75, 23));
         stackedWidget->addWidget(page_viewStadiums);
         page_viewConferences = new QWidget();
         page_viewConferences->setObjectName(QStringLiteral("page_viewConferences"));
@@ -200,10 +213,10 @@ public:
         tableWidget_conferences = new QTableWidget(page_viewConferences);
         if (tableWidget_conferences->columnCount() < 2)
             tableWidget_conferences->setColumnCount(2);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableWidget_conferences->setHorizontalHeaderItem(0, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableWidget_conferences->setHorizontalHeaderItem(1, __qtablewidgetitem17);
+        tableWidget_conferences->setHorizontalHeaderItem(0, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        tableWidget_conferences->setHorizontalHeaderItem(1, __qtablewidgetitem18);
         tableWidget_conferences->setObjectName(QStringLiteral("tableWidget_conferences"));
         tableWidget_conferences->setGeometry(QRect(150, 80, 341, 311));
         pushButton_backConferences = new QPushButton(page_viewConferences);
@@ -251,12 +264,12 @@ public:
         tableWidget_seatingCapacity = new QTableWidget(page_viewSeatingCapacity);
         if (tableWidget_seatingCapacity->columnCount() < 3)
             tableWidget_seatingCapacity->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableWidget_seatingCapacity->setHorizontalHeaderItem(0, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableWidget_seatingCapacity->setHorizontalHeaderItem(1, __qtablewidgetitem19);
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(0, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableWidget_seatingCapacity->setHorizontalHeaderItem(2, __qtablewidgetitem20);
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(1, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        tableWidget_seatingCapacity->setHorizontalHeaderItem(2, __qtablewidgetitem21);
         tableWidget_seatingCapacity->setObjectName(QStringLiteral("tableWidget_seatingCapacity"));
         tableWidget_seatingCapacity->setGeometry(QRect(90, 80, 461, 341));
         pushButton_backSeatingCapacity = new QPushButton(page_viewSeatingCapacity);
@@ -281,7 +294,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 651, 20));
+        menuBar->setGeometry(QRect(0, 0, 651, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -292,7 +305,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(4);
         comboBox_displayOptions->setCurrentIndex(0);
 
 
@@ -301,90 +314,93 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        label_home->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Home</span></p></body></html>", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        label_home->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Home</span></p></body></html>", Q_NULLPTR));
         comboBox_selectAction->clear();
         comboBox_selectAction->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "<Select Here>", 0)
-         << QApplication::translate("MainWindow", "1 - View NFL Information", 0)
+         << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
         );
         comboBox_displayOptions->clear();
         comboBox_displayOptions->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "<Select Here>", 0)
-         << QApplication::translate("MainWindow", "1 - NFL Team Information", 0)
-         << QApplication::translate("MainWindow", "2 - NFL Teams", 0)
-         << QApplication::translate("MainWindow", "3 - NFL Stadiums", 0)
-         << QApplication::translate("MainWindow", "4 - NFL Team Conferences", 0)
-         << QApplication::translate("MainWindow", "5 - Open Roof Type Stadiums", 0)
-         << QApplication::translate("MainWindow", "6 - Star Players", 0)
-         << QApplication::translate("MainWindow", "7 - Stadium Seating Capacity", 0)
-         << QApplication::translate("MainWindow", "8 - Stadium Surface Type", 0)
+         << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "1 - NFL Team Information", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "2 - NFL Teams", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "3 - NFL Stadiums", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "4 - NFL Team Conferences", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "5 - Open Roof Type Stadiums", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "6 - Star Players", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "7 - Stadium Seating Capacity", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "8 - Stadium Surface Type", Q_NULLPTR)
         );
-        pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", 0));
-        label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", 0));
-        label_NFLInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the information that you would like to view.</span></p></body></html>", 0));
+        pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
+        label_NFLInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the information that you would like to view.</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_teamInfo->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Team Name", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_teamInfo->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Stadium Name", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget_teamInfo->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Stadium Capacity", 0));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Stadium Capacity", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget_teamInfo->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Location", 0));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Location", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_teamInfo->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Conference", 0));
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Conference", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget_teamInfo->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Surface Type", 0));
+        ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Surface Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget_teamInfo->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Stadium Roof Type", 0));
+        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Stadium Roof Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_teamInfo->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Star Player", 0));
-        pushButton_backViewTeamInfo->setText(QApplication::translate("MainWindow", "Back", 0));
-        label_TeamInfoTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", 0));
-        label_teamInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", 0));
-        label_viewTeamsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Teams</span></p></body></html>", 0));
+        ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
+        pushButton_backViewTeamInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_TeamInfoTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", Q_NULLPTR));
+        label_teamInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", Q_NULLPTR));
+        label_viewTeamsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Teams</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidget_teams->horizontalHeaderItem(0);
-        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Team Name", 0));
+        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem9 = tableWidget_teams->horizontalHeaderItem(1);
-        ___qtablewidgetitem9->setText(QApplication::translate("MainWindow", "Stadium Name", 0));
+        ___qtablewidgetitem9->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem10 = tableWidget_teams->horizontalHeaderItem(2);
-        ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Stadium Capacity", 0));
+        ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Stadium Capacity", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem11 = tableWidget_teams->horizontalHeaderItem(3);
-        ___qtablewidgetitem11->setText(QApplication::translate("MainWindow", "Location", 0));
+        ___qtablewidgetitem11->setText(QApplication::translate("MainWindow", "Location", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem12 = tableWidget_teams->horizontalHeaderItem(4);
-        ___qtablewidgetitem12->setText(QApplication::translate("MainWindow", "Conference", 0));
+        ___qtablewidgetitem12->setText(QApplication::translate("MainWindow", "Conference", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem13 = tableWidget_teams->horizontalHeaderItem(5);
-        ___qtablewidgetitem13->setText(QApplication::translate("MainWindow", "Surface Type", 0));
+        ___qtablewidgetitem13->setText(QApplication::translate("MainWindow", "Surface Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem14 = tableWidget_teams->horizontalHeaderItem(6);
-        ___qtablewidgetitem14->setText(QApplication::translate("MainWindow", "Stadium Roof Type", 0));
+        ___qtablewidgetitem14->setText(QApplication::translate("MainWindow", "Stadium Roof Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem15 = tableWidget_teams->horizontalHeaderItem(7);
-        ___qtablewidgetitem15->setText(QApplication::translate("MainWindow", "Star Player", 0));
-        pushButton_backViewTeams->setText(QApplication::translate("MainWindow", "Back", 0));
-        label_viewStadiumsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Stadiums</span></p></body></html>", 0));
-        label_ConferencesTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Conferences</span></p></body></html>", 0));
-        QTableWidgetItem *___qtablewidgetitem16 = tableWidget_conferences->horizontalHeaderItem(0);
-        ___qtablewidgetitem16->setText(QApplication::translate("MainWindow", "Team Name", 0));
-        QTableWidgetItem *___qtablewidgetitem17 = tableWidget_conferences->horizontalHeaderItem(1);
-        ___qtablewidgetitem17->setText(QApplication::translate("MainWindow", "Conference", 0));
-        pushButton_backConferences->setText(QApplication::translate("MainWindow", "Back", 0));
-        checkBox_americanConference->setText(QApplication::translate("MainWindow", "American Football Conference Only", 0));
-        checkBox_nationalConference->setText(QApplication::translate("MainWindow", "National Football Conference Only", 0));
-        label_OpenRoofTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Open Roof Stadiums</span></p></body></html>", 0));
-        label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", 0));
-        radioButton_starPlayer_all->setText(QApplication::translate("MainWindow", "View All", 0));
-        radioButton_starPlayer_filter->setText(QApplication::translate("MainWindow", "Filter by Team", 0));
-        pushButton_starPlayers_backMenu->setText(QApplication::translate("MainWindow", "Back to Main Menu", 0));
-        label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", 0));
-        QTableWidgetItem *___qtablewidgetitem18 = tableWidget_seatingCapacity->horizontalHeaderItem(0);
-        ___qtablewidgetitem18->setText(QApplication::translate("MainWindow", "Team Name", 0));
-        QTableWidgetItem *___qtablewidgetitem19 = tableWidget_seatingCapacity->horizontalHeaderItem(1);
-        ___qtablewidgetitem19->setText(QApplication::translate("MainWindow", "Stadium Name", 0));
-        QTableWidgetItem *___qtablewidgetitem20 = tableWidget_seatingCapacity->horizontalHeaderItem(2);
-        ___qtablewidgetitem20->setText(QApplication::translate("MainWindow", "Seating Capacity", 0));
-        pushButton_backSeatingCapacity->setText(QApplication::translate("MainWindow", "Back", 0));
-        label_totalCapacityTxt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Total NFL Seating Capacity:</span></p></body></html>", 0));
-        label_totalCapacity->setText(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", 0));
-        label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Surface Type</span></p></body></html>", 0));
+        ___qtablewidgetitem15->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
+        pushButton_backViewTeams->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_viewStadiumsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Stadiums</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem16 = tableWidget_viewStadiums->horizontalHeaderItem(0);
+        ___qtablewidgetitem16->setText(QApplication::translate("MainWindow", "Stadiums", Q_NULLPTR));
+        pushButton_backViewStadiums->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_ConferencesTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Conferences</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem17 = tableWidget_conferences->horizontalHeaderItem(0);
+        ___qtablewidgetitem17->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem18 = tableWidget_conferences->horizontalHeaderItem(1);
+        ___qtablewidgetitem18->setText(QApplication::translate("MainWindow", "Conference", Q_NULLPTR));
+        pushButton_backConferences->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        checkBox_americanConference->setText(QApplication::translate("MainWindow", "American Football Conference Only", Q_NULLPTR));
+        checkBox_nationalConference->setText(QApplication::translate("MainWindow", "National Football Conference Only", Q_NULLPTR));
+        label_OpenRoofTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Open Roof Stadiums</span></p></body></html>", Q_NULLPTR));
+        label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", Q_NULLPTR));
+        radioButton_starPlayer_all->setText(QApplication::translate("MainWindow", "View All", Q_NULLPTR));
+        radioButton_starPlayer_filter->setText(QApplication::translate("MainWindow", "Filter by Team", Q_NULLPTR));
+        pushButton_starPlayers_backMenu->setText(QApplication::translate("MainWindow", "Back to Main Menu", Q_NULLPTR));
+        label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem19 = tableWidget_seatingCapacity->horizontalHeaderItem(0);
+        ___qtablewidgetitem19->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem20 = tableWidget_seatingCapacity->horizontalHeaderItem(1);
+        ___qtablewidgetitem20->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem21 = tableWidget_seatingCapacity->horizontalHeaderItem(2);
+        ___qtablewidgetitem21->setText(QApplication::translate("MainWindow", "Seating Capacity", Q_NULLPTR));
+        pushButton_backSeatingCapacity->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_totalCapacityTxt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Total NFL Seating Capacity:</span></p></body></html>", Q_NULLPTR));
+        label_totalCapacity->setText(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
+        label_viewTeamInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Surface Type</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

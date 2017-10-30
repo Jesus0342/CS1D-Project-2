@@ -97,6 +97,8 @@ private slots:
 
     void on_pushButton_starPlayers_backMenu_clicked();
 
+    void on_pushButton_backViewStadiums_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
