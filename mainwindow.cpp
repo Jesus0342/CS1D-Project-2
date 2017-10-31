@@ -243,6 +243,23 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         break;
 
     /*********************************************************************
+     * CASE 5 - Displays the NFL stadiums with the selected roof type
+     * and the number of stadiums with that roof type.
+     *********************************************************************/
+    case 5 :
+    {
+        // Goes to the view open roofs page (open roofs first by default).
+        ui->stackedWidget->setCurrentWidget(ui->page_viewRoof);
+
+        // Sets the row count for the table.
+        ui->tableWidget_roof->setRowCount(teams.size());
+
+        setRoofTable("Open");
+
+        break;
+    }
+
+    /*********************************************************************
      * CASE 6 - Displays the list of NFL star players and their corres-
      * ponding team name sorted by team name.
      *********************************************************************/
@@ -399,6 +416,11 @@ void MainWindow::on_pushButton_backSeatingCapacity_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
 
+void MainWindow::on_pushButton_backRoofs_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+}
+
 void MainWindow::on_pushButton_backViewStadiums_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
@@ -485,6 +507,21 @@ void MainWindow::on_checkBox_nationalConference_toggled(bool checked)
     {
         on_comboBox_displayOptions_currentIndexChanged(4);
     }
+}
+
+void MainWindow::on_pushButton_getOpenRoofs_clicked()
+{
+    setRoofTable("Open");
+}
+
+void MainWindow::on_pushButton_getFixedRoofs_clicked()
+{
+   setRoofTable("Fixed");
+}
+
+void MainWindow::on_pushButton_getRetraRoofs_clicked()
+{
+    setRoofTable("Retractable");
 }
 
 void MainWindow::on_pushButton_backViewTeams_clicked()
@@ -584,4 +621,59 @@ void MainWindow::on_pushButton_starPlayers_backMenu_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
 
+void MainWindow::setRoofTable (QString roofType) {
+    // Stores the teams in the database into an unsorted map.
+    UnsortedMap teams = Database::getInstance()->returnTeamList();
 
+    // Reset the table
+    ui->tableWidget_roof->setRowCount(0);
+
+    // Sets the row count for the table.
+    ui->tableWidget_roof->setRowCount(teams.size());
+
+    int numRows = ui->tableWidget_roof->rowCount();
+    int numFound = 0;
+
+    // Sets the information for all teams on the table widget.
+    for(int i = 0; i < numRows; i++)
+    {
+        // Adds the teams to the conference table that have open roofs
+        if (teams[i].getStadiumRoofType() == roofType)
+        {
+            ui->tableWidget_roof->setItem(numFound, 0, new QTableWidgetItem(teams[i].getName()));
+            ui->tableWidget_roof->setItem(numFound, 1, new QTableWidgetItem(teams[i].getStadiumName()));
+            numFound++;
+        }
+    }
+
+    // Resizes the columns of the table widget.
+    ui->tableWidget_roof->resizeColumnsToContents();
+
+    // Displays the information sorted by team name.
+    ui->tableWidget_roof->sortByColumn(0, Qt::AscendingOrder);
+
+    // Converts the total seating capacity into a string and puts it in the total open roof label.
+    ui->label_totalRoofTxt->setText("Total " + roofType + " Roofs: " + QString::number(numFound));
+    ui->label_roofTitle->setText(roofType + " Roof Stadiums");
+
+    // Changes the font in the totalRoofTxt label.
+    QFont font = ui->label_totalRoofTxt->font();
+    font.setPointSize(12);
+    font.setBold(true);
+
+    // Sets the font.
+    ui->label_totalRoofTxt->setFont(font);
+
+    // Changes the font in the totalRoofTxt label.
+    QFont font2 = ui->label_roofTitle->font();
+    if (roofType == "Retractable")
+        font2.setPointSize(30);
+    else
+        font2.setPointSize(36);
+
+    // Sets the font.
+    ui->label_roofTitle->setFont(font2);
+    ui->label_roofTitle->setAlignment(Qt::AlignCenter);
+    //QLayout::setAlignment(ui->label_roofTitle,Qt::AlignHCenter);
+
+}

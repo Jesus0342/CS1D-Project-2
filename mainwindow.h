@@ -70,6 +70,11 @@ private slots:
     /**
      * @brief Returns the fan to the NFL Information page.
      */
+    void on_pushButton_backRoofs_clicked();
+
+    /**
+     * @brief Returns the fan to the NFL Information page.
+     */
     void on_pushButton_backSeatingCapacity_clicked();
 
     /***********************
@@ -99,8 +104,16 @@ private slots:
 
     void on_pushButton_backViewStadiums_clicked();
 
+    void on_pushButton_getFixedRoofs_clicked();
+
+    void on_pushButton_getOpenRoofs_clicked();
+
+    void on_pushButton_getRetraRoofs_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    void setRoofTable (QString roofType);
 };
 
 #endif // MAINWINDOW_H
