@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -209,7 +209,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         tableWidget_viewStadiums->setHorizontalHeaderItem(1, __qtablewidgetitem17);
         tableWidget_viewStadiums->setObjectName(QStringLiteral("tableWidget_viewStadiums"));
-        tableWidget_viewStadiums->setGeometry(QRect(150, 110, 341, 311));
+        tableWidget_viewStadiums->setGeometry(QRect(130, 110, 361, 311));
         tableWidget_viewStadiums->setMinimumSize(QSize(341, 0));
         pushButton_backViewStadiums = new QPushButton(page_viewStadiums);
         pushButton_backViewStadiums->setObjectName(QStringLiteral("pushButton_backViewStadiums"));
@@ -355,7 +355,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(4);
         comboBox_displayOptions->setCurrentIndex(0);
 
 

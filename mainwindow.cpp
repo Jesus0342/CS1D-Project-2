@@ -195,14 +195,21 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         {
             for(int indexC = 0; indexC < numCols; indexC++)
             {
+
+                ui->tableWidget_viewStadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getName()));
+                indexC++;
+
                 ui->tableWidget_viewStadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getStadiumName()));
                 indexC++;
             }
         }
 
+        ui->tableWidget_viewStadiums->resizeColumnsToContents();
+
         // controls the sorting by clicking on the horizontal header(Stadium)
         ui->tableWidget_viewStadiums->setSortingEnabled(true);
 
+        ui->tableWidget_viewStadiums->horizontalHeader()->setStretchLastSection(true);
     }
         break;
 
@@ -309,6 +316,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
 
         // Resizes the columns of the table widget.
         ui->tableWidget_seatingCapacity->resizeColumnsToContents();
+
+        ui->tableWidget_seatingCapacity->horizontalHeader()->setStretchLastSection(true);
 
         // Sorts the table by seating capacity (least to greatest).
         ui->tableWidget_seatingCapacity->sortByColumn(2, Qt::AscendingOrder);
@@ -664,18 +673,19 @@ void MainWindow::setRoofTable (QString roofType) {
     // Reset the table
     ui->tableWidget_roof->setRowCount(0);
 
-    // Sets the row count for the table.
-    ui->tableWidget_roof->setRowCount(teams.size());
+//    // Sets the row count for the table.
+//    ui->tableWidget_roof->setRowCount(teams.size());
 
-    int numRows = ui->tableWidget_roof->rowCount();
+//    int numRows = ui->tableWidget_roof->rowCount();
     int numFound = 0;
 
     // Sets the information for all teams on the table widget.
-    for(int i = 0; i < numRows; i++)
+    for(int i = 0; i < teams.size(); i++)
     {
         // Adds the teams to the conference table that have open roofs
         if (teams[i].getStadiumRoofType() == roofType)
         {
+            ui->tableWidget_roof->insertRow(numFound);
             ui->tableWidget_roof->setItem(numFound, 0, new QTableWidgetItem(teams[i].getName()));
             ui->tableWidget_roof->setItem(numFound, 1, new QTableWidgetItem(teams[i].getStadiumName()));
             numFound++;
@@ -684,6 +694,8 @@ void MainWindow::setRoofTable (QString roofType) {
 
     // Resizes the columns of the table widget.
     ui->tableWidget_roof->resizeColumnsToContents();
+
+    ui->tableWidget_roof->horizontalHeader()->setStretchLastSection(true);
 
     // Displays the information sorted by team name.
     ui->tableWidget_roof->sortByColumn(0, Qt::AscendingOrder);
