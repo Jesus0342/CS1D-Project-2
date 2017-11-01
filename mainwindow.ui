@@ -18,11 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-<<<<<<< HEAD
-       <number>7</number>
-=======
-       <number>4</number>
->>>>>>> 94f9265c77c863ba126f9a41e828ec5d8815b0ab
+       <number>5</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -786,7 +782,7 @@
      <x>0</x>
      <y>0</y>
      <width>651</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
