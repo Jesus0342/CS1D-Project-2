@@ -182,7 +182,6 @@ Makefile: NFL_Football.pro C:/Qt/5.7/mingw53_32/mkspecs/win32-g++/qmake.conf C:/
 		C:/Qt/5.7/mingw53_32/mkspecs/features/win32/qt_config.prf \
 		C:/Qt/5.7/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/5.7/mingw53_32/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		C:/Qt/5.7/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/5.7/mingw53_32/mkspecs/features/default_pre.prf \
 		C:/Qt/5.7/mingw53_32/mkspecs/features/win32/default_pre.prf \
@@ -334,7 +333,6 @@ C:/Qt/5.7/mingw53_32/mkspecs/features/qt_config.prf:
 C:/Qt/5.7/mingw53_32/mkspecs/features/win32/qt_config.prf:
 C:/Qt/5.7/mingw53_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/5.7/mingw53_32/mkspecs/features/spec_post.prf:
-.qmake.stash:
 C:/Qt/5.7/mingw53_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/5.7/mingw53_32/mkspecs/features/default_pre.prf:
 C:/Qt/5.7/mingw53_32/mkspecs/features/win32/default_pre.prf:
@@ -372,7 +370,6 @@ all: debug-all release-all  FORCE
 clean: debug-clean release-clean  FORCE
 distclean: debug-distclean release-distclean  FORCE
 	-$(DEL_FILE) Makefile
-	-$(DEL_FILE) .qmake.stash
 
 debug-mocclean:
 	$(MAKE) -f $(MAKEFILE).Debug mocclean

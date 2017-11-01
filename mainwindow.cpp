@@ -195,14 +195,21 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         {
             for(int indexC = 0; indexC < numCols; indexC++)
             {
+
+                ui->tableWidget_viewStadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getName()));
+                indexC++;
+
                 ui->tableWidget_viewStadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getStadiumName()));
                 indexC++;
             }
         }
 
+        ui->tableWidget_viewStadiums->resizeColumnsToContents();
+
         // controls the sorting by clicking on the horizontal header(Stadium)
         ui->tableWidget_viewStadiums->setSortingEnabled(true);
 
+        ui->tableWidget_viewStadiums->horizontalHeader()->setStretchLastSection(true);
     }
         break;
 
@@ -255,9 +262,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->tableWidget_roof->setRowCount(teams.size());
 
         setRoofTable("Open");
-
-        break;
     }
+        break;
 
     /*********************************************************************
      * CASE 6 - Displays the list of NFL star players and their corres-
@@ -311,6 +317,8 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         // Resizes the columns of the table widget.
         ui->tableWidget_seatingCapacity->resizeColumnsToContents();
 
+        ui->tableWidget_seatingCapacity->horizontalHeader()->setStretchLastSection(true);
+
         // Sorts the table by seating capacity (least to greatest).
         ui->tableWidget_seatingCapacity->sortByColumn(2, Qt::AscendingOrder);
 
@@ -351,9 +359,39 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->label_totalCapacity->setFont(font);
     }
         break;
-    }
 
-    ui->comboBox_displayOptions->setCurrentIndex(0);
+    /*********************************************************************
+     * CASE 8 - Displays the NFL teams, stadiums, surface type, and
+     * location sorted by surface type
+     *********************************************************************/
+    case 8 :
+    {
+        //ui->tableWidget_roof->setRowCount(0);
+
+        // Goes to view surface type page.
+        ui->stackedWidget->setCurrentWidget(ui->page_viewSurfaceType);
+
+        // Sets the row count for the table.
+        ui->tableWidget_surfaceType->setRowCount(teams.size());
+
+        int numRows = ui->tableWidget_surfaceType->rowCount();
+
+        // Sets the information for all teams on the table widget.
+        for(int i = 0; i < numRows; i++)
+        {
+            ui->tableWidget_surfaceType->setItem(i, 0, new QTableWidgetItem(teams[i].getName()));
+            ui->tableWidget_surfaceType->setItem(i, 1, new QTableWidgetItem(teams[i].getStadiumName()));
+            ui->tableWidget_surfaceType->setItem(i, 2, new QTableWidgetItem(teams[i].getLocation()));
+            ui->tableWidget_surfaceType->setItem(i, 3, new QTableWidgetItem(teams[i].getSurfaceType()));
+        }
+
+        // Resizes the columns of the table widget.
+        ui->tableWidget_surfaceType->resizeColumnsToContents();
+
+        // Displays the information sorted by surface type.
+        ui->tableWidget_surfaceType->sortByColumn(3, Qt::AscendingOrder);
+    }
+    }
 }
 
 void MainWindow::on_comboBox_selectTeam_currentIndexChanged(const QString &arg1)
@@ -400,6 +438,20 @@ void MainWindow::on_pushButton_backViewTeamInfo_clicked()
     ui->tableWidget_teamInfo->clearSelection();
 }
 
+void MainWindow::on_pushButton_backViewTeams_clicked()
+{
+    // Returns to the NFL information page.
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_selectTeam->clear();
+
+    // Goes back to the top of the table.
+    ui->tableWidget_teamInfo->setCurrentCell(0, 0);
+
+    // Clears all selected rows.
+    ui->tableWidget_teamInfo->clearSelection();
+}
+
 void MainWindow::on_pushButton_backConferences_clicked()
 {
     // Unchecks the checkboxes.
@@ -425,6 +477,12 @@ void MainWindow::on_pushButton_backViewStadiums_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
+
+void MainWindow::on_pushButton_backSurfaceType_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+}
+
 /***********************
  * CHECK BOX FUNCTIONS *
  ***********************/
@@ -524,19 +582,6 @@ void MainWindow::on_pushButton_getRetraRoofs_clicked()
     setRoofTable("Retractable");
 }
 
-void MainWindow::on_pushButton_backViewTeams_clicked()
-{
-    // Returns to the NFL information page.
-    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
-
-    ui->comboBox_selectTeam->clear();
-
-    // Goes back to the top of the table.
-    ui->tableWidget_teamInfo->setCurrentCell(0, 0);
-
-    // Clears all selected rows.
-    ui->tableWidget_teamInfo->clearSelection();
-}
 
 /**
  * @brief MainWindow::starPlayers_loadTable
@@ -628,18 +673,19 @@ void MainWindow::setRoofTable (QString roofType) {
     // Reset the table
     ui->tableWidget_roof->setRowCount(0);
 
-    // Sets the row count for the table.
-    ui->tableWidget_roof->setRowCount(teams.size());
+//    // Sets the row count for the table.
+//    ui->tableWidget_roof->setRowCount(teams.size());
 
-    int numRows = ui->tableWidget_roof->rowCount();
+//    int numRows = ui->tableWidget_roof->rowCount();
     int numFound = 0;
 
     // Sets the information for all teams on the table widget.
-    for(int i = 0; i < numRows; i++)
+    for(int i = 0; i < teams.size(); i++)
     {
         // Adds the teams to the conference table that have open roofs
         if (teams[i].getStadiumRoofType() == roofType)
         {
+            ui->tableWidget_roof->insertRow(numFound);
             ui->tableWidget_roof->setItem(numFound, 0, new QTableWidgetItem(teams[i].getName()));
             ui->tableWidget_roof->setItem(numFound, 1, new QTableWidgetItem(teams[i].getStadiumName()));
             numFound++;
@@ -648,6 +694,8 @@ void MainWindow::setRoofTable (QString roofType) {
 
     // Resizes the columns of the table widget.
     ui->tableWidget_roof->resizeColumnsToContents();
+
+    ui->tableWidget_roof->horizontalHeader()->setStretchLastSection(true);
 
     // Displays the information sorted by team name.
     ui->tableWidget_roof->sortByColumn(0, Qt::AscendingOrder);
@@ -674,6 +722,5 @@ void MainWindow::setRoofTable (QString roofType) {
     // Sets the font.
     ui->label_roofTitle->setFont(font2);
     ui->label_roofTitle->setAlignment(Qt::AlignCenter);
-    //QLayout::setAlignment(ui->label_roofTitle,Qt::AlignHCenter);
-
 }
+
