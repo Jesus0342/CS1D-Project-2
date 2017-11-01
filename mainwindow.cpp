@@ -556,7 +556,7 @@ void MainWindow::starPlayers_loadTable(QString team)
    {
        q = ("SELECT TeamName, StarPlayer FROM NFL_INFORMATION where TeamName='"+team+"'");
    }
-   QStringList colNames= {"Starting College", "Star Player"};
+   QStringList colNames= {"Team Name", "Star Player"};
    ui->tableWidget_starPlayers->setColumnCount(2);
    ui->tableWidget_starPlayers->setHorizontalHeaderLabels(colNames);
    QSqlQuery query;
