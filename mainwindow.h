@@ -110,6 +110,8 @@ private slots:
 
     void on_pushButton_getRetraRoofs_clicked();
 
+    void on_pushButton_backSurfaceType_clicked();
+
 private:
     Ui::MainWindow *ui;
 
