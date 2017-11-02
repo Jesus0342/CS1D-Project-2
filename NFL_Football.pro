@@ -28,11 +28,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     database.cpp \
     team.cpp \
-    unsortedmap.cpp
+    unsortedmap.cpp \
+    souvenir.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
     team.h \
-    unsortedmap.h
+    unsortedmap.h \
+    souvenir.h
 
 FORMS    += mainwindow.ui

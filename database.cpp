@@ -40,8 +40,7 @@ UnsortedMap Database::returnTeamList()
     // Team object used to add teams in database to unsorted map.
     Team temp;
 
-    // Query to select all information from NFL_INFORMATION database
-    // table.
+    // Query to select all information from NFL_INFORMATION database table.
     QSqlQuery query("SELECT * FROM NFL_INFORMATION");
 
     // Gets the index of the specified record from the table.
@@ -71,4 +70,33 @@ UnsortedMap Database::returnTeamList()
     }
 
     return teams;
+}
+
+QVector<Souvenir> Database::returnSouvenirList()
+{
+    // QVector of souvenirs.
+    QVector<Souvenir> souvenirs;
+
+    // Temp object used to add souvenirs in the database to the QVector.
+    Souvenir temp;
+
+    // Query to select all information from NFL_SOUVENIRS database table.
+    QSqlQuery query("SELECT * FROM NFL_SOUVENIRS");
+
+    // Gets the index of the specified record from the table.
+    int nameId = query.record().indexOf("SouvenirName");
+    int stadiumNameId = query.record().indexOf("StadiumName");
+    int priceId = query.record().indexOf("Price");
+
+    // Adds the souvenirs to the QVector while there are still souvenirs in the database.
+    while(query.next())
+    {
+        temp.setName(query.value(nameId).toString());
+        temp.setStadiumName(query.value(stadiumNameId).toString());
+        temp.setPrice(query.value(priceId).toDouble());
+
+        souvenirs.append(temp);
+    }
+
+    return souvenirs;
 }

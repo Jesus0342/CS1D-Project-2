@@ -11,6 +11,7 @@
 #include <QMessageBox>
 
 #include "unsortedmap.h"
+#include "souvenir.h"
 
 /**
  * @brief Database Class
@@ -41,6 +42,12 @@ public:
      * @return teams
      */
     static UnsortedMap returnTeamList();
+
+    /**
+     * @brief returnSouvenirList returns a QVector of the souvenirs in the database.
+     * @return souvenirs
+     */
+    static QVector<Souvenir> returnSouvenirList();
 };
 
 #endif // DATABASE_H
