@@ -436,6 +436,8 @@ void MainWindow::on_pushButton_backViewTeamInfo_clicked()
 
     // Clears all selected rows.
     ui->tableWidget_teamInfo->clearSelection();
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backViewTeams_clicked()
@@ -450,6 +452,8 @@ void MainWindow::on_pushButton_backViewTeams_clicked()
 
     // Clears all selected rows.
     ui->tableWidget_teamInfo->clearSelection();
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backConferences_clicked()
@@ -461,26 +465,49 @@ void MainWindow::on_pushButton_backConferences_clicked()
 
     // Returns to NFL information page.
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backSeatingCapacity_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backRoofs_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
+}
+
+/**
+ * @brief MainWindow::on_pushButton_starPlayers_backMenu_clicked
+ * Back to main menu button- located in star players page.
+ * When clicked, fan will be redirected to the main menu.
+ */
+void MainWindow::on_pushButton_starPlayers_backMenu_clicked()
+{
+    // Returns to Menu
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backViewStadiums_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 void MainWindow::on_pushButton_backSurfaceType_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
 }
 
 /***********************
@@ -653,17 +680,6 @@ void MainWindow::on_radioButton_starPlayer_filter_clicked()
 {
     starPlayers_loadTable(ui->comboBox_starPlayer->currentText());
     ui->comboBox_starPlayer->show();
-}
-
-/**
- * @brief MainWindow::on_pushButton_starPlayers_backMenu_clicked
- * Back to main menu button- located in star players page.
- * When clicked, fan will be redirected to the main menu.
- */
-void MainWindow::on_pushButton_starPlayers_backMenu_clicked()
-{
-    // Returns to Menu
-    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 }
 
 void MainWindow::setRoofTable (QString roofType) {
