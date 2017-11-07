@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "buysouvenir.h"
 
 #include <QtAlgorithms>
 #include "database.h"
@@ -21,10 +22,24 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::connectToDatabase()
+{
+    //Check if database exists before we init it
+    QFileInfo check_file("./nfl.db");
+
+    // connect to database
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./nfl.db");
+    bool db_ok = db.open();
+     QTextStream(stdout) << "Connecting to database" << endl;
+    if(db_ok){
+        QTextStream(stdout) << "All good" << endl;
+    }
+}
+
 /***********************
  * COMBO BOX FUNCTIONS *
  ***********************/
-
 void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
 {
     switch(index)
@@ -740,3 +755,26 @@ void MainWindow::setRoofTable (QString roofType) {
     ui->label_roofTitle->setAlignment(Qt::AlignCenter);
 }
 
+void MainWindow::on_pushButton_testBuy_clicked()
+{
+    //Declaration of buy souvenir object is NEEDED.
+    buySouvenir *s = new buySouvenir();
+
+    //Shows buy souvenir window
+    s->show();
+
+    //Test data
+    QList<QString> a;
+    a.insert(0, "Bank of America Stadium");
+    a.insert(1, "CenturyLink Field");
+    a.insert(2, "Lincoln Financial Field");
+
+    // IMPORTANT : setData(starting stadium, list of all stadiums to visit)
+    //             setData(QString <>, QList<QString> <>
+    //     If you are using vector in your code for the list of stadiums to visit,
+    //     you can create QList<QString> var and copy the contents of your vector
+    //     to QList.
+    // I'll make some code changes, if necessary.
+    s->setData("Arrowhead Stadium", a);
+    s->populateDropdown();
+}

@@ -23,7 +23,9 @@ public:
      * @brief Class Constructor
      */
     explicit MainWindow(QWidget *parent = 0);
+    void connectToDatabase();
     ~MainWindow();
+
 
 private slots:
     /***********************
@@ -112,6 +114,7 @@ private slots:
 
     void on_pushButton_backSurfaceType_clicked();
 
+    void on_pushButton_testBuy_clicked();
 private:
     Ui::MainWindow *ui;
 

@@ -29,12 +29,15 @@ SOURCES += main.cpp\
     database.cpp \
     team.cpp \
     unsortedmap.cpp \
-    souvenir.cpp
+    souvenir.cpp \
+    buysouvenir.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
     team.h \
     unsortedmap.h \
-    souvenir.h
+    souvenir.h \
+    buysouvenir.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    buysouvenir.ui
