@@ -94,9 +94,25 @@ public:
      */
     static void addSouvenir(Souvenir souvenir);
 
+    /**
+     * @brief removeStadium removes the specified stadium from the database.
+     * @param stadium - Stadium to be removed (stadium name must be defined).
+     */
     static void removeStadium(Team stadium);
 
+    /**
+     * @brief removeSouvenir removes a souvenir from the database.
+     * @param souvenir - Souvenir to be removed (souvenir name and stadium name must be
+     * defined).
+     */
     static void removeSouvenir(Souvenir souvenir);
+
+    /**
+     * @brief editSouvenirPrice changes the price of the specified souvenir to the new price.
+     * @param souvenir - Souvenir whose price will be changed.
+     * @param newPrice - New price of specified souvenir.
+     */
+    static void editSouvenirPrice(Souvenir souvenir, double newPrice);
 };
 
 #endif // DATABASE_H

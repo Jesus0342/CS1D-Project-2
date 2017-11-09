@@ -312,6 +312,7 @@ void Database::addSouvenir(Souvenir souvenir)
 
 void Database::removeStadium(Team stadium)
 {
+    // Removes stadium if it exists.
     if(stadiumExists(stadium))
     {
         QString stadiumName = stadium.getStadiumName();
@@ -328,6 +329,7 @@ void Database::removeStadium(Team stadium)
 
 void Database::removeSouvenir(Souvenir souvenir)
 {
+    // Removes souvenir if it exists.
     if(souvenirExists(souvenir))
     {
         QString souvenirName = souvenir.getName();
@@ -337,6 +339,26 @@ void Database::removeSouvenir(Souvenir souvenir)
 
         query.prepare("DELETE FROM NFL_SOUVENIRS WHERE SouvenirName = :souvenirName and StadiumName = :stadiumName");
 
+        query.bindValue(":souvenirName", souvenirName);
+        query.bindValue(":stadiumName", stadiumName);
+
+        query.exec();
+    }
+}
+
+void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
+{
+    // Changes the price of the souvenir if it exists.
+    if(souvenirExists(souvenir))
+    {
+        QString souvenirName = souvenir.getName();
+        QString stadiumName = souvenir.getStadiumName();
+
+        QSqlQuery query;
+
+        query.prepare("UPDATE NFL_SOUVENIRS SET Price = :price WHERE SouvenirName = :souvenirName AND StadiumName = :stadiumName");
+
+        query.bindValue(":price", newPrice);
         query.bindValue(":souvenirName", souvenirName);
         query.bindValue(":stadiumName", stadiumName);
 
