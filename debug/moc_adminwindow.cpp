@@ -32,20 +32,20 @@ struct qt_meta_stringdata_AdminWindow_t {
 static const qt_meta_stringdata_AdminWindow_t qt_meta_stringdata_AdminWindow = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "AdminWindow"
-QT_MOC_LITERAL(1, 12, 28), // "on_pushButton_logout_clicked"
-QT_MOC_LITERAL(2, 41, 0), // ""
-QT_MOC_LITERAL(3, 42, 46), // "on_comboBox_adminFunctions_cu..."
-QT_MOC_LITERAL(4, 89, 5), // "index"
-QT_MOC_LITERAL(5, 95, 33), // "on_pushButton_addStadiums_cli..."
-QT_MOC_LITERAL(6, 129, 37), // "on_pushButton_backAddStadiums..."
-QT_MOC_LITERAL(7, 167, 27) // "on_pushButton_reset_clicked"
+QT_MOC_LITERAL(1, 12, 46), // "on_comboBox_adminFunctions_cu..."
+QT_MOC_LITERAL(2, 59, 0), // ""
+QT_MOC_LITERAL(3, 60, 5), // "index"
+QT_MOC_LITERAL(4, 66, 33), // "on_pushButton_addStadiums_cli..."
+QT_MOC_LITERAL(5, 100, 27), // "on_pushButton_reset_clicked"
+QT_MOC_LITERAL(6, 128, 37), // "on_pushButton_backAddStadiums..."
+QT_MOC_LITERAL(7, 166, 28) // "on_pushButton_logout_clicked"
 
     },
-    "AdminWindow\0on_pushButton_logout_clicked\0"
-    "\0on_comboBox_adminFunctions_currentIndexChanged\0"
-    "index\0on_pushButton_addStadiums_clicked\0"
+    "AdminWindow\0on_comboBox_adminFunctions_currentIndexChanged\0"
+    "\0index\0on_pushButton_addStadiums_clicked\0"
+    "on_pushButton_reset_clicked\0"
     "on_pushButton_backAddStadiums_clicked\0"
-    "on_pushButton_reset_clicked"
+    "on_pushButton_logout_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,15 +63,15 @@ static const uint qt_meta_data_AdminWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x08 /* Private */,
-       3,    1,   40,    2, 0x08 /* Private */,
+       1,    1,   39,    2, 0x08 /* Private */,
+       4,    0,   42,    2, 0x08 /* Private */,
        5,    0,   43,    2, 0x08 /* Private */,
        6,    0,   44,    2, 0x08 /* Private */,
        7,    0,   45,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -85,11 +85,11 @@ void AdminWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         AdminWindow *_t = static_cast<AdminWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_pushButton_logout_clicked(); break;
-        case 1: _t->on_comboBox_adminFunctions_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->on_pushButton_addStadiums_clicked(); break;
+        case 0: _t->on_comboBox_adminFunctions_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->on_pushButton_addStadiums_clicked(); break;
+        case 2: _t->on_pushButton_reset_clicked(); break;
         case 3: _t->on_pushButton_backAddStadiums_clicked(); break;
-        case 4: _t->on_pushButton_reset_clicked(); break;
+        case 4: _t->on_pushButton_logout_clicked(); break;
         default: ;
         }
     }

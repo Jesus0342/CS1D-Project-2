@@ -92,48 +92,6 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         {
             ui->comboBox_selectTeam->insertItem(i, teamNames[i - 1]);
         }
-
-        // Sets the row count for the table.
-        ui->tableWidget_teamInfo->setRowCount(teams.size());
-
-        int numRows = ui->tableWidget_teamInfo->rowCount();
-        int numCols = ui->tableWidget_teamInfo->columnCount();
-
-        // Sets the information for all teams on the table widget.
-        for(int i = 0; i < numRows; i++)
-        {
-            for(int j = 0; j < numCols; j++)
-            {
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getName()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumName()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getSeatingCapacity()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getLocation()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getConference()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getSurfaceType()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getStadiumRoofType()));
-                j++;
-
-                ui->tableWidget_teamInfo->setItem(i, j, new QTableWidgetItem(teams[i].getStarPlayer()));
-                j++;
-            }
-        }
-
-        ui->tableWidget_teamInfo->setSortingEnabled(true);
-
-        // Resizes the columns of the table widget.
-        ui->tableWidget_teamInfo->resizeColumnsToContents();
     }
         break;
     /*********************************************************************
@@ -412,22 +370,49 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
 
 void MainWindow::on_comboBox_selectTeam_currentIndexChanged(const QString &arg1)
 {
-    // Stores the selected team name a QTableWidgetItem (QList always has 1 item because all team names
-    // are unique).
-    QList<QTableWidgetItem*> searchTeam = ui->tableWidget_teamInfo->findItems(arg1, Qt::MatchExactly);
+    ui->tableWidget_teamInfo->setRowCount(0);
 
-    // Goes to the row where the selected team's information is found.
-    if(!searchTeam.empty())
+    UnsortedMap teams = Database::getInstance()->returnTeamList();
+
+    // Displays the information of the selected team.
+    for(int i = 0; i < teams.size(); i++)
     {
-        // QTableWidgetItem pointer stores the item so that the row and column can be accessed.
-        QTableWidgetItem *team = searchTeam.front();
+        int j = 0;
 
-        // Goes to the cell where the selected team name appears.
-        ui->tableWidget_teamInfo->setCurrentCell(team->row(), team->column());
+        if(teams[i].getName() == arg1)
+        {
+            ui->tableWidget_teamInfo->insertRow(ui->tableWidget_teamInfo->rowCount());
 
-        // Highlights the row where the selected team name appears.
-        ui->tableWidget_teamInfo->selectRow(team->row());
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getName()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getStadiumName()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getSeatingCapacity()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getLocation()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getConference()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getSurfaceType()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getStadiumRoofType()));
+            j++;
+
+            ui->tableWidget_teamInfo->setItem(0, j, new QTableWidgetItem(teams[i].getStarPlayer()));
+            j++;
+        }
     }
+
+    ui->tableWidget_teamInfo->setSortingEnabled(true);
+
+    // Resizes the columns of the table widget.
+    ui->tableWidget_teamInfo->resizeColumnsToContents();
 }
 
 /*************************
