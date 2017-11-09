@@ -3,6 +3,7 @@
 
 #include "adminwindow.h"
 #include <QMessageBox>
+#include <QObject>
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -34,13 +35,15 @@ void Login::on_pushButton_login_clicked()
         // displays an error message.
         if(ui->lineEdit_username->text() == username && ui->lineEdit_password->text() == password)
         {
-            this->close();
+            // Returns the signal to hide mainwindow (see on_pushButton_login_clicked()).
+            accepted();
 
             AdminWindow *adminWindow = new AdminWindow;
 
-            adminWindow->setModal(true);
+            adminWindow->show();
 
-            adminWindow->exec();
+            QObject::connect(adminWindow, SIGNAL(accepted()), this, SLOT(reject()));
+            QObject::connect(adminWindow, SIGNAL(accepted()), adminWindow, SLOT(deleteLater()));
         }
         else
         {

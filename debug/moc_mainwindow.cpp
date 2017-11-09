@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[29];
-    char stringdata0[897];
+    char stringdata0[903];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -59,7 +59,7 @@ QT_MOC_LITERAL(24, 736, 34), // "on_pushButton_getOpenRoofs_cl..."
 QT_MOC_LITERAL(25, 771, 35), // "on_pushButton_getRetraRoofs_c..."
 QT_MOC_LITERAL(26, 807, 37), // "on_pushButton_backSurfaceType..."
 QT_MOC_LITERAL(27, 845, 29), // "on_pushButton_testBuy_clicked"
-QT_MOC_LITERAL(28, 875, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(28, 875, 27) // "on_pushButton_login_clicked"
 
     },
     "MainWindow\0on_comboBox_selectAction_currentIndexChanged\0"
@@ -84,7 +84,7 @@ QT_MOC_LITERAL(28, 875, 21) // "on_pushButton_clicked"
     "on_pushButton_getRetraRoofs_clicked\0"
     "on_pushButton_backSurfaceType_clicked\0"
     "on_pushButton_testBuy_clicked\0"
-    "on_pushButton_clicked"
+    "on_pushButton_login_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -182,7 +182,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 19: _t->on_pushButton_getRetraRoofs_clicked(); break;
         case 20: _t->on_pushButton_backSurfaceType_clicked(); break;
         case 21: _t->on_pushButton_testBuy_clicked(); break;
-        case 22: _t->on_pushButton_clicked(); break;
+        case 22: _t->on_pushButton_login_clicked(); break;
         default: ;
         }
     }

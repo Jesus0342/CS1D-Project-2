@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>AdminWindow</class>
  <widget class="QDialog" name="AdminWindow">
@@ -5,13 +6,234 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>591</width>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="page_adminHome">
+      <widget class="QLabel" name="label_adminTitle_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>561</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Administrator Window&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_logout">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>430</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Logout</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_adminFunctions">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>140</y>
+         <width>171</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>&lt;Select Here&gt;</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1 - Add New Stadiums</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2 - Add Souvenirs</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3 - Modify Souvenirs</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4 - Modify Stadium Information</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_addStadiums">
+      <widget class="QLabel" name="label_adminTitle">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>561</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Add New Stadiums&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_newStadiums">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>551</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>Team Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Stadium Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Seating Capacity</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Location</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Conference</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Surface Type</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Roof Type</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Star Player</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="pushButton_addStadiums">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>240</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Stadiums</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_backAddStadiums">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>430</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_reset">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>320</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_addSouvenirs">
+      <widget class="QLabel" name="label_adminTitle_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>561</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Add Souvenirs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_modifySouvenirs">
+      <widget class="QLabel" name="label_adminTitle_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>561</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Modify Souvenirs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_modifyStadiumInfo">
+      <widget class="QLabel" name="label_adminTitle_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>561</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Modify Stadium Info&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

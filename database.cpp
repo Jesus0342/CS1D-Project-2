@@ -100,3 +100,246 @@ QVector<Souvenir> Database::returnSouvenirList()
 
     return souvenirs;
 }
+
+QVector<Souvenir> Database::returnSouvenirList(Team stadium)
+{
+    QVector<Souvenir> souvenirs;
+
+    QString stadiumName = stadium.getStadiumName();
+
+    Souvenir temp;
+
+    // Query to select all information from NFL_SOUVENIRS database table.
+    QSqlQuery query("SELECT * FROM NFL_SOUVENIRS");
+
+    // Gets the index of the specified record from the table.
+    int nameId = query.record().indexOf("SouvenirName");
+    int stadiumNameId = query.record().indexOf("StadiumName");
+    int priceId = query.record().indexOf("Price");
+
+    // Adds the souvenirs to the QVector while there are still souvenirs in the database.
+    while(query.next())
+    {
+        if(query.value(stadiumNameId) == stadiumName)
+        {
+            temp.setName(query.value(nameId).toString());
+            temp.setStadiumName(query.value(stadiumNameId).toString());
+            temp.setPrice(query.value(priceId).toDouble());
+
+            souvenirs.append(temp);
+        }
+    }
+
+    return souvenirs;
+}
+
+QVector<Team> Database::returnNewStadiums()
+{
+    // QVector of new stadiums.
+    QVector<Team> newStadiums;
+
+    // Team object used to add teams in database to the vector.
+    Team temp;
+
+    // Query to select all information from NFL_INFORMATION database table.
+    QSqlQuery query("SELECT * FROM NEW_STADIUMS");
+
+    // Gets the index of the specified record from the table.
+    int nameId = query.record().indexOf("TeamName");
+    int stadiumNameId = query.record().indexOf("StadiumName");
+    int seatingCapacityId = query.record().indexOf("SeatingCapacity");
+    int locationId = query.record().indexOf("Location");
+    int conferenceId = query.record().indexOf("Conference");
+    int surfaceTypeId = query.record().indexOf("SurfaceType");
+    int stadiumRoofTypeId = query.record().indexOf("StadiumRoofType");
+    int starPlayerId = query.record().indexOf("StarPlayer");
+
+    // Inserts the teams into the QVector while there are still
+    // teams in the database.
+    while(query.next())
+    {
+        temp.setName(query.value(nameId).toString());
+        temp.setStadiumName(query.value(stadiumNameId).toString());
+        temp.setSeatingCapacity(query.value(seatingCapacityId).toString());
+        temp.setLocation(query.value(locationId).toString());
+        temp.setConference(query.value(conferenceId).toString());
+        temp.setSurfaceType(query.value(surfaceTypeId).toString());
+        temp.setStadiumRoofType(query.value(stadiumRoofTypeId).toString());
+        temp.setStarPlayer(query.value(starPlayerId).toString());
+
+        newStadiums.append(temp);
+    }
+
+    return newStadiums;
+}
+
+QVector<Souvenir> Database::returnNewSouvenirs()
+{
+    // QVector of new souvenirs.
+    QVector<Souvenir> newSouvenirs;
+
+    // Temp object used to add souvenirs in the database to the QVector.
+    Souvenir temp;
+
+    // Query to select all information from NFL_SOUVENIRS database table.
+    QSqlQuery query("SELECT * FROM NEW_SOUVENIRS");
+
+    // Gets the index of the specified record from the table.
+    int nameId = query.record().indexOf("SouvenirName");
+    int stadiumNameId = query.record().indexOf("StadiumName");
+    int priceId = query.record().indexOf("Price");
+
+    // Adds the souvenirs to the QVector while there are still souvenirs in the database.
+    while(query.next())
+    {
+        temp.setName(query.value(nameId).toString());
+        temp.setStadiumName(query.value(stadiumNameId).toString());
+        temp.setPrice(query.value(priceId).toDouble());
+
+        newSouvenirs.append(temp);
+    }
+
+    return newSouvenirs;
+}
+
+bool Database::stadiumExists(Team stadium)
+{
+    QSqlQuery query;
+
+    // Gets the name of the stadium.
+    QString stadiumName = stadium.getStadiumName();
+
+    query.prepare("SELECT Distinct StadiumName FROM NFL_INFORMATION WHERE UPPER(StadiumName) = UPPER(:stadiumName)");
+
+    query.bindValue(":stadiumName", stadiumName);
+
+    query.exec();
+
+    // Returns true if the stadium exists in the database.
+    if(query.next())
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool Database::souvenirExists(Souvenir souvenir)
+{
+    QSqlQuery query;
+
+    // Gets the name of the souvenir and its corresponding stadium.
+    QString souvenirName = souvenir.getName();
+    QString stadium = souvenir.getStadiumName();
+
+    query.prepare("SELECT Distinct SouvenirName FROM NFL_SOUVENIRS WHERE UPPER(SouvenirName) = UPPER(:souvenirName) and UPPER(StadiumName) = UPPER(:stadiumName)");
+
+    query.bindValue(":souvenirName", souvenirName);
+    query.bindValue(":stadiumName", stadium);
+
+    query.exec();
+
+    // Returns true if the stadium exists in the database.
+    if(query.next())
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void Database::addStadium(Team stadium)
+{
+    // Adds the stadium if it does not already exist.
+    if(!stadiumExists(stadium))
+    {
+        QSqlQuery query;
+
+        // Gets the information for the new stadium.
+        QString teamName = stadium.getName();
+        QString stadiumName = stadium.getStadiumName();
+        QString seatingCapacity = stadium.getSeatingCapacity();
+        QString location = stadium.getLocation();
+        QString conference = stadium.getConference();
+        QString surfaceType = stadium.getSurfaceType();
+        QString roofType = stadium.getStadiumRoofType();
+        QString starPlayer = stadium.getStarPlayer();
+
+        // Specifies the table and columns where the information will be placed.
+        query.prepare("INSERT INTO NFL_INFORMATION(TeamName, StadiumName, SeatingCapacity, Location, Conference, SurfaceType, StadiumRoofType, StarPlayer)\n"
+                      "VALUES(:teamName, :stadiumName, :seatingCapacity, :location, :conference, :surfaceType, :roofType, :starPlayer);");
+
+        // Binds the values.
+        query.bindValue(":teamName", teamName);
+        query.bindValue(":stadiumName", stadiumName);
+        query.bindValue(":seatingCapacity", seatingCapacity);
+        query.bindValue(":location", location);
+        query.bindValue(":conference", conference);
+        query.bindValue(":surfaceType", surfaceType);
+        query.bindValue(":roofType", roofType);
+        query.bindValue(":starPlayer", starPlayer);
+
+        // Adds the stadium to the database.
+        query.exec();
+    }
+}
+
+void Database::addSouvenir(Souvenir souvenir)
+{
+    // Adds the souvenir if it does not already exist.
+    if(!souvenirExists(souvenir))
+    {
+        QSqlQuery query;
+
+        // Gets the information for the new souvenir.
+        QString souvenirName = souvenir.getName();
+        QString stadiumName = souvenir.getStadiumName();
+        double price = souvenir.getPrice();
+
+        // Specifies the table and columns where the information will be placed.
+        query.prepare("INSERT INTO NFL_SOUVENIRS(SouvenirName, StadiumName, Price)\n"
+                      "VALUES(:souvenirName, :stadiumName, :price);");
+
+        // Binds the values.
+        query.bindValue(":souvenirName", souvenirName);
+        query.bindValue(":stadiumName", stadiumName);
+        query.bindValue(":price", price);
+
+        // Adds the souvenir to the database.
+        query.exec();
+    }
+}
+
+void Database::removeStadium(Team stadium)
+{
+    if(stadiumExists(stadium))
+    {
+        QString stadiumName = stadium.getStadiumName();
+
+        QSqlQuery query;
+
+        query.prepare("DELETE FROM NFL_INFORMATION WHERE StadiumName = :stadiumName");
+
+        query.bindValue(":stadiumName", stadiumName);
+
+        query.exec();
+    }
+}
+
+void Database::removeSouvenir(Souvenir souvenir)
+{
+    if(souvenirExists(souvenir))
+    {
+        QString souvenirName = souvenir.getName();
+        QString stadiumName = souvenir.getStadiumName();
+
+        QSqlQuery query;
+
+        query.prepare("DELETE FROM NFL_SOUVENIRS WHERE SouvenirName = :souvenirName and StadiumName = :stadiumName");
+
+        query.bindValue(":souvenirName", souvenirName);
+        query.bindValue(":stadiumName", stadiumName);
+
+        query.exec();
+    }
+}

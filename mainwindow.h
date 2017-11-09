@@ -116,7 +116,11 @@ private slots:
     void on_pushButton_backSurfaceType_clicked();
 
     void on_pushButton_testBuy_clicked();
-    void on_pushButton_clicked();
+
+    /**
+     * @brief on_pushButton_login_clicked launches the login window.
+     */
+    void on_pushButton_login_clicked();
 
 private:
     Ui::MainWindow *ui;

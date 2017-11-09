@@ -3,6 +3,7 @@
 #include "buysouvenir.h"
 
 #include <QtAlgorithms>
+#include <QObject>
 #include "database.h"
 
 Database* Database::instance = nullptr;
@@ -779,11 +780,15 @@ void MainWindow::on_pushButton_testBuy_clicked()
     s->populateDropdown();
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_login_clicked()
 {
     Login *loginWindow = new Login;
 
-    loginWindow->setModal(true);
+    loginWindow->show();
 
-    loginWindow->exec();
+    // Connects the login window to mainwindow and hides mainwindow upon successful login.
+    QObject::connect(loginWindow, SIGNAL(accepted()), this, SLOT(hide()));
+    QObject::connect(loginWindow, SIGNAL(rejected()), this, SLOT(show()));
+    QObject::connect(loginWindow, SIGNAL(accepted()), loginWindow, SLOT(hide()));
+    QObject::connect(loginWindow, SIGNAL(rejected()), loginWindow, SLOT(hide()));
 }

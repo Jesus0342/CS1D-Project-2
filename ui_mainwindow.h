@@ -39,7 +39,7 @@ public:
     QWidget *page_home;
     QLabel *label_home;
     QComboBox *comboBox_selectAction;
-    QPushButton *pushButton;
+    QPushButton *pushButton_login;
     QWidget *page_viewNFLInfo;
     QComboBox *comboBox_displayOptions;
     QPushButton *pushButton_backViewNFLInfo;
@@ -116,9 +116,9 @@ public:
         comboBox_selectAction = new QComboBox(page_home);
         comboBox_selectAction->setObjectName(QStringLiteral("comboBox_selectAction"));
         comboBox_selectAction->setGeometry(QRect(220, 410, 191, 22));
-        pushButton = new QPushButton(page_home);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(470, 10, 141, 23));
+        pushButton_login = new QPushButton(page_home);
+        pushButton_login->setObjectName(QStringLiteral("pushButton_login"));
+        pushButton_login->setGeometry(QRect(470, 10, 141, 23));
         stackedWidget->addWidget(page_home);
         page_viewNFLInfo = new QWidget();
         page_viewNFLInfo->setObjectName(QStringLiteral("page_viewNFLInfo"));
@@ -136,7 +136,7 @@ public:
         label_NFLInfoPrompt->setGeometry(QRect(150, 110, 311, 21));
         pushButton_testBuy = new QPushButton(page_viewNFLInfo);
         pushButton_testBuy->setObjectName(QStringLiteral("pushButton_testBuy"));
-        pushButton_testBuy->setGeometry(QRect(380, 190, 80, 21));
+        pushButton_testBuy->setGeometry(QRect(250, 230, 80, 21));
         stackedWidget->addWidget(page_viewNFLInfo);
         page_viewTeamInfo = new QWidget();
         page_viewTeamInfo->setObjectName(QStringLiteral("page_viewTeamInfo"));
@@ -379,7 +379,7 @@ public:
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
          << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
         );
-        pushButton->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
+        pushButton_login->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
         comboBox_displayOptions->clear();
         comboBox_displayOptions->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)

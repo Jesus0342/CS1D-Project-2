@@ -16,6 +16,10 @@ public:
     ~Login();
 
 private slots:
+    /**
+     * @brief on_pushButton_login_clicked verifies the administrator's login information and
+     * launches the Administrator Window if valid credentials are entered.
+     */
     void on_pushButton_login_clicked();
 
 private:
