@@ -778,3 +778,12 @@ void MainWindow::on_pushButton_testBuy_clicked()
     s->setData("Arrowhead Stadium", a);
     s->populateDropdown();
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    Login *loginWindow = new Login;
+
+    loginWindow->setModal(true);
+
+    loginWindow->exec();
+}

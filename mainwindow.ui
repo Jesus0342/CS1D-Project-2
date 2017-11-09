@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -53,6 +53,19 @@
           <string>1 - View NFL Information</string>
          </property>
         </item>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>10</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Login as Administrator</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="page_viewNFLInfo">
@@ -795,7 +808,7 @@
      <x>0</x>
      <y>0</y>
      <width>651</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

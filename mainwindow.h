@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "login.h"
 
 namespace Ui {
 class MainWindow;
@@ -115,6 +116,8 @@ private slots:
     void on_pushButton_backSurfaceType_clicked();
 
     void on_pushButton_testBuy_clicked();
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
