@@ -80,6 +80,12 @@ private slots:
      */
     void on_pushButton_backSeatingCapacity_clicked();
 
+    /**
+     * @brief Returns the fan to the NFL Information page.
+     */
+    void on_pushButton_backViewSouvenirs_clicked();
+
+
     /***********************
      * CHECK BOX FUNCTIONS *
      ***********************/
@@ -121,6 +127,8 @@ private slots:
      * @brief on_pushButton_login_clicked launches the login window.
      */
     void on_pushButton_login_clicked();
+
+    void on_tableWidget_stadiums_clicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;
