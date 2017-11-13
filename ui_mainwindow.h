@@ -91,6 +91,12 @@ public:
     QLabel *label_surfaceTypeTitle;
     QTableWidget *tableWidget_surfaceType;
     QPushButton *pushButton_backSurfaceType;
+    QWidget *page_viewSouvenirs;
+    QLabel *label_surfaceTypeTitle_2;
+    QTableWidget *tableWidget_stadiumNames;
+    QTableWidget *tableWidget_stadiumSouvenirs;
+    QPushButton *pushButton_backSouvenirs;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -346,6 +352,34 @@ public:
         pushButton_backSurfaceType->setObjectName(QStringLiteral("pushButton_backSurfaceType"));
         pushButton_backSurfaceType->setGeometry(QRect(10, 480, 75, 23));
         stackedWidget->addWidget(page_viewSurfaceType);
+        page_viewSouvenirs = new QWidget();
+        page_viewSouvenirs->setObjectName(QStringLiteral("page_viewSouvenirs"));
+        label_surfaceTypeTitle_2 = new QLabel(page_viewSouvenirs);
+        label_surfaceTypeTitle_2->setObjectName(QStringLiteral("label_surfaceTypeTitle_2"));
+        label_surfaceTypeTitle_2->setGeometry(QRect(70, 10, 481, 61));
+        tableWidget_stadiumNames = new QTableWidget(page_viewSouvenirs);
+        if (tableWidget_stadiumNames->columnCount() < 1)
+            tableWidget_stadiumNames->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
+        tableWidget_stadiumNames->setHorizontalHeaderItem(0, __qtablewidgetitem29);
+        tableWidget_stadiumNames->setObjectName(QStringLiteral("tableWidget_stadiumNames"));
+        tableWidget_stadiumNames->setGeometry(QRect(50, 120, 241, 281));
+        tableWidget_stadiumSouvenirs = new QTableWidget(page_viewSouvenirs);
+        if (tableWidget_stadiumSouvenirs->columnCount() < 2)
+            tableWidget_stadiumSouvenirs->setColumnCount(2);
+        QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
+        tableWidget_stadiumSouvenirs->setHorizontalHeaderItem(0, __qtablewidgetitem30);
+        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
+        tableWidget_stadiumSouvenirs->setHorizontalHeaderItem(1, __qtablewidgetitem31);
+        tableWidget_stadiumSouvenirs->setObjectName(QStringLiteral("tableWidget_stadiumSouvenirs"));
+        tableWidget_stadiumSouvenirs->setGeometry(QRect(380, 120, 201, 171));
+        pushButton_backSouvenirs = new QPushButton(page_viewSouvenirs);
+        pushButton_backSouvenirs->setObjectName(QStringLiteral("pushButton_backSouvenirs"));
+        pushButton_backSouvenirs->setGeometry(QRect(10, 480, 75, 23));
+        label = new QLabel(page_viewSouvenirs);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(100, 80, 421, 21));
+        stackedWidget->addWidget(page_viewSouvenirs);
 
         verticalLayout->addWidget(stackedWidget);
 
@@ -363,7 +397,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(10);
         comboBox_displayOptions->setCurrentIndex(0);
 
 
@@ -391,6 +425,7 @@ public:
          << QApplication::translate("MainWindow", "6 - Star Players", Q_NULLPTR)
          << QApplication::translate("MainWindow", "7 - Stadium Seating Capacity", Q_NULLPTR)
          << QApplication::translate("MainWindow", "8 - Stadium Surface Type", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "9 - Stadium Souvenirs", Q_NULLPTR)
         );
         pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
         label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
@@ -481,6 +516,15 @@ public:
         QTableWidgetItem *___qtablewidgetitem28 = tableWidget_surfaceType->horizontalHeaderItem(3);
         ___qtablewidgetitem28->setText(QApplication::translate("MainWindow", "Surface Type", Q_NULLPTR));
         pushButton_backSurfaceType->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label_surfaceTypeTitle_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Souvenirs</span></p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem29 = tableWidget_stadiumNames->horizontalHeaderItem(0);
+        ___qtablewidgetitem29->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem30 = tableWidget_stadiumSouvenirs->horizontalHeaderItem(0);
+        ___qtablewidgetitem30->setText(QApplication::translate("MainWindow", "Souvenir Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem31 = tableWidget_stadiumSouvenirs->horizontalHeaderItem(1);
+        ___qtablewidgetitem31->setText(QApplication::translate("MainWindow", "Price", Q_NULLPTR));
+        pushButton_backSouvenirs->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Please click the name of a stadium to display its souvenirs.</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

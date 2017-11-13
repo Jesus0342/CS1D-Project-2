@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[29];
-    char stringdata0[903];
+    QByteArrayData data[31];
+    char stringdata0[975];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -59,7 +59,9 @@ QT_MOC_LITERAL(24, 736, 34), // "on_pushButton_getOpenRoofs_cl..."
 QT_MOC_LITERAL(25, 771, 35), // "on_pushButton_getRetraRoofs_c..."
 QT_MOC_LITERAL(26, 807, 37), // "on_pushButton_backSurfaceType..."
 QT_MOC_LITERAL(27, 845, 29), // "on_pushButton_testBuy_clicked"
-QT_MOC_LITERAL(28, 875, 27) // "on_pushButton_login_clicked"
+QT_MOC_LITERAL(28, 875, 27), // "on_pushButton_login_clicked"
+QT_MOC_LITERAL(29, 903, 35), // "on_pushButton_backSouvenirs_c..."
+QT_MOC_LITERAL(30, 939, 35) // "on_tableWidget_stadiumNames_c..."
 
     },
     "MainWindow\0on_comboBox_selectAction_currentIndexChanged\0"
@@ -84,7 +86,9 @@ QT_MOC_LITERAL(28, 875, 27) // "on_pushButton_login_clicked"
     "on_pushButton_getRetraRoofs_clicked\0"
     "on_pushButton_backSurfaceType_clicked\0"
     "on_pushButton_testBuy_clicked\0"
-    "on_pushButton_login_clicked"
+    "on_pushButton_login_clicked\0"
+    "on_pushButton_backSouvenirs_clicked\0"
+    "on_tableWidget_stadiumNames_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -94,7 +98,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      25,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -102,29 +106,31 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  129,    2, 0x08 /* Private */,
-       4,    1,  132,    2, 0x08 /* Private */,
-       5,    1,  135,    2, 0x08 /* Private */,
-       7,    0,  138,    2, 0x08 /* Private */,
-       8,    0,  139,    2, 0x08 /* Private */,
-       9,    0,  140,    2, 0x08 /* Private */,
-      10,    0,  141,    2, 0x08 /* Private */,
-      11,    0,  142,    2, 0x08 /* Private */,
-      12,    1,  143,    2, 0x08 /* Private */,
-      14,    1,  146,    2, 0x08 /* Private */,
-      15,    0,  149,    2, 0x08 /* Private */,
-      16,    1,  150,    2, 0x08 /* Private */,
-      18,    1,  153,    2, 0x08 /* Private */,
-      19,    0,  156,    2, 0x08 /* Private */,
-      20,    0,  157,    2, 0x08 /* Private */,
-      21,    0,  158,    2, 0x08 /* Private */,
-      22,    0,  159,    2, 0x08 /* Private */,
-      23,    0,  160,    2, 0x08 /* Private */,
-      24,    0,  161,    2, 0x08 /* Private */,
-      25,    0,  162,    2, 0x08 /* Private */,
-      26,    0,  163,    2, 0x08 /* Private */,
-      27,    0,  164,    2, 0x08 /* Private */,
-      28,    0,  165,    2, 0x08 /* Private */,
+       1,    1,  139,    2, 0x08 /* Private */,
+       4,    1,  142,    2, 0x08 /* Private */,
+       5,    1,  145,    2, 0x08 /* Private */,
+       7,    0,  148,    2, 0x08 /* Private */,
+       8,    0,  149,    2, 0x08 /* Private */,
+       9,    0,  150,    2, 0x08 /* Private */,
+      10,    0,  151,    2, 0x08 /* Private */,
+      11,    0,  152,    2, 0x08 /* Private */,
+      12,    1,  153,    2, 0x08 /* Private */,
+      14,    1,  156,    2, 0x08 /* Private */,
+      15,    0,  159,    2, 0x08 /* Private */,
+      16,    1,  160,    2, 0x08 /* Private */,
+      18,    1,  163,    2, 0x08 /* Private */,
+      19,    0,  166,    2, 0x08 /* Private */,
+      20,    0,  167,    2, 0x08 /* Private */,
+      21,    0,  168,    2, 0x08 /* Private */,
+      22,    0,  169,    2, 0x08 /* Private */,
+      23,    0,  170,    2, 0x08 /* Private */,
+      24,    0,  171,    2, 0x08 /* Private */,
+      25,    0,  172,    2, 0x08 /* Private */,
+      26,    0,  173,    2, 0x08 /* Private */,
+      27,    0,  174,    2, 0x08 /* Private */,
+      28,    0,  175,    2, 0x08 /* Private */,
+      29,    0,  176,    2, 0x08 /* Private */,
+      30,    1,  177,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -150,6 +156,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QModelIndex,    3,
 
        0        // eod
 };
@@ -183,6 +191,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 20: _t->on_pushButton_backSurfaceType_clicked(); break;
         case 21: _t->on_pushButton_testBuy_clicked(); break;
         case 22: _t->on_pushButton_login_clicked(); break;
+        case 23: _t->on_pushButton_backSouvenirs_clicked(); break;
+        case 24: _t->on_tableWidget_stadiumNames_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -213,13 +223,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 25;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 25)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 25;
     }
     return _id;
 }

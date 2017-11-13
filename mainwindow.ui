@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -124,6 +124,11 @@
         <item>
          <property name="text">
           <string>8 - Stadium Surface Type</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>9 - Stadium Souvenirs</string>
          </property>
         </item>
        </widget>
@@ -795,6 +800,82 @@
         </property>
         <property name="text">
          <string>Back</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_viewSouvenirs">
+       <widget class="QLabel" name="label_surfaceTypeTitle_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>10</y>
+          <width>481</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Stadium Souvenirs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_stadiumNames">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>120</y>
+          <width>241</width>
+          <height>281</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Stadium Name</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_stadiumSouvenirs">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>120</y>
+          <width>201</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>Souvenir Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Price</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_backSouvenirs">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>80</y>
+          <width>421</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Please click the name of a stadium to display its souvenirs.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

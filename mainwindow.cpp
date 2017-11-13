@@ -365,6 +365,37 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         // Displays the information sorted by surface type.
         ui->tableWidget_surfaceType->sortByColumn(3, Qt::AscendingOrder);
     }
+        break;
+    case 9 :
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_viewSouvenirs);
+
+        // Sets the row count for the table.
+        ui->tableWidget_stadiumNames->setRowCount(teams.size());
+
+        int numRows = ui->tableWidget_stadiumNames->rowCount();
+        int numCols = ui->tableWidget_stadiumNames->columnCount();
+
+        // Sets the column header width
+        ui->tableWidget_stadiumNames->setColumnWidth(0, 300);
+
+        for(int indexR = 0; indexR < numRows; indexR++)
+        {
+            for(int indexC = 0; indexC < numCols; indexC++)
+            {
+
+                ui->tableWidget_stadiumNames->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getStadiumName()));
+                indexC++;
+            }
+        }
+
+        ui->tableWidget_stadiumNames->resizeColumnsToContents();
+
+        // controls the sorting by clicking on the horizontal header(Stadium)
+        ui->tableWidget_stadiumNames->setSortingEnabled(true);
+
+        ui->tableWidget_stadiumNames->horizontalHeader()->setStretchLastSection(true);
+    }
     }
 }
 
@@ -475,6 +506,9 @@ void MainWindow::on_pushButton_backSeatingCapacity_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 
     ui->comboBox_displayOptions->setCurrentIndex(0);
+
+    ui->tableWidget_seatingCapacity->setRowCount(0);
+    ui->tableWidget_seatingCapacity->clearContents();
 }
 
 void MainWindow::on_pushButton_backRoofs_clicked()
@@ -509,6 +543,16 @@ void MainWindow::on_pushButton_backSurfaceType_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
 
     ui->comboBox_displayOptions->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_backSouvenirs_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+
+    ui->comboBox_displayOptions->setCurrentIndex(0);
+
+    ui->tableWidget_stadiumNames->setRowCount(0);
+    ui->tableWidget_stadiumSouvenirs->setRowCount(0);
 }
 
 /***********************
@@ -776,4 +820,49 @@ void MainWindow::on_pushButton_login_clicked()
     QObject::connect(loginWindow, SIGNAL(rejected()), this, SLOT(show()));
     QObject::connect(loginWindow, SIGNAL(accepted()), loginWindow, SLOT(hide()));
     QObject::connect(loginWindow, SIGNAL(rejected()), loginWindow, SLOT(hide()));
+}
+
+void MainWindow::on_tableWidget_stadiumNames_clicked(const QModelIndex &index)
+{
+    ui->tableWidget_stadiumSouvenirs->setRowCount(0);
+
+    // Gets the index of the selected stadium in the table widget.
+    QModelIndex stadiumIndex = index.sibling(index.row(), index.column());
+
+    // Converts the data in the selected cell to a QString.
+    QString stadiumName = ui->tableWidget_stadiumNames->model()->data(stadiumIndex).toString();
+
+    // Team object used to pass into returnSouvenirList().
+    Team stadium;
+
+    // Sets the name of the stadium (required for returnSouvenirList()).
+    stadium.setName(stadiumName);
+
+    // Returns a list of the souvenirs for the selected stadium.
+    QVector<Souvenir> souvenirs = Database::getInstance()->returnSouvenirList(stadium);
+
+    // Sets the row count for the table.
+    ui->tableWidget_stadiumSouvenirs->setRowCount(souvenirs.size());
+
+    // Store the number of rows and columns for the table of souvenirs.
+    int numRows = ui->tableWidget_stadiumSouvenirs->rowCount();
+    int numCols = ui->tableWidget_stadiumSouvenirs->columnCount();
+
+    // Displays the souvenirs with the corresponding prices for the selected stadium.
+    for(int indexR = 0; indexR < numRows; indexR++)
+    {
+        for(int indexC = 0; indexC < numCols; indexC++)
+        {
+            ui->tableWidget_stadiumSouvenirs->setItem(indexR, indexC, new QTableWidgetItem(souvenirs[indexR].getName()));
+            indexC++;
+
+            ui->tableWidget_stadiumSouvenirs->setItem(indexR, indexC, new QTableWidgetItem(QString::number(souvenirs[indexR].getPrice(), 'f', 2)));
+            indexC++;
+        }
+    }
+
+    ui->tableWidget_stadiumSouvenirs->resizeColumnsToContents();
+
+    // Allows the table to be sorted by clicking on a table header.
+    ui->tableWidget_stadiumSouvenirs->setSortingEnabled(true);
 }

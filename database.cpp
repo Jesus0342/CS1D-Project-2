@@ -105,8 +105,6 @@ QVector<Souvenir> Database::returnSouvenirList(Team stadium)
 {
     QVector<Souvenir> souvenirs;
 
-    QString stadiumName = stadium.getStadiumName();
-
     Souvenir temp;
 
     // Query to select all information from NFL_SOUVENIRS database table.
@@ -120,7 +118,7 @@ QVector<Souvenir> Database::returnSouvenirList(Team stadium)
     // Adds the souvenirs to the QVector while there are still souvenirs in the database.
     while(query.next())
     {
-        if(query.value(stadiumNameId) == stadiumName)
+        if(query.value(stadiumNameId).toString() == stadium.getName())
         {
             temp.setName(query.value(nameId).toString());
             temp.setStadiumName(query.value(stadiumNameId).toString());
