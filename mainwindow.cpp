@@ -366,6 +366,9 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         ui->tableWidget_surfaceType->sortByColumn(3, Qt::AscendingOrder);
     }
         break;
+    /*********************************************************************
+     * CASE 9 - Displays the list of souvenirs for the selected stadium.
+     *********************************************************************/
     case 9 :
     {
         ui->stackedWidget->setCurrentWidget(ui->page_viewSouvenirs);
@@ -373,12 +376,11 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         // Sets the row count for the table.
         ui->tableWidget_stadiumNames->setRowCount(teams.size());
 
+        // Stores the number of rows and columns in the table.
         int numRows = ui->tableWidget_stadiumNames->rowCount();
         int numCols = ui->tableWidget_stadiumNames->columnCount();
 
-        // Sets the column header width
-        ui->tableWidget_stadiumNames->setColumnWidth(0, 300);
-
+        // Displays the name of every stadium on the table.
         for(int indexR = 0; indexR < numRows; indexR++)
         {
             for(int indexC = 0; indexC < numCols; indexC++)
