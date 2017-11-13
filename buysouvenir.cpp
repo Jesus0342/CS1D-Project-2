@@ -122,7 +122,7 @@ void buySouvenir::on_pushButton_addToCart_clicked()
     stadium->append(ui->comboBox_stadiumName->itemText(ui->comboBox_stadiumName->currentIndex()));
 
     int qty = ui->spinBox_qty_input->value();
-    double price = ui->lcdNumber_itemxqty->value();
+    double price = ui->lcdNumber_itemxqty->value()/qty;
 
     cartTotal += qty*price;
     totalQty += qty;
