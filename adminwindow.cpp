@@ -1,6 +1,7 @@
 #include "adminwindow.h"
 #include "ui_adminwindow.h"
 #include "mainwindow.h"
+#include "souvenir.h"
 
 #include <QObject>
 #include <QDebug>
@@ -265,26 +266,23 @@ void AdminWindow::on_comboBox_stadiumList_2_currentTextChanged(const QString &ar
     ui->comboBox_souvenirList_2->setModel(mod3);
 }
 
+// Modify Souvenirs Confirm Button
+
 void AdminWindow::on_confirmModify_clicked()
 {
+    Souvenir souvenir1;
     QString stadiumName = ui->comboBox_stadiumList_2->currentText();
     QString souvenirName = ui->comboBox_souvenirList_2->currentText();
-    QString val = ui->lineEdit_souvenirPrice->text();
+    QString souvenirPrice = ui->lineEdit_souvenirPrice->text();
+    double val = souvenirPrice.toDouble();
 
-    QSqlQuery *mod = new QSqlQuery();
-    mod->bindValue(":stadiumName", stadiumName);
-    mod->bindValue(":souvenirName", souvenirName);
-    mod->bindValue(":price", val);
-    mod->prepare("UPDATE NFL_SOUVENIRS SET Price = (:price) WHERE SouvenirName = (:souvenirName), StadiumName = (:stadiumName)");
-    mod->exec();
+    souvenir1.setName(souvenirName);
+    souvenir1.setStadiumName(stadiumName);
 
-    if(mod->exec()) {
-        qDebug() << "Modified souvenir successful";
-        ui->label_status_2->show();
-        ui->label_status_2->setText("SUCCESSFULLY MODIFIED");
-    } else {
-        qDebug() << "Error editing souvenir" << mod->lastError();
-        ui->label_status_2->show();
-        ui->label_status_2->setText("FAILED TO MODIFY");
-    }
+    // Send to GLORIOUS FUNCTION NOT MADE BY MYSELF
+    Database::editSouvenirPrice(souvenir1, val);
+
+    qDebug() << "Modified souvenir successful";
+    ui->label_status_2->show();
+    ui->label_status_2->setText("SUCCESSFULLY MODIFIED");
 }

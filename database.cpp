@@ -361,5 +361,6 @@ void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
         query.bindValue(":stadiumName", stadiumName);
 
         query.exec();
+
     }
 }
