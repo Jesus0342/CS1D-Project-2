@@ -55,6 +55,14 @@ private slots:
      */
     void on_pushButton_logout_clicked();
 
+    void populateBox_stadiumName();
+
+    void on_pushButton_confirmAdd_clicked();
+
+    void on_pushButton_clearFields_clicked();
+
+    void on_comboBox_stadiumList_currentTextChanged(const QString &arg1);
+
 private:
     Ui::AdminWindow *ui;
 };

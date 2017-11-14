@@ -20,8 +20,8 @@ Login::~Login()
 void Login::on_pushButton_login_clicked()
 {
     // Valid username and password.
-    QString username = "a";
-    QString password = "1";
+    QString username = "admin";
+    QString password = "admin";
 
     // If username or password fields are left empty, displays warning message, else
     // checks the username and password entered.

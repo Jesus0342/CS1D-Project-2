@@ -1,5 +1,6 @@
 #include "adminwindow.h"
 #include "ui_adminwindow.h"
+#include "mainwindow.h"
 
 #include <QObject>
 
@@ -11,6 +12,9 @@ AdminWindow::AdminWindow(QWidget *parent) :
 
     // Always opens the adminwindow to the administrator homepage.
     ui->stackedWidget->setCurrentWidget(ui->page_adminHome);
+
+    MainWindow *w = new MainWindow();
+    w->connectToDatabase();
 }
 
 AdminWindow::~AdminWindow()
@@ -92,7 +96,27 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         }
     }
         break;
+    case 2: ui->stackedWidget->setCurrentIndex(2);
+        populateBox_stadiumName();
+        break;
+    case 3: ui->stackedWidget->setCurrentIndex(3);
+        QSqlQueryModel *mod = new QSqlQueryModel();
+        QSqlQuery *qry = new QSqlQuery();
+        qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+        qry->exec();
+        mod->setQuery(*qry);
+        ui->comboBox_stadiumList->setModel(mod);
+
+        QSqlQueryModel *mod2 = new QSqlQueryModel();
+        QSqlQuery *qry2 = new QSqlQuery();
+        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_stadiumList->currentText()+"'");
+        qry2->exec();
+        mod2->setQuery(*qry2);
+        ui->comboBox_souvenirList->setModel(mod2);
+        break;
     }
+
+
 }
 
 void AdminWindow::on_pushButton_addStadiums_clicked()
@@ -163,4 +187,52 @@ void AdminWindow::on_pushButton_reset_clicked()
 
     // Refreshes the table.
     on_comboBox_adminFunctions_currentIndexChanged(1);
+}
+
+void AdminWindow::populateBox_stadiumName()
+{
+    QSqlQueryModel *mod = new QSqlQueryModel();
+    QSqlQuery *qry = new QSqlQuery();
+    qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+    qry->exec();
+    mod->setQuery(*qry);
+    ui->comboBo_stadiumList->setModel(mod);
+
+}
+
+
+
+void AdminWindow::on_pushButton_confirmAdd_clicked()
+{
+    QString stadiumName = ui->comboBo_stadiumList->currentText();
+    QString itemName = ui->lineEdit_itemName->text();
+    double itemPrice = ui->doubleSpinBox_itemPrice->value();
+    QString val = QString::number(itemPrice);
+
+    QSqlQuery *add = new QSqlQuery();
+    add->exec("INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
+              "('"+stadiumName+"', '"+itemName+"', "+val+")");
+    QTextStream(stdout) << "INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
+                           "('"+stadiumName+"', '"+itemName+"', "+val+")";
+
+    ui->label_status->show();
+    ui->label_status->setText("SUCCESSFULLY ADDED");
+}
+
+void AdminWindow::on_pushButton_clearFields_clicked()
+{
+    ui->comboBo_stadiumList->setCurrentIndex(0);
+    ui->lineEdit_itemName->clear();
+    ui->doubleSpinBox_itemPrice->setValue(0);
+    ui->label_status->hide();
+}
+
+void AdminWindow::on_comboBox_stadiumList_currentTextChanged(const QString &arg1)
+{
+    QSqlQueryModel *mod2 = new QSqlQueryModel();
+    QSqlQuery *qry2 = new QSqlQuery();
+    qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg1+"'");
+    qry2->exec();
+    mod2->setQuery(*qry2);
+    ui->comboBox_souvenirList->setModel(mod2);
 }
