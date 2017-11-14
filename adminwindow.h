@@ -63,6 +63,10 @@ private slots:
 
     void on_comboBox_stadiumList_currentTextChanged(const QString &arg1);
 
+    void on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2);
+
+    void on_confirmModify_clicked();
+
 private:
     Ui::AdminWindow *ui;
 };

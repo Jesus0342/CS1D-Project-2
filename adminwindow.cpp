@@ -3,6 +3,8 @@
 #include "mainwindow.h"
 
 #include <QObject>
+#include <QDebug>
+#include <QSqlError>
 
 AdminWindow::AdminWindow(QWidget *parent) :
     QDialog(parent),
@@ -100,6 +102,7 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         populateBox_stadiumName();
         break;
     case 3: ui->stackedWidget->setCurrentIndex(3);
+        {
         QSqlQueryModel *mod = new QSqlQueryModel();
         QSqlQuery *qry = new QSqlQuery();
         qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
@@ -114,6 +117,24 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         mod2->setQuery(*qry2);
         ui->comboBox_souvenirList->setModel(mod2);
         break;
+        }
+    case 4: ui->stackedWidget->setCurrentIndex(4);
+    {
+        QSqlQueryModel *mod = new QSqlQueryModel();
+        QSqlQuery *qry = new QSqlQuery();
+        qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+        qry->exec();
+        mod->setQuery(*qry);
+        ui->comboBox_stadiumList_2->setModel(mod);
+
+        QSqlQueryModel *mod2 = new QSqlQueryModel();
+        QSqlQuery *qry2 = new QSqlQuery();
+        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_stadiumList->currentText()+"'");
+        qry2->exec();
+        mod2->setQuery(*qry2);
+        ui->comboBox_souvenirList_2->setModel(mod2);
+        break;
+    }
     }
 
 
@@ -196,11 +217,8 @@ void AdminWindow::populateBox_stadiumName()
     qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
     qry->exec();
     mod->setQuery(*qry);
-    ui->comboBo_stadiumList->setModel(mod);
-
+    ui->comboBox_stadiumList->setModel(mod);
 }
-
-
 
 void AdminWindow::on_pushButton_confirmAdd_clicked()
 {
@@ -213,7 +231,7 @@ void AdminWindow::on_pushButton_confirmAdd_clicked()
     add->exec("INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
               "('"+stadiumName+"', '"+itemName+"', "+val+")");
     QTextStream(stdout) << "INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
-                           "('"+stadiumName+"', '"+itemName+"', "+val+")";
+                           "('"+stadiumName+"', '"+itemName+"', '"+val+"')";
 
     ui->label_status->show();
     ui->label_status->setText("SUCCESSFULLY ADDED");
@@ -235,4 +253,38 @@ void AdminWindow::on_comboBox_stadiumList_currentTextChanged(const QString &arg1
     qry2->exec();
     mod2->setQuery(*qry2);
     ui->comboBox_souvenirList->setModel(mod2);
+}
+
+void AdminWindow::on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2)
+{
+    QSqlQueryModel *mod3 = new QSqlQueryModel();
+    QSqlQuery *qry3 = new QSqlQuery();
+    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg2+"'");
+    qry3->exec();
+    mod3->setQuery(*qry3);
+    ui->comboBox_souvenirList_2->setModel(mod3);
+}
+
+void AdminWindow::on_confirmModify_clicked()
+{
+    QString stadiumName = ui->comboBox_stadiumList_2->currentText();
+    QString souvenirName = ui->comboBox_souvenirList_2->currentText();
+    QString val = ui->lineEdit_souvenirPrice->text();
+
+    QSqlQuery *mod = new QSqlQuery();
+    mod->bindValue(":stadiumName", stadiumName);
+    mod->bindValue(":souvenirName", souvenirName);
+    mod->bindValue(":price", val);
+    mod->prepare("UPDATE NFL_SOUVENIRS SET Price = (:price) WHERE SouvenirName = (:souvenirName), StadiumName = (:stadiumName)");
+    mod->exec();
+
+    if(mod->exec()) {
+        qDebug() << "Modified souvenir successful";
+        ui->label_status_2->show();
+        ui->label_status_2->setText("SUCCESSFULLY MODIFIED");
+    } else {
+        qDebug() << "Error editing souvenir" << mod->lastError();
+        ui->label_status_2->show();
+        ui->label_status_2->setText("FAILED TO MODIFY");
+    }
 }

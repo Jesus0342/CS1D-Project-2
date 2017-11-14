@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'adminwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -57,17 +57,32 @@ public:
     QWidget *page_modifySouvenirs;
     QLabel *label_adminTitle_4;
     QGroupBox *groupBox;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QComboBox *comboBox_stadiumList;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
     QComboBox *comboBox_souvenirList;
     QPushButton *pushButton;
     QWidget *page_modifyStadiumInfo;
     QLabel *label_adminTitle_5;
+    QGroupBox *groupBox_2;
+    QWidget *layoutWidget_2;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_5;
+    QComboBox *comboBox_stadiumList_2;
+    QWidget *layoutWidget_3;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_6;
+    QComboBox *comboBox_souvenirList_2;
+    QPushButton *confirmModify;
+    QWidget *layoutWidget_4;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_8;
+    QLineEdit *lineEdit_souvenirPrice;
+    QLabel *label_status_2;
 
     void setupUi(QDialog *AdminWindow)
     {
@@ -172,18 +187,18 @@ public:
         groupBox = new QGroupBox(page_modifySouvenirs);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(120, 90, 351, 141));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(20, 20, 311, 24));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(groupBox);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 20, 311, 24));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_2->addWidget(label);
 
-        comboBox_stadiumList = new QComboBox(widget);
+        comboBox_stadiumList = new QComboBox(layoutWidget);
         comboBox_stadiumList->setObjectName(QStringLiteral("comboBox_stadiumList"));
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy.setHorizontalStretch(0);
@@ -194,18 +209,18 @@ public:
 
         horizontalLayout_2->addWidget(comboBox_stadiumList);
 
-        widget1 = new QWidget(groupBox);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(20, 50, 311, 24));
-        horizontalLayout_3 = new QHBoxLayout(widget1);
+        layoutWidget1 = new QWidget(groupBox);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(20, 50, 311, 24));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(widget1);
+        label_4 = new QLabel(layoutWidget1);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         horizontalLayout_3->addWidget(label_4);
 
-        comboBox_souvenirList = new QComboBox(widget1);
+        comboBox_souvenirList = new QComboBox(layoutWidget1);
         comboBox_souvenirList->setObjectName(QStringLiteral("comboBox_souvenirList"));
 
         horizontalLayout_3->addWidget(comboBox_souvenirList);
@@ -219,6 +234,68 @@ public:
         label_adminTitle_5 = new QLabel(page_modifyStadiumInfo);
         label_adminTitle_5->setObjectName(QStringLiteral("label_adminTitle_5"));
         label_adminTitle_5->setGeometry(QRect(10, 10, 561, 81));
+        groupBox_2 = new QGroupBox(page_modifyStadiumInfo);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(120, 100, 351, 181));
+        layoutWidget_2 = new QWidget(groupBox_2);
+        layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
+        layoutWidget_2->setGeometry(QRect(20, 20, 311, 24));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget_2);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_5 = new QLabel(layoutWidget_2);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        horizontalLayout_4->addWidget(label_5);
+
+        comboBox_stadiumList_2 = new QComboBox(layoutWidget_2);
+        comboBox_stadiumList_2->setObjectName(QStringLiteral("comboBox_stadiumList_2"));
+        sizePolicy.setHeightForWidth(comboBox_stadiumList_2->sizePolicy().hasHeightForWidth());
+        comboBox_stadiumList_2->setSizePolicy(sizePolicy);
+        comboBox_stadiumList_2->setMinimumSize(QSize(50, 0));
+
+        horizontalLayout_4->addWidget(comboBox_stadiumList_2);
+
+        layoutWidget_3 = new QWidget(groupBox_2);
+        layoutWidget_3->setObjectName(QStringLiteral("layoutWidget_3"));
+        layoutWidget_3->setGeometry(QRect(20, 50, 311, 24));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget_3);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        label_6 = new QLabel(layoutWidget_3);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        horizontalLayout_5->addWidget(label_6);
+
+        comboBox_souvenirList_2 = new QComboBox(layoutWidget_3);
+        comboBox_souvenirList_2->setObjectName(QStringLiteral("comboBox_souvenirList_2"));
+
+        horizontalLayout_5->addWidget(comboBox_souvenirList_2);
+
+        confirmModify = new QPushButton(groupBox_2);
+        confirmModify->setObjectName(QStringLiteral("confirmModify"));
+        confirmModify->setGeometry(QRect(110, 140, 131, 21));
+        layoutWidget_4 = new QWidget(groupBox_2);
+        layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
+        layoutWidget_4->setGeometry(QRect(20, 100, 311, 24));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget_4);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_8 = new QLabel(layoutWidget_4);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
+
+        horizontalLayout_6->addWidget(label_8);
+
+        lineEdit_souvenirPrice = new QLineEdit(layoutWidget_4);
+        lineEdit_souvenirPrice->setObjectName(QStringLiteral("lineEdit_souvenirPrice"));
+
+        horizontalLayout_6->addWidget(lineEdit_souvenirPrice);
+
+        label_status_2 = new QLabel(page_modifyStadiumInfo);
+        label_status_2->setObjectName(QStringLiteral("label_status_2"));
+        label_status_2->setGeometry(QRect(160, 300, 281, 51));
+        label_status_2->setStyleSheet(QStringLiteral("font: 16pt \"Tahoma\";"));
         stackedWidget->addWidget(page_modifyStadiumInfo);
 
         horizontalLayout->addWidget(stackedWidget);
@@ -226,7 +303,7 @@ public:
 
         retranslateUi(AdminWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(4);
         comboBox_adminFunctions->setCurrentIndex(0);
 
 
@@ -235,50 +312,56 @@ public:
 
     void retranslateUi(QDialog *AdminWindow)
     {
-        AdminWindow->setWindowTitle(QApplication::translate("AdminWindow", "Dialog", 0));
-        label_adminTitle_2->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Administrator Window</span></p></body></html>", 0));
-        pushButton_logout->setText(QApplication::translate("AdminWindow", "Logout", 0));
+        AdminWindow->setWindowTitle(QApplication::translate("AdminWindow", "Dialog", Q_NULLPTR));
+        label_adminTitle_2->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Administrator Window</span></p></body></html>", Q_NULLPTR));
+        pushButton_logout->setText(QApplication::translate("AdminWindow", "Logout", Q_NULLPTR));
         comboBox_adminFunctions->clear();
         comboBox_adminFunctions->insertItems(0, QStringList()
-         << QApplication::translate("AdminWindow", "<Select Here>", 0)
-         << QApplication::translate("AdminWindow", "1 - Add New Stadiums", 0)
-         << QApplication::translate("AdminWindow", "2 - Add Souvenirs", 0)
-         << QApplication::translate("AdminWindow", "3 - Modify Souvenirs", 0)
-         << QApplication::translate("AdminWindow", "4 - Modify Stadium Information", 0)
+         << QApplication::translate("AdminWindow", "<Select Here>", Q_NULLPTR)
+         << QApplication::translate("AdminWindow", "1 - Add New Stadiums", Q_NULLPTR)
+         << QApplication::translate("AdminWindow", "2 - Add Souvenirs", Q_NULLPTR)
+         << QApplication::translate("AdminWindow", "3 - Modify Souvenirs", Q_NULLPTR)
+         << QApplication::translate("AdminWindow", "4 - Modify Stadium Information", Q_NULLPTR)
         );
-        label_adminTitle->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Add New Stadiums</span></p></body></html>", 0));
+        label_adminTitle->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Add New Stadiums</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_newStadiums->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("AdminWindow", "Team Name", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("AdminWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_newStadiums->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("AdminWindow", "Stadium Name", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("AdminWindow", "Stadium Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget_newStadiums->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("AdminWindow", "Seating Capacity", 0));
+        ___qtablewidgetitem2->setText(QApplication::translate("AdminWindow", "Seating Capacity", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget_newStadiums->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("AdminWindow", "Location", 0));
+        ___qtablewidgetitem3->setText(QApplication::translate("AdminWindow", "Location", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_newStadiums->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QApplication::translate("AdminWindow", "Conference", 0));
+        ___qtablewidgetitem4->setText(QApplication::translate("AdminWindow", "Conference", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget_newStadiums->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QApplication::translate("AdminWindow", "Surface Type", 0));
+        ___qtablewidgetitem5->setText(QApplication::translate("AdminWindow", "Surface Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget_newStadiums->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QApplication::translate("AdminWindow", "Roof Type", 0));
+        ___qtablewidgetitem6->setText(QApplication::translate("AdminWindow", "Roof Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_newStadiums->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QApplication::translate("AdminWindow", "Star Player", 0));
-        pushButton_addStadiums->setText(QApplication::translate("AdminWindow", "Add Stadiums", 0));
-        pushButton_backAddStadiums->setText(QApplication::translate("AdminWindow", "Back", 0));
-        pushButton_reset->setText(QApplication::translate("AdminWindow", "Reset", 0));
-        label_adminTitle_3->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Add Souvenirs</span></p></body></html>", 0));
-        pushButton_confirmAdd->setText(QApplication::translate("AdminWindow", "CONFIRM", 0));
-        pushButton_clearFields->setText(QApplication::translate("AdminWindow", "CLEAR FIELDS", 0));
+        ___qtablewidgetitem7->setText(QApplication::translate("AdminWindow", "Star Player", Q_NULLPTR));
+        pushButton_addStadiums->setText(QApplication::translate("AdminWindow", "Add Stadiums", Q_NULLPTR));
+        pushButton_backAddStadiums->setText(QApplication::translate("AdminWindow", "Back", Q_NULLPTR));
+        pushButton_reset->setText(QApplication::translate("AdminWindow", "Reset", Q_NULLPTR));
+        label_adminTitle_3->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Add Souvenirs</span></p></body></html>", Q_NULLPTR));
+        pushButton_confirmAdd->setText(QApplication::translate("AdminWindow", "CONFIRM", Q_NULLPTR));
+        pushButton_clearFields->setText(QApplication::translate("AdminWindow", "CLEAR FIELDS", Q_NULLPTR));
         label_status->setText(QString());
-        label_1->setText(QApplication::translate("AdminWindow", "Stadiums", 0));
-        label_2->setText(QApplication::translate("AdminWindow", "Souvenir Name", 0));
-        label_3->setText(QApplication::translate("AdminWindow", "Souvenir Price", 0));
-        label_adminTitle_4->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Modify Souvenirs</span></p></body></html>", 0));
-        groupBox->setTitle(QApplication::translate("AdminWindow", "Delete Souvenir", 0));
-        label->setText(QApplication::translate("AdminWindow", "Stadium:", 0));
-        label_4->setText(QApplication::translate("AdminWindow", "Souvenir:", 0));
-        pushButton->setText(QApplication::translate("AdminWindow", "Delete", 0));
-        label_adminTitle_5->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Modify Stadium Info</span></p></body></html>", 0));
+        label_1->setText(QApplication::translate("AdminWindow", "Stadiums", Q_NULLPTR));
+        label_2->setText(QApplication::translate("AdminWindow", "Souvenir Name", Q_NULLPTR));
+        label_3->setText(QApplication::translate("AdminWindow", "Souvenir Price", Q_NULLPTR));
+        label_adminTitle_4->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Delete Souvenirs</span></p></body></html>", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("AdminWindow", "Delete Souvenir", Q_NULLPTR));
+        label->setText(QApplication::translate("AdminWindow", "Stadium:", Q_NULLPTR));
+        label_4->setText(QApplication::translate("AdminWindow", "Souvenir:", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("AdminWindow", "Delete", Q_NULLPTR));
+        label_adminTitle_5->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Modify Souvenirs</span></p></body></html>", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("AdminWindow", "Modify Souvenirs", Q_NULLPTR));
+        label_5->setText(QApplication::translate("AdminWindow", "Stadium:", Q_NULLPTR));
+        label_6->setText(QApplication::translate("AdminWindow", "Souvenir:", Q_NULLPTR));
+        confirmModify->setText(QApplication::translate("AdminWindow", "Modify", Q_NULLPTR));
+        label_8->setText(QApplication::translate("AdminWindow", "Souvenir Price:             ", Q_NULLPTR));
+        label_status_2->setText(QString());
     } // retranslateUi
 
 };
