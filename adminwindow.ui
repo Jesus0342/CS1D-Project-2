@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>4</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page_adminHome">
       <widget class="QLabel" name="label_adminTitle_2">
@@ -49,9 +49,9 @@
       <widget class="QComboBox" name="comboBox_adminFunctions">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>110</x>
          <y>140</y>
-         <width>171</width>
+         <width>321</width>
          <height>22</height>
         </rect>
        </property>
@@ -75,12 +75,12 @@
        </item>
        <item>
         <property name="text">
-         <string>3 - Modify Souvenirs</string>
+         <string>3 - Delete Souvenirs</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>4 - Modify Stadium Information</string>
+         <string>4 - Modify Stadium and Souvneir Information</string>
         </property>
        </item>
       </widget>
@@ -216,7 +216,7 @@
         <string>CONFIRM</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBo_stadiumList">
+      <widget class="QComboBox" name="comboBox_stadiumList_add">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -326,6 +326,19 @@
         <string>Souvenir Price</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_backAddSouvenirs">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>420</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="page_modifySouvenirs">
       <widget class="QLabel" name="label_adminTitle_4">
@@ -344,10 +357,10 @@
       <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>90</y>
+         <x>100</x>
+         <y>100</y>
          <width>351</width>
-         <height>141</height>
+         <height>121</height>
         </rect>
        </property>
        <property name="title">
@@ -371,7 +384,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_stadiumList">
+          <widget class="QComboBox" name="comboBox_stadiumList_delete">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -406,7 +419,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_souvenirList"/>
+          <widget class="QComboBox" name="comboBox_souvenirList_delete">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -423,6 +443,35 @@
          <string>Delete</string>
         </property>
        </widget>
+      </widget>
+      <widget class="QLabel" name="label_success">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>240</y>
+         <width>341</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 20pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_backDeleteSouvenirs">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>420</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="page_modifyStadiumInfo">

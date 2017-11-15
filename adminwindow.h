@@ -67,6 +67,14 @@ private slots:
 
     void on_confirmModify_clicked();
 
+    void on_pushButton_backAddSouvenirs_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_backDeleteSouvenirs_clicked();
+
+    void on_comboBox_stadiumList_delete_currentTextChanged(const QString &arg1);
+
 private:
     Ui::AdminWindow *ui;
 };
