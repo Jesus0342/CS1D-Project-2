@@ -113,6 +113,8 @@ public:
      * @param newPrice - New price of specified souvenir.
      */
     static void editSouvenirPrice(Souvenir souvenir, double newPrice);
+
+    static void editStadium(QString team, QString field, QString newValue);
 };
 
 #endif // DATABASE_H

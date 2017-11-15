@@ -45,11 +45,6 @@ private slots:
     void on_pushButton_reset_clicked();
 
     /**
-     * @brief on_pushButton_backAddStadiums_clicked returns to the Administrator homepage.
-     */
-    void on_pushButton_backAddStadiums_clicked();
-
-    /**
      * @brief on_pushButton_logout_clicked logs out of the Administrator account and
      * returns to the homepage.
      */
@@ -66,6 +61,26 @@ private slots:
     void on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2);
 
     void on_confirmModify_clicked();
+
+    /*************************
+     * BACK BUTTON FUNCTIONS *
+     *************************/
+    void backToAdminHome();
+
+    /**
+     * @brief on_pushButton_backAddStadiums_clicked returns to the Administrator homepage.
+     */
+    void on_pushButton_backAddStadiums_clicked();
+
+    void on_pushButton_backAddSouvenirs_clicked();
+
+    void on_pushButton_backDeleteSouvenirs_clicked();
+
+    void on_pushButton_backModifySouvenirs_clicked();
+
+    void on_pushButton_backModifyStadiums_clicked();
+
+    void on_confirmModifyStadiums_clicked();
 
 private:
     Ui::AdminWindow *ui;
