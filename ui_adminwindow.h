@@ -318,7 +318,7 @@ public:
 
         retranslateUi(AdminWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(4);
         comboBox_adminFunctions->setCurrentIndex(0);
 
 

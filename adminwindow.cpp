@@ -246,26 +246,6 @@ void AdminWindow::on_pushButton_clearFields_clicked()
     ui->label_status->hide();
 }
 
-void AdminWindow::on_comboBox_stadiumList_currentTextChanged(const QString &arg1)
-{
-    QSqlQueryModel *mod2 = new QSqlQueryModel();
-    QSqlQuery *qry2 = new QSqlQuery();
-    qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg1+"'");
-    qry2->exec();
-    mod2->setQuery(*qry2);
-    ui->comboBox_souvenirList_2->setModel(mod2);
-}
-
-void AdminWindow::on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2)
-{
-    QSqlQueryModel *mod3 = new QSqlQueryModel();
-    QSqlQuery *qry3 = new QSqlQuery();
-    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg2+"'");
-    qry3->exec();
-    mod3->setQuery(*qry3);
-    ui->comboBox_souvenirList_2->setModel(mod3);
-}
-
 void AdminWindow::on_pushButton_backAddSouvenirs_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_adminHome);
@@ -328,4 +308,14 @@ void AdminWindow::on_comboBox_stadiumList_delete_currentTextChanged(const QStrin
     qry2->exec();
     mod2->setQuery(*qry2);
     ui->comboBox_souvenirList_delete->setModel(mod2);
+}
+
+void AdminWindow::on_comboBox_stadiumList_2_currentIndexChanged(const QString &arg1)
+{
+    QSqlQueryModel *mod3 = new QSqlQueryModel();
+    QSqlQuery *qry3 = new QSqlQuery();
+    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg1+"'");
+    qry3->exec();
+    mod3->setQuery(*qry3);
+    ui->comboBox_souvenirList_2->setModel(mod3);
 }

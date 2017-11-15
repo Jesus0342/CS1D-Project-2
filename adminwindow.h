@@ -75,6 +75,8 @@ private slots:
 
     void on_comboBox_stadiumList_delete_currentTextChanged(const QString &arg1);
 
+    void on_comboBox_stadiumList_2_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::AdminWindow *ui;
 };
