@@ -61,7 +61,7 @@ private slots:
 
     void on_pushButton_clearFields_clicked();
 
-    void on_comboBox_stadiumList_currentTextChanged(const QString &arg1);
+//    void on_comboBox_stadiumList_currentTextChanged(const QString &arg1);
 
     void on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2);
 
@@ -76,6 +76,12 @@ private slots:
     void on_comboBox_stadiumList_delete_currentTextChanged(const QString &arg1);
 
     void on_comboBox_stadiumList_2_currentIndexChanged(const QString &arg1);
+
+    void on_confirmModifyStadiums_clicked();
+
+    void on_pushButton_backModifyStadiums_clicked();
+
+    void on_pushButton_backModifySouvenirs_clicked();
 
 private:
     Ui::AdminWindow *ui;

@@ -99,10 +99,10 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         }
     }
         break;     
-    case 2: ui->stackedWidget->setCurrentIndex(2);
+    case 2: ui->stackedWidget->setCurrentWidget(ui->page_addSouvenirs);
         populateBox_stadiumName();
         break;
-    case 3: ui->stackedWidget->setCurrentIndex(3);
+    case 3: ui->stackedWidget->setCurrentWidget(ui->page_deleteSouveinrs);
         {
         QSqlQueryModel *mod = new QSqlQueryModel();
         QSqlQuery *qry = new QSqlQuery();
@@ -119,7 +119,7 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         ui->comboBox_souvenirList_delete->setModel(mod2);
         break;
         }
-    case 4: ui->stackedWidget->setCurrentIndex(4);
+    case 4: ui->stackedWidget->setCurrentWidget(ui->page_modifySouvenirs);
     {
         QSqlQueryModel *mod = new QSqlQueryModel();
         QSqlQuery *qry = new QSqlQuery();
@@ -135,6 +135,16 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         mod2->setQuery(*qry2);
         ui->comboBox_souvenirList_2->setModel(mod2);
         break;
+    }
+    case 5 :
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_modifyStadiums);
+        QSqlQueryModel *mod = new QSqlQueryModel();
+        QSqlQuery *qry = new QSqlQuery();
+        qry->prepare("SELECT DISTINCT TeamName FROM NFL_INFORMATION");
+        qry->exec();
+        mod->setQuery(*qry);
+        ui->comboBox_teamList->setModel(mod);
     }
     }
 
@@ -318,4 +328,68 @@ void AdminWindow::on_comboBox_stadiumList_2_currentIndexChanged(const QString &a
     qry3->exec();
     mod3->setQuery(*qry3);
     ui->comboBox_souvenirList_2->setModel(mod3);
+}
+
+void AdminWindow::on_confirmModifyStadiums_clicked()
+{
+    QString teamName = ui->comboBox_teamList->currentText();
+    QString newStadiumName = ui->lineEdit_stadiumName->text();
+    QString newSeatingCapacity = ui->lineEdit_stadiumSeatingCapacity->text();
+    QString newLocation = ui->lineEdit_stadiumLocation->text();
+    QString newSurfaceType = ui->lineEdit_stadiumSurfaceType->text();
+    QString newRoofType = ui->lineEdit_stadiumRoofType->text();
+
+    if (!newStadiumName.isEmpty()) {
+        ui->label_stadiumNameModified->setText("Modified");
+        Database::editStadium(teamName,"StadiumName",newStadiumName);
+    }
+    if (!newSeatingCapacity.isEmpty()) { // we should also check if it matches the current one
+        ui->label_seatingCapacityModified->setText("Modified");
+        Database::editStadium(teamName,"SeatingCapacity",newSeatingCapacity);
+    }
+    if (!newLocation.isEmpty()) {
+        ui->label_locationModified->setText("Modified");
+        Database::editStadium(teamName,"Location",newLocation);
+    }
+    if (!newSurfaceType.isEmpty()) {
+        ui->label_surfaceTypeModified->setText("Modified");
+        Database::editStadium(teamName,"SurfaceType",newSurfaceType);
+    }
+    if (!newRoofType.isEmpty()) {
+        ui->label_roofTypeModified->setText("Modified");
+        Database::editStadium(teamName,"RoofType",newRoofType);
+    }
+
+
+    /*double val = souvenirPrice.toDouble();
+
+    souvenir1.setName(souvenirName);
+    souvenir1.setStadiumName(stadiumName);
+
+    // Send to GLORIOUS FUNCTION NOT MADE BY MYSELF
+    Database::editSouvenirPrice(souvenir1, val);
+
+    qDebug() << "Modified souvenir successful";
+    ui->label_status_2->show();
+    ui->label_status_2->setText("SUCCESSFULLY MODIFIED");*/
+}
+
+void AdminWindow::on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2)
+{
+    QSqlQueryModel *mod3 = new QSqlQueryModel();
+    QSqlQuery *qry3 = new QSqlQuery();
+    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg2+"'");
+    qry3->exec();
+    mod3->setQuery(*qry3);
+    ui->comboBox_souvenirList_2->setModel(mod3);
+}
+
+void AdminWindow::on_pushButton_backModifyStadiums_clicked()
+{
+    on_pushButton_backAddStadiums_clicked();
+}
+
+void AdminWindow::on_pushButton_backModifySouvenirs_clicked()
+{
+    on_pushButton_backAddStadiums_clicked();
 }

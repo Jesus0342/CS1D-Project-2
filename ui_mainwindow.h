@@ -397,7 +397,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(1);
         comboBox_displayOptions->setCurrentIndex(0);
 
 

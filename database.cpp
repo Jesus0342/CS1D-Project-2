@@ -361,6 +361,23 @@ void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
         query.bindValue(":stadiumName", stadiumName);
 
         query.exec();
-
     }
+}
+
+void Database::editStadium(QString team, QString field, QString newValue)
+{
+    QSqlQuery query;
+
+    query.prepare("UPDATE NFL_INFORMATION SET " + field + " = :newValue WHERE TeamName = :team");
+
+//    if (field == "SeatingCapacity")
+//    {
+//        int seatingCapacityInt =newValue.toInt();
+//        query.bindValue(":newValue",seatingCapacityInt);
+//    }
+//    else
+        query.bindValue(":newValue", newValue);
+        query.bindValue(":team", team);
+
+    query.exec();
 }
