@@ -63,7 +63,7 @@ private slots:
 
 //    void on_comboBox_stadiumList_currentTextChanged(const QString &arg1);
 
-    void on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2);
+    void on_comboBox_teamList_2_currentTextChanged(const QString &arg2);
 
     void on_confirmModify_clicked();
 
@@ -73,9 +73,9 @@ private slots:
 
     void on_pushButton_backDeleteSouvenirs_clicked();
 
-    void on_comboBox_stadiumList_delete_currentTextChanged(const QString &arg1);
+    void on_comboBox_teamList_delete_currentTextChanged(const QString &arg1);
 
-    void on_comboBox_stadiumList_2_currentIndexChanged(const QString &arg1);
+    void on_comboBox_teamList_2_currentIndexChanged(const QString &arg1);
 
     void on_confirmModifyStadiums_clicked();
 

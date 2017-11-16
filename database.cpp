@@ -85,14 +85,14 @@ QVector<Souvenir> Database::returnSouvenirList()
 
     // Gets the index of the specified record from the table.
     int nameId = query.record().indexOf("SouvenirName");
-    int stadiumNameId = query.record().indexOf("StadiumName");
+    int teamNameId = query.record().indexOf("TeamName");
     int priceId = query.record().indexOf("Price");
 
     // Adds the souvenirs to the QVector while there are still souvenirs in the database.
     while(query.next())
     {
         temp.setName(query.value(nameId).toString());
-        temp.setStadiumName(query.value(stadiumNameId).toString());
+        temp.setTeamName(query.value(teamNameId).toString());
         temp.setPrice(query.value(priceId).toDouble());
 
         souvenirs.append(temp);
@@ -112,16 +112,16 @@ QVector<Souvenir> Database::returnSouvenirList(Team stadium)
 
     // Gets the index of the specified record from the table.
     int nameId = query.record().indexOf("SouvenirName");
-    int stadiumNameId = query.record().indexOf("StadiumName");
+    int teamNameId = query.record().indexOf("TeamName");
     int priceId = query.record().indexOf("Price");
 
     // Adds the souvenirs to the QVector while there are still souvenirs in the database.
     while(query.next())
     {
-        if(query.value(stadiumNameId).toString() == stadium.getName())
+        if(query.value(teamNameId).toString() == stadium.getName())
         {
             temp.setName(query.value(nameId).toString());
-            temp.setStadiumName(query.value(stadiumNameId).toString());
+            temp.setTeamName(query.value(teamNameId).toString());
             temp.setPrice(query.value(priceId).toDouble());
 
             souvenirs.append(temp);
@@ -184,14 +184,14 @@ QVector<Souvenir> Database::returnNewSouvenirs()
 
     // Gets the index of the specified record from the table.
     int nameId = query.record().indexOf("SouvenirName");
-    int stadiumNameId = query.record().indexOf("StadiumName");
+    int teamNameId = query.record().indexOf("TeamName");
     int priceId = query.record().indexOf("Price");
 
     // Adds the souvenirs to the QVector while there are still souvenirs in the database.
     while(query.next())
     {
         temp.setName(query.value(nameId).toString());
-        temp.setStadiumName(query.value(stadiumNameId).toString());
+        temp.setTeamName(query.value(teamNameId).toString());
         temp.setPrice(query.value(priceId).toDouble());
 
         newSouvenirs.append(temp);
@@ -228,12 +228,12 @@ bool Database::souvenirExists(Souvenir souvenir)
 
     // Gets the name of the souvenir and its corresponding stadium.
     QString souvenirName = souvenir.getName();
-    QString stadium = souvenir.getStadiumName();
+    QString team = souvenir.getTeamName();
 
-    query.prepare("SELECT Distinct SouvenirName FROM NFL_SOUVENIRS WHERE UPPER(SouvenirName) = UPPER(:souvenirName) and UPPER(StadiumName) = UPPER(:stadiumName)");
+    query.prepare("SELECT Distinct SouvenirName FROM NFL_SOUVENIRS WHERE UPPER(SouvenirName) = UPPER(:souvenirName) and UPPER(TeamName) = UPPER(:teamName)");
 
     query.bindValue(":souvenirName", souvenirName);
-    query.bindValue(":stadiumName", stadium);
+    query.bindValue(":teamName", team);
 
     query.exec();
 
@@ -291,16 +291,16 @@ void Database::addSouvenir(Souvenir souvenir)
 
         // Gets the information for the new souvenir.
         QString souvenirName = souvenir.getName();
-        QString stadiumName = souvenir.getStadiumName();
+        QString teamName = souvenir.getTeamName();
         double price = souvenir.getPrice();
 
         // Specifies the table and columns where the information will be placed.
-        query.prepare("INSERT INTO NFL_SOUVENIRS(SouvenirName, StadiumName, Price)\n"
-                      "VALUES(:souvenirName, :stadiumName, :price);");
+        query.prepare("INSERT INTO NFL_SOUVENIRS(SouvenirName, TeamName, Price)\n"
+                      "VALUES(:souvenirName, :teamName, :price);");
 
         // Binds the values.
         query.bindValue(":souvenirName", souvenirName);
-        query.bindValue(":stadiumName", stadiumName);
+        query.bindValue(":teamName", teamName);
         query.bindValue(":price", price);
 
         // Adds the souvenir to the database.
@@ -331,14 +331,14 @@ void Database::removeSouvenir(Souvenir souvenir)
     if(souvenirExists(souvenir))
     {
         QString souvenirName = souvenir.getName();
-        QString stadiumName = souvenir.getStadiumName();
+        QString teamName = souvenir.getTeamName();
 
         QSqlQuery query;
 
-        query.prepare("DELETE FROM NFL_SOUVENIRS WHERE SouvenirName = :souvenirName and StadiumName = :stadiumName");
+        query.prepare("DELETE FROM NFL_SOUVENIRS WHERE SouvenirName = :souvenirName and TeamName = :teamName");
 
         query.bindValue(":souvenirName", souvenirName);
-        query.bindValue(":stadiumName", stadiumName);
+        query.bindValue(":teamName", teamName);
 
         query.exec();
     }
@@ -350,15 +350,15 @@ void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
     if(souvenirExists(souvenir))
     {
         QString souvenirName = souvenir.getName();
-        QString stadiumName = souvenir.getStadiumName();
+        QString teamName = souvenir.getTeamName();
 
         QSqlQuery query;
 
-        query.prepare("UPDATE NFL_SOUVENIRS SET Price = :price WHERE SouvenirName = :souvenirName AND StadiumName = :stadiumName");
+        query.prepare("UPDATE NFL_SOUVENIRS SET Price = :price WHERE SouvenirName = :souvenirName AND TeamName = :teamName");
 
         query.bindValue(":price", newPrice);
         query.bindValue(":souvenirName", souvenirName);
-        query.bindValue(":stadiumName", stadiumName);
+        query.bindValue(":teamName", teamName);
 
         query.exec();
     }

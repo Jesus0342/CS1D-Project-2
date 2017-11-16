@@ -386,7 +386,7 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
             for(int indexC = 0; indexC < numCols; indexC++)
             {
 
-                ui->tableWidget_stadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getStadiumName()));
+                ui->tableWidget_stadiums->setItem(indexR, indexC, new QTableWidgetItem(teams[indexR].getName()));
                 indexC++;
             }
         }
@@ -742,16 +742,50 @@ void MainWindow::setRoofTable (QString roofType) {
 //    int numRows = ui->tableWidget_roof->rowCount();
     int numFound = 0;
 
+    QVector<Team>::iterator teamIt = teams.begin();
+
+    // Traverses the entire map to accumulate totalSeatingCapacity.
+    while(teamIt != teams.end())
+    {
+        // Resets compIt to the beginning of the map.
+        QVector<Team>::iterator compIt = teams.begin();
+
+        // Determines whether or not the stadium's seating capacity has already
+        // been counted.
+        bool alreadyCounted = false;
+
+        // Traverses the list up until teamIt to check if any of the teams before
+        // teamIt play in the same stadium.
+        while(compIt < teamIt && !alreadyCounted)
+        {
+            // Sets alreadyCounted to true if a previous team plays at the same
+            // stadium as the current team.
+            if(compIt->getStadiumName() == teamIt->getStadiumName())
+            {
+                alreadyCounted = true;
+            }
+
+            // Moves compIt to the next team.
+            compIt++;
+        }
+
+        if(!alreadyCounted && teamIt->getStadiumRoofType() == roofType)
+        {
+            numFound++;
+        }
+
+        teamIt++;
+    }
+
     // Sets the information for all teams on the table widget.
     for(int i = 0; i < teams.size(); i++)
     {
         // Adds the teams to the conference table that have open roofs
         if (teams[i].getStadiumRoofType() == roofType)
         {
-            ui->tableWidget_roof->insertRow(numFound);
-            ui->tableWidget_roof->setItem(numFound, 0, new QTableWidgetItem(teams[i].getName()));
-            ui->tableWidget_roof->setItem(numFound, 1, new QTableWidgetItem(teams[i].getStadiumName()));
-            numFound++;
+            ui->tableWidget_roof->insertRow(ui->tableWidget_roof->rowCount());
+            ui->tableWidget_roof->setItem(ui->tableWidget_roof->rowCount() - 1, 0, new QTableWidgetItem(teams[i].getName()));
+            ui->tableWidget_roof->setItem(ui->tableWidget_roof->rowCount() - 1, 1, new QTableWidgetItem(teams[i].getStadiumName()));
         }
     }
 

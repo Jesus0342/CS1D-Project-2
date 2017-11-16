@@ -106,36 +106,36 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         {
         QSqlQueryModel *mod = new QSqlQueryModel();
         QSqlQuery *qry = new QSqlQuery();
-        qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+        qry->prepare("SELECT DISTINCT TeamName FROM NFL_INFORMATION");
         qry->exec();
         mod->setQuery(*qry);
-        ui->comboBox_stadiumList_delete->setModel(mod);
+        ui->comboBox_teamList_delete->setModel(mod);
 
         QSqlQueryModel *mod2 = new QSqlQueryModel();
         QSqlQuery *qry2 = new QSqlQuery();
-        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_stadiumList_delete->currentText()+"'");
+        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_teamList_delete->currentText()+"'");
         qry2->exec();
         mod2->setQuery(*qry2);
         ui->comboBox_souvenirList_delete->setModel(mod2);
-        break;
         }
+            break;
     case 4: ui->stackedWidget->setCurrentWidget(ui->page_modifySouvenirs);
     {
         QSqlQueryModel *mod = new QSqlQueryModel();
         QSqlQuery *qry = new QSqlQuery();
-        qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+        qry->prepare("SELECT DISTINCT TeamName FROM NFL_INFORMATION");
         qry->exec();
         mod->setQuery(*qry);
-        ui->comboBox_stadiumList_2->setModel(mod);
+        ui->comboBox_teamList_2->setModel(mod);
 
         QSqlQueryModel *mod2 = new QSqlQueryModel();
         QSqlQuery *qry2 = new QSqlQuery();
-        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_stadiumList_2->currentText()+"'");
+        qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+ui->comboBox_teamList_2->currentText()+"'");
         qry2->exec();
         mod2->setQuery(*qry2);
         ui->comboBox_souvenirList_2->setModel(mod2);
-        break;
     }
+        break;
     case 5 :
     {
         ui->stackedWidget->setCurrentWidget(ui->page_modifyStadiums);
@@ -225,24 +225,23 @@ void AdminWindow::populateBox_stadiumName()
 {
     QSqlQueryModel *mod = new QSqlQueryModel();
     QSqlQuery *qry = new QSqlQuery();
-    qry->prepare("SELECT DISTINCT StadiumName FROM NFL_INFORMATION");
+    qry->prepare("SELECT DISTINCT TeamName FROM NFL_INFORMATION");
     qry->exec();
     mod->setQuery(*qry);
-    ui->comboBox_stadiumList_add->setModel(mod);
+    ui->comboBox_teamList_add->setModel(mod);
 }
 
 void AdminWindow::on_pushButton_confirmAdd_clicked()
-{
-    QString stadiumName = ui->comboBox_stadiumList_add->currentText();
-    QString itemName = ui->lineEdit_itemName->text();
-    double itemPrice = ui->doubleSpinBox_itemPrice->value();
-    QString val = QString::number(itemPrice);
+{   
+    Souvenir souvenir;
 
-    QSqlQuery *add = new QSqlQuery();
-    add->exec("INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
-              "('"+stadiumName+"', '"+itemName+"', "+val+")");
-    QTextStream(stdout) << "INSERT into NFL_SOUVENIRS (StadiumName, SouvenirName, Price) values "
-                           "('"+stadiumName+"', '"+itemName+"', '"+val+"')";
+    souvenir.setName(ui->lineEdit_itemName->text());
+    souvenir.setTeamName(ui->comboBox_teamList_add->currentText());
+    souvenir.setPrice(ui->doubleSpinBox_itemPrice->value());
+
+    Database::addSouvenir(souvenir);
+
+    on_pushButton_clearFields_clicked();
 
     ui->label_status->show();
     ui->label_status->setText("SUCCESSFULLY ADDED");
@@ -250,7 +249,7 @@ void AdminWindow::on_pushButton_confirmAdd_clicked()
 
 void AdminWindow::on_pushButton_clearFields_clicked()
 {
-    ui->comboBox_stadiumList_add->setCurrentIndex(0);
+    ui->comboBox_teamList_add->setCurrentIndex(0);
     ui->lineEdit_itemName->clear();
     ui->doubleSpinBox_itemPrice->setValue(0);
     ui->label_status->hide();
@@ -261,6 +260,8 @@ void AdminWindow::on_pushButton_backAddSouvenirs_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_adminHome);
 
     ui->comboBox_adminFunctions->setCurrentIndex(0);
+
+    on_pushButton_clearFields_clicked();
 }
 
 
@@ -273,13 +274,12 @@ void AdminWindow::on_pushButton_backDeleteSouvenirs_clicked()
 
 void AdminWindow::on_pushButton_clicked()
 {
-    QString stadiumName = ui->comboBox_stadiumList_delete->currentText();
-    QString itemName = ui->comboBox_souvenirList_delete->currentText();
+    Souvenir souvenir;
 
+    souvenir.setName(ui->comboBox_souvenirList_delete->currentText());
+    souvenir.setTeamName(ui->comboBox_teamList_delete->currentText());
 
-    QSqlQuery *del = new QSqlQuery();
-    del->exec("delete from NFL_SOUVENIRS where SouvenirName='"+itemName+"'"+" and StadiumName='"+stadiumName+"'");
-    QTextStream(stdout) << ("delete from NFL_SOUVENIRS where SouvenirName='"+itemName+"'"+" and StadiumName='"+stadiumName+"'");
+    Database::removeSouvenir(souvenir);
 
     ui->label_success->show();
     ui->label_success->setText("Souvenir Successfully Deleted");
@@ -293,13 +293,12 @@ void AdminWindow::on_pushButton_clicked()
 void AdminWindow::on_confirmModify_clicked()
 {
     Souvenir souvenir1;
-    QString stadiumName = ui->comboBox_stadiumList_2->currentText();
+    QString teamName = ui->comboBox_teamList_2->currentText();
     QString souvenirName = ui->comboBox_souvenirList_2->currentText();
-    QString souvenirPrice = ui->lineEdit_souvenirPrice->text();
-    double val = souvenirPrice.toDouble();
+    double val = ui->doubleSpinBox_newPrice->value();
 
     souvenir1.setName(souvenirName);
-    souvenir1.setStadiumName(stadiumName);
+    souvenir1.setTeamName(teamName);
 
     // Send to GLORIOUS FUNCTION NOT MADE BY MYSELF
     Database::editSouvenirPrice(souvenir1, val);
@@ -310,21 +309,21 @@ void AdminWindow::on_confirmModify_clicked()
 }
 
 
-void AdminWindow::on_comboBox_stadiumList_delete_currentTextChanged(const QString &arg1)
+void AdminWindow::on_comboBox_teamList_delete_currentTextChanged(const QString &arg1)
 {
     QSqlQueryModel *mod2 = new QSqlQueryModel();
     QSqlQuery *qry2 = new QSqlQuery();
-    qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg1+"'");
+    qry2->prepare("SELECT SouvenirName from NFL_SOUVENIRS where TeamName ='"+arg1+"'");
     qry2->exec();
     mod2->setQuery(*qry2);
     ui->comboBox_souvenirList_delete->setModel(mod2);
 }
 
-void AdminWindow::on_comboBox_stadiumList_2_currentIndexChanged(const QString &arg1)
+void AdminWindow::on_comboBox_teamList_2_currentIndexChanged(const QString &arg1)
 {
     QSqlQueryModel *mod3 = new QSqlQueryModel();
     QSqlQuery *qry3 = new QSqlQuery();
-    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg1+"'");
+    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where TeamName ='"+arg1+"'");
     qry3->exec();
     mod3->setQuery(*qry3);
     ui->comboBox_souvenirList_2->setModel(mod3);
@@ -374,11 +373,11 @@ void AdminWindow::on_confirmModifyStadiums_clicked()
     ui->label_status_2->setText("SUCCESSFULLY MODIFIED");*/
 }
 
-void AdminWindow::on_comboBox_stadiumList_2_currentTextChanged(const QString &arg2)
+void AdminWindow::on_comboBox_teamList_2_currentTextChanged(const QString &arg2)
 {
     QSqlQueryModel *mod3 = new QSqlQueryModel();
     QSqlQuery *qry3 = new QSqlQuery();
-    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where StadiumName ='"+arg2+"'");
+    qry3->prepare("SELECT SouvenirName from NFL_SOUVENIRS where TeamName ='"+arg2+"'");
     qry3->exec();
     mod3->setQuery(*qry3);
     ui->comboBox_souvenirList_2->setModel(mod3);

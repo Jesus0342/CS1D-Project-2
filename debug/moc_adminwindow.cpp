@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AdminWindow_t {
     QByteArrayData data[23];
-    char stringdata0[681];
+    char stringdata0[672];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,18 +42,18 @@ QT_MOC_LITERAL(7, 166, 28), // "on_pushButton_logout_clicked"
 QT_MOC_LITERAL(8, 195, 23), // "populateBox_stadiumName"
 QT_MOC_LITERAL(9, 219, 32), // "on_pushButton_confirmAdd_clicked"
 QT_MOC_LITERAL(10, 252, 33), // "on_pushButton_clearFields_cli..."
-QT_MOC_LITERAL(11, 286, 44), // "on_comboBox_stadiumList_2_cur..."
-QT_MOC_LITERAL(12, 331, 4), // "arg2"
-QT_MOC_LITERAL(13, 336, 24), // "on_confirmModify_clicked"
-QT_MOC_LITERAL(14, 361, 38), // "on_pushButton_backAddSouvenir..."
-QT_MOC_LITERAL(15, 400, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(16, 422, 41), // "on_pushButton_backDeleteSouve..."
-QT_MOC_LITERAL(17, 464, 49), // "on_comboBox_stadiumList_delet..."
-QT_MOC_LITERAL(18, 514, 4), // "arg1"
-QT_MOC_LITERAL(19, 519, 45), // "on_comboBox_stadiumList_2_cur..."
-QT_MOC_LITERAL(20, 565, 32), // "on_confirmModifyStadiums_clicked"
-QT_MOC_LITERAL(21, 598, 40), // "on_pushButton_backModifyStadi..."
-QT_MOC_LITERAL(22, 639, 41) // "on_pushButton_backModifySouve..."
+QT_MOC_LITERAL(11, 286, 41), // "on_comboBox_teamList_2_curren..."
+QT_MOC_LITERAL(12, 328, 4), // "arg2"
+QT_MOC_LITERAL(13, 333, 24), // "on_confirmModify_clicked"
+QT_MOC_LITERAL(14, 358, 38), // "on_pushButton_backAddSouvenir..."
+QT_MOC_LITERAL(15, 397, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(16, 419, 41), // "on_pushButton_backDeleteSouve..."
+QT_MOC_LITERAL(17, 461, 46), // "on_comboBox_teamList_delete_c..."
+QT_MOC_LITERAL(18, 508, 4), // "arg1"
+QT_MOC_LITERAL(19, 513, 42), // "on_comboBox_teamList_2_curren..."
+QT_MOC_LITERAL(20, 556, 32), // "on_confirmModifyStadiums_clicked"
+QT_MOC_LITERAL(21, 589, 40), // "on_pushButton_backModifyStadi..."
+QT_MOC_LITERAL(22, 630, 41) // "on_pushButton_backModifySouve..."
 
     },
     "AdminWindow\0on_comboBox_adminFunctions_currentIndexChanged\0"
@@ -64,13 +64,13 @@ QT_MOC_LITERAL(22, 639, 41) // "on_pushButton_backModifySouve..."
     "populateBox_stadiumName\0"
     "on_pushButton_confirmAdd_clicked\0"
     "on_pushButton_clearFields_clicked\0"
-    "on_comboBox_stadiumList_2_currentTextChanged\0"
+    "on_comboBox_teamList_2_currentTextChanged\0"
     "arg2\0on_confirmModify_clicked\0"
     "on_pushButton_backAddSouvenirs_clicked\0"
     "on_pushButton_clicked\0"
     "on_pushButton_backDeleteSouvenirs_clicked\0"
-    "on_comboBox_stadiumList_delete_currentTextChanged\0"
-    "arg1\0on_comboBox_stadiumList_2_currentIndexChanged\0"
+    "on_comboBox_teamList_delete_currentTextChanged\0"
+    "arg1\0on_comboBox_teamList_2_currentIndexChanged\0"
     "on_confirmModifyStadiums_clicked\0"
     "on_pushButton_backModifyStadiums_clicked\0"
     "on_pushButton_backModifySouvenirs_clicked"
@@ -147,13 +147,13 @@ void AdminWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 5: _t->populateBox_stadiumName(); break;
         case 6: _t->on_pushButton_confirmAdd_clicked(); break;
         case 7: _t->on_pushButton_clearFields_clicked(); break;
-        case 8: _t->on_comboBox_stadiumList_2_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 8: _t->on_comboBox_teamList_2_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 9: _t->on_confirmModify_clicked(); break;
         case 10: _t->on_pushButton_backAddSouvenirs_clicked(); break;
         case 11: _t->on_pushButton_clicked(); break;
         case 12: _t->on_pushButton_backDeleteSouvenirs_clicked(); break;
-        case 13: _t->on_comboBox_stadiumList_delete_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 14: _t->on_comboBox_stadiumList_2_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 13: _t->on_comboBox_teamList_delete_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 14: _t->on_comboBox_teamList_2_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 15: _t->on_confirmModifyStadiums_clicked(); break;
         case 16: _t->on_pushButton_backModifyStadiums_clicked(); break;
         case 17: _t->on_pushButton_backModifySouvenirs_clicked(); break;

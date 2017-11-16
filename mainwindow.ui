@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -128,7 +128,7 @@
         </item>
         <item>
          <property name="text">
-          <string>9 - Stadium Souvenirs</string>
+          <string>9 - Team Souvenirs</string>
          </property>
         </item>
        </widget>
@@ -847,7 +847,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Stadium Souvenirs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Team Souvenirs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QTableWidget" name="tableWidget_stadiums">
@@ -861,21 +861,21 @@
         </property>
         <column>
          <property name="text">
-          <string>Stadium Name</string>
+          <string>Team Name</string>
          </property>
         </column>
        </widget>
        <widget class="QLabel" name="label_displaySouvenirPrompt">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>110</x>
           <y>70</y>
           <width>421</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Please click the name of a stadium to display its souvenirs.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Please click the name of a team to display its souvenirs.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

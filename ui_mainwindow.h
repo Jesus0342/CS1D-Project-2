@@ -378,7 +378,7 @@ public:
         tableWidget_stadiums->setGeometry(QRect(50, 110, 241, 281));
         label_displaySouvenirPrompt = new QLabel(page_displaySouvenirs);
         label_displaySouvenirPrompt->setObjectName(QStringLiteral("label_displaySouvenirPrompt"));
-        label_displaySouvenirPrompt->setGeometry(QRect(100, 70, 421, 21));
+        label_displaySouvenirPrompt->setGeometry(QRect(110, 70, 421, 21));
         stackedWidget->addWidget(page_displaySouvenirs);
 
         verticalLayout->addWidget(stackedWidget);
@@ -397,7 +397,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(10);
         comboBox_displayOptions->setCurrentIndex(0);
 
 
@@ -425,7 +425,7 @@ public:
          << QApplication::translate("MainWindow", "6 - Star Players", Q_NULLPTR)
          << QApplication::translate("MainWindow", "7 - Stadium Seating Capacity", Q_NULLPTR)
          << QApplication::translate("MainWindow", "8 - Stadium Surface Type", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "9 - Stadium Souvenirs", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "9 - Team Souvenirs", Q_NULLPTR)
         );
         pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
         label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
@@ -521,10 +521,10 @@ public:
         ___qtablewidgetitem29->setText(QApplication::translate("MainWindow", "Souvenir Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem30 = tableWidget_souvenirs->horizontalHeaderItem(1);
         ___qtablewidgetitem30->setText(QApplication::translate("MainWindow", "Price", Q_NULLPTR));
-        label_displaySouvenirs->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Souvenirs</span></p></body></html>", Q_NULLPTR));
+        label_displaySouvenirs->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Team Souvenirs</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem31 = tableWidget_stadiums->horizontalHeaderItem(0);
-        ___qtablewidgetitem31->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
-        label_displaySouvenirPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Please click the name of a stadium to display its souvenirs.</span></p></body></html>", Q_NULLPTR));
+        ___qtablewidgetitem31->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
+        label_displaySouvenirPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Please click the name of a team to display its souvenirs.</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

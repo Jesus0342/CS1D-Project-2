@@ -12,9 +12,9 @@ void Souvenir::setName(QString sName)
     name = sName;
 }
 
-void Souvenir::setStadiumName(QString sStadiumName)
+void Souvenir::setTeamName(QString sTeamName)
 {
-    stadiumName = sStadiumName;
+    teamName = sTeamName;
 }
 
 void Souvenir::setPrice(double sPrice)
@@ -30,9 +30,9 @@ QString Souvenir::getName()
     return name;
 }
 
-QString Souvenir::getStadiumName()
+QString Souvenir::getTeamName()
 {
-    return stadiumName;
+    return teamName;
 }
 
 double Souvenir::getPrice()

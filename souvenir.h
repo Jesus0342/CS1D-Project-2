@@ -7,7 +7,7 @@ class Souvenir
 {
 private:
     QString name; /**< Souvenir name */
-    QString stadiumName; /**< Stadium name */
+    QString teamName; /**< Team name */
     double price; /**< Souvenir price */
 
 public:
@@ -28,10 +28,10 @@ public:
     void setName(QString sName);
 
     /**
-     * @brief setStadiumName sets the stadium's name.
-     * @param sStadiumName - Stadium's name.
+     * @brief setTeamName sets the stadium's name.
+     * @param sTeamName - Team's name.
      */
-    void setStadiumName(QString sStadiumName);
+    void setTeamName(QString sTeamName);
 
     /**
      * @brief setPrice sets the souvenir's price.
@@ -51,10 +51,10 @@ public:
     QString getName();
 
     /**
-     * @brief getStadiumName returns the stadium's name.
-     * @return stadiumName
+     * @brief getTeamName returns the team's name.
+     * @return teamName
      */
-    QString getStadiumName();
+    QString getTeamName();
 
     /**
      * @brief getPrice return's the souvenir's price.
