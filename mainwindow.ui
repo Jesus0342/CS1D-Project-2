@@ -18,7 +18,11 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
+<<<<<<< HEAD
        <number>1</number>
+=======
+       <number>0</number>
+>>>>>>> 110135587de38b76d2c01d61a84737ef6718315b
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -51,6 +55,11 @@
         <item>
          <property name="text">
           <string>1 - View NFL Information</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2 - Traverse Graph</string>
          </property>
         </item>
        </widget>
