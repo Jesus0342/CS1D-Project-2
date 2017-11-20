@@ -57,7 +57,9 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
     break;
     case 2 :
     {
-        traversegraph
+        traversegraph *window = new traversegraph;
+
+        window->show();
     }
     }
 

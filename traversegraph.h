@@ -1,22 +1,22 @@
-#ifndef TRAVERSEGRAPH_H
-#define TRAVERSEGRAPH_H
+#ifndef traversegraph_H
+#define traversegraph_H
 
 #include <QDialog>
 
 namespace Ui {
-class TraverseGraph;
+class traversegraph;
 }
 
-class TraverseGraph : public QDialog
+class traversegraph : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit TraverseGraph(QWidget *parent = 0);
-    ~TraverseGraph();
+    explicit traversegraph(QWidget *parent = 0);
+    ~traversegraph();
 
 private:
-    Ui::TraverseGraph *ui;
+    Ui::traversegraph *ui;
 };
 
-#endif // TRAVERSEGRAPH_H
+#endif // traversegraph_H

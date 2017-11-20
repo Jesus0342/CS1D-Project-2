@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'buysouvenir.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -239,22 +239,22 @@ public:
 
     void retranslateUi(QMainWindow *buySouvenir)
     {
-        buySouvenir->setWindowTitle(QApplication::translate("buySouvenir", "Purchase Souvenir", 0));
-        groupBox_receipt->setTitle(QApplication::translate("buySouvenir", "Receipt of Purchase", 0));
-        label->setText(QApplication::translate("buySouvenir", "Souvenir Item", 0));
-        label_2->setText(QApplication::translate("buySouvenir", "Purchased From", 0));
-        label_3->setText(QApplication::translate("buySouvenir", "Quantity", 0));
-        label_4->setText(QApplication::translate("buySouvenir", "Price", 0));
-        label_5->setText(QApplication::translate("buySouvenir", "Grand Total", 0));
-        pushButton->setText(QApplication::translate("buySouvenir", "Exit", 0));
-        label_8->setText(QApplication::translate("buySouvenir", "Thank you for your purchase!", 0));
+        buySouvenir->setWindowTitle(QApplication::translate("buySouvenir", "Purchase Souvenir", Q_NULLPTR));
+        groupBox_receipt->setTitle(QApplication::translate("buySouvenir", "Receipt of Purchase", Q_NULLPTR));
+        label->setText(QApplication::translate("buySouvenir", "Souvenir Item", Q_NULLPTR));
+        label_2->setText(QApplication::translate("buySouvenir", "Purchased From", Q_NULLPTR));
+        label_3->setText(QApplication::translate("buySouvenir", "Quantity", Q_NULLPTR));
+        label_4->setText(QApplication::translate("buySouvenir", "Price", Q_NULLPTR));
+        label_5->setText(QApplication::translate("buySouvenir", "Grand Total", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("buySouvenir", "Exit", Q_NULLPTR));
+        label_8->setText(QApplication::translate("buySouvenir", "Thank you for your purchase!", Q_NULLPTR));
         label_9->setText(QString());
-        groupBox_main->setTitle(QApplication::translate("buySouvenir", "Make Purchase", 0));
-        pushButton_resetCart->setText(QApplication::translate("buySouvenir", "Reset Cart", 0));
-        pushButton_confirmPurchase->setText(QApplication::translate("buySouvenir", "Confirm Purchase", 0));
-        pushButton_addToCart->setText(QApplication::translate("buySouvenir", "Add To Cart", 0));
-        label_6->setText(QApplication::translate("buySouvenir", "Total Qty", 0));
-        label_7->setText(QApplication::translate("buySouvenir", "Cart Total", 0));
+        groupBox_main->setTitle(QApplication::translate("buySouvenir", "Make Purchase", Q_NULLPTR));
+        pushButton_resetCart->setText(QApplication::translate("buySouvenir", "Reset Cart", Q_NULLPTR));
+        pushButton_confirmPurchase->setText(QApplication::translate("buySouvenir", "Confirm Purchase", Q_NULLPTR));
+        pushButton_addToCart->setText(QApplication::translate("buySouvenir", "Add To Cart", Q_NULLPTR));
+        label_6->setText(QApplication::translate("buySouvenir", "Total Qty", Q_NULLPTR));
+        label_7->setText(QApplication::translate("buySouvenir", "Cart Total", Q_NULLPTR));
     } // retranslateUi
 
 };
