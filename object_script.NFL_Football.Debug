@@ -8,8 +8,10 @@ INPUT(
 ./debug\buysouvenir.o
 ./debug\adminwindow.o
 ./debug\login.o
+./debug\startatfordfield.o
 ./debug\moc_mainwindow.o
 ./debug\moc_buysouvenir.o
 ./debug\moc_adminwindow.o
 ./debug\moc_login.o
+./debug\moc_startatfordfield.o
 );

@@ -46,6 +46,7 @@ public:
     QLabel *label_viewNFLInfo;
     QLabel *label_NFLInfoPrompt;
     QPushButton *pushButton_testBuy;
+    QPushButton *pushButton_startFordField;
     QWidget *page_viewTeamInfo;
     QTableWidget *tableWidget_teamInfo;
     QPushButton *pushButton_backViewTeamInfo;
@@ -143,6 +144,9 @@ public:
         pushButton_testBuy = new QPushButton(page_viewNFLInfo);
         pushButton_testBuy->setObjectName(QStringLiteral("pushButton_testBuy"));
         pushButton_testBuy->setGeometry(QRect(250, 230, 80, 21));
+        pushButton_startFordField = new QPushButton(page_viewNFLInfo);
+        pushButton_startFordField->setObjectName(QStringLiteral("pushButton_startFordField"));
+        pushButton_startFordField->setGeometry(QRect(200, 260, 191, 23));
         stackedWidget->addWidget(page_viewNFLInfo);
         page_viewTeamInfo = new QWidget();
         page_viewTeamInfo->setObjectName(QStringLiteral("page_viewTeamInfo"));
@@ -397,7 +401,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(1);
         comboBox_displayOptions->setCurrentIndex(0);
 
 
@@ -431,6 +435,7 @@ public:
         label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
         label_NFLInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the information that you would like to view.</span></p></body></html>", Q_NULLPTR));
         pushButton_testBuy->setText(QApplication::translate("MainWindow", "buy", Q_NULLPTR));
+        pushButton_startFordField->setText(QApplication::translate("MainWindow", "visit all starting at ford field-- test", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_teamInfo->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_teamInfo->horizontalHeaderItem(1);

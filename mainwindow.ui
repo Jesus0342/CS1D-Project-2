@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>10</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -182,6 +182,19 @@
         </property>
         <property name="text">
          <string>buy</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_startFordField">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>260</y>
+          <width>191</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>visit all starting at ford field-- test</string>
         </property>
        </widget>
       </widget>

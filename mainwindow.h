@@ -130,6 +130,8 @@ private slots:
 
     void on_tableWidget_stadiums_clicked(const QModelIndex &index);
 
+    void on_pushButton_startFordField_clicked();
+
 private:
     Ui::MainWindow *ui;
 

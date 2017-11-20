@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "buysouvenir.h"
+#include "startatfordfield.h"
 
 #include <QtAlgorithms>
 #include <QObject>
@@ -901,4 +902,10 @@ void MainWindow::on_tableWidget_stadiums_clicked(const QModelIndex &index)
 
     // Allows the table to be sorted by clicking on a table header.
     ui->tableWidget_souvenirs->setSortingEnabled(true);
+}
+
+void MainWindow::on_pushButton_startFordField_clicked()
+{
+    startAtFordField *s = new startAtFordField();
+    s->show();
 }

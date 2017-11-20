@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     souvenir.cpp \
     buysouvenir.cpp \
     adminwindow.cpp \
-    login.cpp
+    login.cpp \
+    startatfordfield.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
@@ -41,9 +42,11 @@ HEADERS  += mainwindow.h \
     souvenir.h \
     buysouvenir.h \
     adminwindow.h \
-    login.h
+    login.h \
+    startatfordfield.h
 
 FORMS    += mainwindow.ui \
     buysouvenir.ui \
     adminwindow.ui \
-    login.ui
+    login.ui \
+    startatfordfield.ui
