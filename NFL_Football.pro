@@ -26,19 +26,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    database.cpp \
-    team.cpp \
-    unsortedmap.cpp \
-    souvenir.cpp \
-    buysouvenir.cpp \
-    adminwindow.cpp \
-    login.cpp \
-<<<<<<< HEAD
-    startatfordfield.cpp
-=======
-    traversegraph.cpp \
-    graph.cpp
->>>>>>> 110135587de38b76d2c01d61a84737ef6718315b
+        database.cpp \
+        team.cpp \
+        unsortedmap.cpp \
+        souvenir.cpp \
+        buysouvenir.cpp \
+        adminwindow.cpp \
+        login.cpp \
+        startatfordfield.cpp \
+        traversegraph.cpp \
+        graph.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
@@ -48,19 +45,13 @@ HEADERS  += mainwindow.h \
     buysouvenir.h \
     adminwindow.h \
     login.h \
-<<<<<<< HEAD
-    startatfordfield.h
-=======
+    startatfordfield.h \
     traversegraph.h \
     graph.h
->>>>>>> 110135587de38b76d2c01d61a84737ef6718315b
 
 FORMS    += mainwindow.ui \
     buysouvenir.ui \
     adminwindow.ui \
     login.ui \
-<<<<<<< HEAD
-    startatfordfield.ui
-=======
+    startatfordfield.ui \
     traversegraph.ui
->>>>>>> 110135587de38b76d2c01d61a84737ef6718315b

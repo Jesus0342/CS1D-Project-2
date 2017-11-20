@@ -50,7 +50,7 @@ void buySouvenir::populateDropdown()
     //populate souvenir items from initial value in combobox
     QSqlQueryModel *mod = new QSqlQueryModel();
     QSqlQuery *qry = new QSqlQuery();
-    qry->prepare("SELECT SouvenirName from NFL_SOUVENIRS where ='TeamName"+stadiums.at(0)+"'");
+    qry->prepare("SELECT SouvenirName from NFL_SOUVENIRS where TeamName='"+stadiums.at(0)+"'");
     qry->exec();
     mod->setQuery(*qry);
     ui->comboBox_souvenir->setModel(mod);
