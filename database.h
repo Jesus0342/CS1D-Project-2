@@ -12,6 +12,7 @@
 
 #include "unsortedmap.h"
 #include "souvenir.h"
+#include "graph.h"
 
 /**
  * @brief Database Class
@@ -114,8 +115,9 @@ public:
      */
     static void editSouvenirPrice(Souvenir souvenir, double newPrice);
 
-
     static void editStadium(QString team, QString field, QString newValue);
+
+    static QVector<Edge> returnAllEdges();
 };
 
 #endif // DATABASE_H

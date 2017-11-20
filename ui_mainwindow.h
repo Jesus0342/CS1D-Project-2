@@ -397,7 +397,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(0);
         comboBox_displayOptions->setCurrentIndex(0);
 
 
@@ -412,6 +412,7 @@ public:
         comboBox_selectAction->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
          << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "2 - Traverse Graph", Q_NULLPTR)
         );
         pushButton_login->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
         comboBox_displayOptions->clear();
