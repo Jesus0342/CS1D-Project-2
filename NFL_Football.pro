@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     souvenir.cpp \
     buysouvenir.cpp \
     adminwindow.cpp \
-    login.cpp
+    login.cpp \
+    traversegraph.cpp \
+    graph.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
@@ -41,9 +43,12 @@ HEADERS  += mainwindow.h \
     souvenir.h \
     buysouvenir.h \
     adminwindow.h \
-    login.h
+    login.h \
+    traversegraph.h \
+    graph.h
 
 FORMS    += mainwindow.ui \
     buysouvenir.ui \
     adminwindow.ui \
-    login.ui
+    login.ui \
+    traversegraph.ui
