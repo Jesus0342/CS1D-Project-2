@@ -12,6 +12,7 @@
 
 #include "unsortedmap.h"
 #include "souvenir.h"
+#include "graph.h"
 
 /**
  * @brief Database Class
@@ -55,6 +56,12 @@ public:
      * @return souvenirs
      */
     static QVector<Souvenir> returnSouvenirList(Team stadium);
+
+    /**
+     * @brief returnGraphEdges returns a list of the edges in the graph.
+     * @return edges - QVector of edges retrieved from database.
+     */
+    static QVector<Edge> returnGraphEdges();
 
     /**
      * @brief returnNewStadiums returns a QVector of the stadiums in the new stadiums table of the database.

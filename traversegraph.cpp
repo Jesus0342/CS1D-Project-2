@@ -1,7 +1,7 @@
 #include "traversegraph.h"
 #include "ui_traversegraph.h"
 
-traversegraph::traversegraph(QWidget *parent) :
+TraverseGraph::traversegraph(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::traversegraph)
 {
@@ -10,7 +10,7 @@ traversegraph::traversegraph(QWidget *parent) :
 
 }
 
-traversegraph::~traversegraph()
+TraverseGraph::~traversegraph()
 {
     delete ui;
 }

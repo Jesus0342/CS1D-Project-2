@@ -131,6 +131,37 @@ QVector<Souvenir> Database::returnSouvenirList(Team stadium)
     return souvenirs;
 }
 
+QVector<Edge> Database::returnGraphEdges()
+{
+    QVector<Edge> edges;
+
+    Edge temp;
+
+    // Query to select all information from NFL_SOUVENIRS database table.
+    QSqlQuery query("SELECT * FROM NFL_DISTANCES");
+
+    // Gets the index of the specified record from the table.
+    int beginId = query.record().indexOf("BeginningStadium");
+    int endId = query.record().indexOf("EndingStadium");
+    int distanceId = query.record().indexOf("Distance");
+
+    // Adds the souvenirs to the QVector while there are still souvenirs in the database.
+    while(query.next())
+    {
+        temp.u = query.value(beginId).toString();
+        temp.v = query.value(endId).toString();
+        temp.weight = query.value(distanceId).toInt();
+
+        edges.append(temp);
+
+        qDebug() << "Adding (" << temp.u << ", " << temp.v << ")";
+    }
+
+    qDebug() << edges.size() << " edges added.";
+
+    return edges;
+}
+
 QVector<Team> Database::returnNewStadiums()
 {
     // QVector of new stadiums.

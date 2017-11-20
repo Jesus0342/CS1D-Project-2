@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "buysouvenir.h"
 #include "startatfordfield.h"
+#include "traversegraph.h"
 
 #include <QtAlgorithms>
 #include <QObject>
@@ -17,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Always opens the program to the home page of the stacked widget.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
+
+    Database::getInstance()->returnGraphEdges();
 }
 
 MainWindow::~MainWindow()
@@ -46,12 +49,16 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
 {
     switch(index)
     {
-        // Takes the fan to the NFL Information page.
-        case 1 :
-        {
-            ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
-        }
-        break;
+    // Takes the fan to the NFL Information page.
+    case 1 :
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
+    }
+    break;
+    case 2 :
+    {
+        traversegraph
+    }
     }
 
     ui->comboBox_selectAction->setCurrentIndex(0);

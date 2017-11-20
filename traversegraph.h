@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class traversegraph;
+class TraverseGraph;
 }
 
-class traversegraph : public QDialog
+class TraverseGraph : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit traversegraph(QWidget *parent = 0);
-    ~traversegraph();
+    explicit TraverseGraph(QWidget *parent = 0);
+    ~TraverseGraph();
 
 private:
-    Ui::traversegraph *ui;
+    Ui::TraverseGraph *ui;
 };
 
 #endif // TRAVERSEGRAPH_H
