@@ -2078,8 +2078,6 @@ release/startatfordfield.o: startatfordfield.cpp startatfordfield.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QLabel \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.7/mingw53_32/include/QtWidgets/QListView \
-		C:/Qt/5.7/mingw53_32/include/QtWidgets/qlistview.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/5.7/mingw53_32/include/QtWidgets/qmenu.h \
@@ -2101,7 +2099,11 @@ release/startatfordfield.o: startatfordfield.cpp startatfordfield.h \
 		C:/Qt/5.7/mingw53_32/include/QtSql/qsqlquery.h \
 		C:/Qt/5.7/mingw53_32/include/QtSql/qsql.h \
 		C:/Qt/5.7/mingw53_32/include/QtSql/qsqldatabase.h \
-		C:/Qt/5.7/mingw53_32/include/QtCore/QTextStream
+		C:/Qt/5.7/mingw53_32/include/QtCore/QTextStream \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QVector \
+		graph.h \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QString \
+		C:/Qt/5.7/mingw53_32/include/QtCore/QtAlgorithms
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/startatfordfield.o startatfordfield.cpp
 
 release/traversegraph.o: traversegraph.cpp traversegraph.h \
