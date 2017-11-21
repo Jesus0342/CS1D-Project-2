@@ -60,7 +60,12 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
         traversegraph *window = new traversegraph;
 
         window->show();
+        break;
     }
+    case 3:
+        startAtFordField *s = new startAtFordField();
+        s->show();
+        break;
     }
 
     ui->comboBox_selectAction->setCurrentIndex(0);
@@ -831,30 +836,6 @@ void MainWindow::setRoofTable (QString roofType) {
     ui->label_roofTitle->setAlignment(Qt::AlignCenter);
 }
 
-void MainWindow::on_pushButton_testBuy_clicked()
-{
-    //Declaration of buy souvenir object is NEEDED.
-    buySouvenir *s = new buySouvenir();
-
-    //Shows buy souvenir window
-    s->show();
-
-    //Test data
-    QList<QString> a;
-    a.insert(0, "Bank of America Stadium");
-    a.insert(1, "CenturyLink Field");
-    a.insert(2, "Lincoln Financial Field");
-
-    // IMPORTANT : setData(starting stadium, list of all stadiums to visit)
-    //             setData(QString <>, QList<QString> <>
-    //     If you are using vector in your code for the list of stadiums to visit,
-    //     you can create QList<QString> var and copy the contents of your vector
-    //     to QList.
-    // I'll make some code changes, if necessary.
-    s->setData("Arrowhead Stadium", a);
-    s->populateDropdown();
-}
-
 void MainWindow::on_pushButton_login_clicked()
 {
     Login *loginWindow = new Login;
@@ -911,10 +892,4 @@ void MainWindow::on_tableWidget_stadiums_clicked(const QModelIndex &index)
 
     // Allows the table to be sorted by clicking on a table header.
     ui->tableWidget_souvenirs->setSortingEnabled(true);
-}
-
-void MainWindow::on_pushButton_startFordField_clicked()
-{
-    startAtFordField *s = new startAtFordField();
-    s->show();
 }

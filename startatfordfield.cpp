@@ -4,14 +4,14 @@
 #include "buysouvenir.h"
 #include "QSqlQuery"
 #include "QTextStream"
+#include "QVector"
+#include "graph.h"
 
 startAtFordField::startAtFordField(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::startAtFordField)
 {
     ui->setupUi(this);
-    MainWindow *w = new MainWindow();
-    w->connectToDatabase();
     populateTable();
 }
 
@@ -22,23 +22,30 @@ startAtFordField::~startAtFordField()
 
 void startAtFordField::populateTable()
 {
-//use shortest distance or use sql statement to populate.
-//imma use sql statement for now
+//use shortest distance -- DFS or BFS? Djikarta's algorithm?
+                                     //(I don't know how to spell..)
     QStringList colNames= {"Ending Route", "Distance"};
     ui->tableWidget_listPossibilities->setColumnCount(2);
     ui->tableWidget_listPossibilities->setHorizontalHeaderLabels(colNames);
-    QSqlQuery query;
-    query.exec("//waiting for distances table//");
-    ui->tableWidget_listPossibilities->setRowCount(0);
-    int i=0;
-    while(query.next())
-    {
-        ui->tableWidget_listPossibilities->insertRow(i);
-        ui->tableWidget_listPossibilities->setItem(i,0, new QTableWidgetItem(query.value(0).toString()));
-        ui->tableWidget_listPossibilities->setItem(i,1, new QTableWidgetItem(query.value(1).toString()));
-        i++;
-    }
 
+    //DepthFirstSearch("Ford Field"); (starting at Ford Field)
+//have a vector that will store all the stadiums in order after DFS.
+    QVector<QString> v;
+//add all items from vector to the table widget. should I use table view? list view?
+    //ui->tableWidget_listPossibilities->setItem(r,c,<item>);
+
+    Graph g;
+
+    int dist = g.DFS("Ford Field", v);
+    //int k = g.findVertex("Ford Field");
+
+//    for (int j = 0; j < v.size(); j++){
+//        QTextStream(stdout) << "OMFG" << v.at(j);
+//    }
+
+
+
+/****************************************************************************/
 //heres a code to populate the list- to be used in buy souvenirs.
 //I need to modify this to display souv for only the use selected places.
    QSqlQuery q;
@@ -48,7 +55,6 @@ void startAtFordField::populateTable()
    while(q.next()) {
        addThis= q.value(0).toString();
        teamName.append(addThis);
-       QTextStream(stdout) << addThis;
        j++;
    }
 

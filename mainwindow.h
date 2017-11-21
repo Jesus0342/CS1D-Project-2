@@ -121,16 +121,12 @@ private slots:
 
     void on_pushButton_backSurfaceType_clicked();
 
-    void on_pushButton_testBuy_clicked();
-
     /**
      * @brief on_pushButton_login_clicked launches the login window.
      */
     void on_pushButton_login_clicked();
 
     void on_tableWidget_stadiums_clicked(const QModelIndex &index);
-
-    void on_pushButton_startFordField_clicked();
 
 private:
     Ui::MainWindow *ui;
