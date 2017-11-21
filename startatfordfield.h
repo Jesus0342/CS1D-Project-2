@@ -18,6 +18,10 @@ public:
 
 private slots:
     void on_pushButton_buySouvenirs_clicked();
+    void on_pushButton_seePrefRoute_clicked();
+
+    void on_pushButton_buySouvenirs_2_clicked();
+
 private:
     Ui::startAtFordField *ui;
     QList<QString> teamName;

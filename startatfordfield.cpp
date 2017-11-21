@@ -12,7 +12,13 @@ startAtFordField::startAtFordField(QWidget *parent) :
     ui(new Ui::startAtFordField)
 {
     ui->setupUi(this);
-    populateTable();
+
+    //background
+    QPixmap bg("Resources/mapbg.png");
+    bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bg);
+    this->setPalette(palette);
 }
 
 startAtFordField::~startAtFordField()
@@ -24,30 +30,31 @@ void startAtFordField::populateTable()
 {
 //use shortest distance -- DFS or BFS? Djikarta's algorithm?
                                      //(I don't know how to spell..)
-    QStringList colNames= {"Ending Route", "Distance"};
-    ui->tableWidget_listPossibilities->setColumnCount(2);
-    ui->tableWidget_listPossibilities->setHorizontalHeaderLabels(colNames);
-
-    //DepthFirstSearch("Ford Field"); (starting at Ford Field)
-//have a vector that will store all the stadiums in order after DFS.
+    QStringList colNames= {"Ending Route"};
+    ui->tableWidget_routes->setColumnCount(1);
+    ui->tableWidget_routes->setHorizontalHeaderLabels(colNames);
+    ui->tableWidget_routes->setRowCount(0);
     QVector<QString> v;
-//add all items from vector to the table widget. should I use table view? list view?
-    //ui->tableWidget_listPossibilities->setItem(r,c,<item>);
-
     Graph g;
 
     int dist = g.DFS("Ford Field", v);
-    //int k = g.findVertex("Ford Field");
+    ui->lcdNumber_distanceTravelled->display(dist);
 
-//    for (int j = 0; j < v.size(); j++){
-//        QTextStream(stdout) << "OMFG" << v.at(j);
-//    }
+    for (int j = 0; j<v.size(); j++)
+    {
+        QString add = v.at(j);
+        QTableWidgetItem *kk = new QTableWidgetItem();
+        kk->setText(add);
+        ui->tableWidget_routes->insertRow(j);
+        ui->tableWidget_routes->setItem(j, 0, kk);
+    }
 
+}
 
-
+void startAtFordField::on_pushButton_buySouvenirs_clicked()
+{
 /****************************************************************************/
 //heres a code to populate the list- to be used in buy souvenirs.
-//I need to modify this to display souv for only the use selected places.
    QSqlQuery q;
    q.exec("select TeamName from NFL_INFORMATION where TeamName != 'Detroit Lions'");
    QString addThis;
@@ -58,10 +65,6 @@ void startAtFordField::populateTable()
        j++;
    }
 
-}
-
-void startAtFordField::on_pushButton_buySouvenirs_clicked()
-{
     buySouvenir *s = new buySouvenir();
 
     //Shows buy souvenir window
@@ -70,4 +73,14 @@ void startAtFordField::on_pushButton_buySouvenirs_clicked()
     //FordField = detriot Lions
     s->setData("Detroit Lions", teamName);
     s->populateDropdown();
+}
+
+void startAtFordField::on_pushButton_seePrefRoute_clicked()
+{
+    populateTable();
+}
+
+void startAtFordField::on_pushButton_buySouvenirs_2_clicked()
+{
+    this->close();
 }
