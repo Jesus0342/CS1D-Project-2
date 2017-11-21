@@ -4,6 +4,8 @@
 
 Graph::Graph()
 {
+    initializeGraph();
+    
     dfsDistance = 0;
 }
 
@@ -24,30 +26,14 @@ int Graph::size()
 
 void Graph::initializeGraph()
 {
-    Database::returnGraphEdges();
+    QVector<Edge> edges = Database::returnGraphEdges();
 
-//    fstream fin; // File stream variable.
+    for(int i = 0; i < edges.size(); i++)
+    {
+        insertEdge(edges[i].u, edges[i].v, edges[i].weight);
+    }
 
-//    // Opens the file.
-//    fin.open("Map.txt");
-
-//    // Reads in the contents of the file.
-//    while(!fin.eof())
-//    {
-//        QString u; // Starting city.
-//        QString v; // Ending city.
-//        int weight; // Distance between the cities.
-
-//        getline(fin, u, ',');
-//        getline(fin, v, ',');
-//        fin >> weight;
-//        fin.ignore(1000, '\n');
-
-//        // Inserts the edge to the graph.
-//        insertEdge(u, v, weight);
-//    }
-
-//    fin.close();
+    qDebug() << graph.size();
 }
 
 int Graph::findVertex(QString city)
