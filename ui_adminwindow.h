@@ -510,7 +510,7 @@ public:
 
         retranslateUi(AdminWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(0);
         comboBox_adminFunctions->setCurrentIndex(0);
 
 

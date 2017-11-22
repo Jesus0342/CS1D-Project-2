@@ -147,8 +147,6 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         ui->comboBox_teamList->setModel(mod);
     }
     }
-
-
 }
 
 void AdminWindow::on_pushButton_addStadiums_clicked()
@@ -164,6 +162,9 @@ void AdminWindow::on_pushButton_addStadiums_clicked()
 
         // Returns a list of the new stadiums' corresponding souvenirs.
         QVector<Souvenir> newSouvenirs = Database::getInstance()->returnNewSouvenirs();
+
+        // Returns a list of the new edges.
+        QVector<Edge> newEdges = Database::getInstance()->returnNewEdges();
 
         // Adds the new stadiums to the database.
         for(int i = 0; i < newStadiums.size(); i++)
@@ -181,6 +182,12 @@ void AdminWindow::on_pushButton_addStadiums_clicked()
             {
                 Database::addSouvenir(newSouvenirs[i]);
             }
+        }
+
+        // Adds the new edges to the database.
+        for(int i = 0; i < newEdges.size(); i++)
+        {
+            Database::addDistances(newEdges[i]);
         }
 
         // Refreshes the table.
@@ -205,6 +212,9 @@ void AdminWindow::on_pushButton_reset_clicked()
     // Returns a list of the new stadiums' corresponding souvenirs.
     QVector<Souvenir> newSouvenirs = Database::getInstance()->returnNewSouvenirs();
 
+    // Returns a list of the new edges.
+    QVector<Edge> newEdges = Database::getInstance()->returnNewEdges();
+
     // Removes the new stadiums from the database.
     for(int i = 0; i < newStadiums.size(); i++)
     {
@@ -215,6 +225,12 @@ void AdminWindow::on_pushButton_reset_clicked()
     for(int i = 0; i < newSouvenirs.size(); i++)
     {
         Database::removeSouvenir(newSouvenirs[i]);
+    }
+
+    // Removes the new stadiums' edges from the database.
+    for(int i = 0; i < newEdges.size(); i++)
+    {
+        Database::removeDistances(newEdges[i]);
     }
 
     // Refreshes the table.
@@ -358,19 +374,6 @@ void AdminWindow::on_confirmModifyStadiums_clicked()
         ui->label_roofTypeModified->setText("Modified");
         Database::editStadium(teamName,"RoofType",newRoofType);
     }
-
-
-    /*double val = souvenirPrice.toDouble();
-
-    souvenir1.setName(souvenirName);
-    souvenir1.setStadiumName(stadiumName);
-
-    // Send to GLORIOUS FUNCTION NOT MADE BY MYSELF
-    Database::editSouvenirPrice(souvenir1, val);
-
-    qDebug() << "Modified souvenir successful";
-    ui->label_status_2->show();
-    ui->label_status_2->setText("SUCCESSFULLY MODIFIED");*/
 }
 
 void AdminWindow::on_comboBox_teamList_2_currentTextChanged(const QString &arg2)

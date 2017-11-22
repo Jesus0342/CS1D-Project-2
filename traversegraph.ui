@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page_home">
       <widget class="QLabel" name="label_graphHome">
@@ -62,9 +62,9 @@
       <widget class="QComboBox" name="comboBox">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>150</x>
          <y>350</y>
-         <width>161</width>
+         <width>251</width>
          <height>22</height>
         </rect>
        </property>
@@ -80,12 +80,12 @@
        </item>
        <item>
         <property name="text">
-         <string>2 - Depth-First Search</string>
+         <string>2 - Depth-First Search (from Hard Rock Stadium)</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>3 - Breadth-First Search</string>
+         <string>3 - Breadth-First Search (from Lambeau Field)</string>
         </property>
        </item>
       </widget>

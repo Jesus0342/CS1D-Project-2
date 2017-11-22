@@ -71,7 +71,7 @@ public:
         label_graphImage->setGeometry(QRect(40, 100, 471, 221));
         comboBox = new QComboBox(page_home);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(190, 350, 161, 22));
+        comboBox->setGeometry(QRect(150, 350, 251, 22));
         stackedWidget->addWidget(page_home);
         page_MST = new QWidget();
         page_MST->setObjectName(QStringLiteral("page_MST"));
@@ -126,7 +126,7 @@ public:
 
         retranslateUi(traversegraph);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(traversegraph);
@@ -142,8 +142,8 @@ public:
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("traversegraph", "<Select Here>", Q_NULLPTR)
          << QApplication::translate("traversegraph", "1 - Minimum Spanning Tree", Q_NULLPTR)
-         << QApplication::translate("traversegraph", "2 - Depth-First Search", Q_NULLPTR)
-         << QApplication::translate("traversegraph", "3 - Breadth-First Search", Q_NULLPTR)
+         << QApplication::translate("traversegraph", "2 - Depth-First Search (from Hard Rock Stadium)", Q_NULLPTR)
+         << QApplication::translate("traversegraph", "3 - Breadth-First Search (from Lambeau Field)", Q_NULLPTR)
         );
         label_titleMST->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Minimum Spanning Tree</span></p></body></html>", Q_NULLPTR));
         pushButton_backMST->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));

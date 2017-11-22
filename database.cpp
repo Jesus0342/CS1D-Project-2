@@ -227,6 +227,35 @@ QVector<Souvenir> Database::returnNewSouvenirs()
     return newSouvenirs;
 }
 
+QVector<Edge> Database::returnNewEdges()
+{
+    QVector<Edge> newEdges;
+
+    Edge temp;
+
+    // Query to select all information from NFL_SOUVENIRS database table.
+    QSqlQuery query("SELECT * FROM NEW_DISTANCES");
+
+    // Gets the index of the specified record from the table.
+    int beginId = query.record().indexOf("BeginningStadium");
+    int endId = query.record().indexOf("EndingStadium");
+    int distanceId = query.record().indexOf("Distance");
+
+    // Adds the souvenirs to the QVector while there are still souvenirs in the database.
+    while(query.next())
+    {
+        temp.u = query.value(beginId).toString();
+        temp.v = query.value(endId).toString();
+        temp.weight = query.value(distanceId).toInt();
+
+        newEdges.append(temp);
+
+        qDebug() << temp.u << temp.v;
+    }
+
+    return newEdges;
+}
+
 bool Database::stadiumExists(Team stadium)
 {
     QSqlQuery query;
@@ -335,6 +364,26 @@ void Database::addSouvenir(Souvenir souvenir)
     }
 }
 
+void Database::addDistances(Edge stadium)
+{
+    QSqlQuery query;
+
+    QString start = stadium.u;
+    QString end = stadium.v;
+    int distance = stadium.weight;
+
+    // Specifies the table and columns where the new edge will be added.
+    query.prepare("INSERT INTO NFL_DISTANCES(BeginningStadium, EndingStadium, Distance)\n"
+                  "VALUES(:start, :end, :distance);");
+
+    query.bindValue(":start", start);
+    query.bindValue(":end", end);
+    query.bindValue(":distance", distance);
+
+    // Adds the new edge to the NFL_DISTANCES table.
+    query.exec();
+}
+
 void Database::removeStadium(Team stadium)
 {
     // Removes stadium if it exists.
@@ -371,6 +420,23 @@ void Database::removeSouvenir(Souvenir souvenir)
     }
 }
 
+void Database::removeDistances(Edge stadium)
+{
+    QString start = stadium.u;
+    QString end = stadium.v;
+
+    QSqlQuery query;
+
+    // Specifies the row where the edge will be deleted.
+    query.prepare("DELETE FROM NFL_DISTANCES WHERE BeginningStadium = :start and EndingStadium = :end");
+
+    query.bindValue(":start", start);
+    query.bindValue(":end", end);
+
+    // Deletes the edge.
+    query.exec();
+}
+
 void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
 {
     // Changes the price of the souvenir if it exists.
@@ -397,14 +463,8 @@ void Database::editStadium(QString team, QString field, QString newValue)
 
     query.prepare("UPDATE NFL_INFORMATION SET " + field + " = :newValue WHERE TeamName = :team");
 
-//    if (field == "SeatingCapacity")
-//    {
-//        int seatingCapacityInt =newValue.toInt();
-//        query.bindValue(":newValue",seatingCapacityInt);
-//    }
-//    else
-        query.bindValue(":newValue", newValue);
-        query.bindValue(":team", team);
+    query.bindValue(":newValue", newValue);
+    query.bindValue(":team", team);
 
     query.exec();
 }

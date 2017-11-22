@@ -76,6 +76,12 @@ public:
     static QVector<Souvenir> returnNewSouvenirs();
 
     /**
+     * @brief returnNewEdges returns a list of the new edges for the new stadium.
+     * @return newEdges
+     */
+    static QVector<Edge> returnNewEdges();
+
+    /**
      * @brief stadiumExists returns true if the stadium already exists in the database.
      * @param stadium - Stadium to be checked.
      * @return True if stadium exists in the database, else false.
@@ -102,6 +108,12 @@ public:
     static void addSouvenir(Souvenir souvenir);
 
     /**
+     * @brief addDistance adds the distances of a new stadium to the database.
+     * @param stadium - Stadium name must be defined.
+     */
+    static void addDistances(Edge stadium);
+
+    /**
      * @brief removeStadium removes the specified stadium from the database.
      * @param stadium - Stadium to be removed (stadium name must be defined).
      */
@@ -113,6 +125,12 @@ public:
      * defined).
      */
     static void removeSouvenir(Souvenir souvenir);
+
+    /**
+     * @brief removeDistance removes the distances of the indicated stadium from the database.
+     * @param stadium - Stadium name must be defined.
+     */
+    static void removeDistances(Edge stadium);
 
     /**
      * @brief editSouvenirPrice changes the price of the specified souvenir to the new price.
