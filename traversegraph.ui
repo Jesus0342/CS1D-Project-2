@@ -145,6 +145,34 @@
         <string>Back</string>
        </property>
       </widget>
+      <widget class="QTableWidget" name="tableWidget_DFS">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>100</y>
+         <width>231</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>Stadium Name</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLabel" name="label_distanceDFS">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>370</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="page_BFS">
       <widget class="QLabel" name="label_titleBFS">
@@ -171,6 +199,34 @@
        </property>
        <property name="text">
         <string>Back</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_BFS">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>100</y>
+         <width>231</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>Stadium Name</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLabel" name="label_distanceBFS">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>370</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

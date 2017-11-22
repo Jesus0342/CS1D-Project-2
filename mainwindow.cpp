@@ -317,24 +317,7 @@ void MainWindow::on_comboBox_displayOptions_currentIndexChanged(int index)
         long seatingCapacity = teams.calculateTotalSeatingCapacity();
 
         // Converts the total seating capacity into a string.
-        QString seatingCapacityStr = QString::number(seatingCapacity);
-
-        int count = 1;
-
-        // Adds commas to the number to increase readability.
-        for(int i = seatingCapacityStr.size(); i >= 0; i--)
-        {
-            if(count == 3)
-            {
-                seatingCapacityStr.insert(i - 1, ',');
-
-                count = 1;
-            }
-            else
-            {
-                count++;
-            }
-        }
+        QString seatingCapacityStr = addCommas(seatingCapacity);
 
         // Sets the total seating capacity in the totalCapacity label.
         ui->label_totalCapacity->setText(seatingCapacityStr);

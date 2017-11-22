@@ -134,4 +134,32 @@ private:
     void setRoofTable (QString roofType);
 };
 
+template <class T>
+QString addCommas(T number)
+{
+    QString numStr = QString::number(number);
+
+    if(numStr.size() > 3)
+    {
+        int count = 1;
+
+        // Adds commas to the number to increase readability.
+        for(int i = numStr.size(); i > 0; i--)
+        {
+            if(count == 3)
+            {
+                numStr.insert(i - 1, ',');
+
+                count = 1;
+            }
+            else
+            {
+                count++;
+            }
+        }
+    }
+
+    return numStr;
+}
+
 #endif // MAINWINDOW_H

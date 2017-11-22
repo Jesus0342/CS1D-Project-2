@@ -32,8 +32,6 @@ void Graph::initializeGraph()
     {
         insertEdge(edges[i].u, edges[i].v, edges[i].weight);
     }
-
-    qDebug() << graph.size();
 }
 
 int Graph::findVertex(QString city)
@@ -67,8 +65,6 @@ void Graph::insertVertex(QString city)
 
         newVertex.city = city;
         newVertex.visited = false;
-
-        qDebug() << newVertex.city << endl;
 
         graph.push_back(newVertex);
     }
@@ -135,6 +131,19 @@ QVector<QString> Graph::edges()
 
 int Graph::DFS(QString startingCity, QVector<QString> &dfs)
 {
+    // Reset the graph, this should be its own function
+    if(verticesVisited() == graph.size())
+    {
+        for (int i=0; i<graph.size(); i++)
+        {
+            graph[i].visited = false;
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
+            {
+                graph[i].edgeList[j].discoveryEdge = false;
+            }
+        }
+    }
+
     // Gets the graph index of the vertex being visited.
     int currVertex = findVertex(startingCity);
 
@@ -338,10 +347,16 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
 int Graph::BFS(QString startingCity, QVector<QString> &bfs)
 {
     // Reset the graph, this should be its own function
-    for (int i=0; i<graph.size(); i++) {
-        graph[i].visited = false;
-        for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            graph[i].edgeList[j].discoveryEdge = false;
+    if(verticesVisited() == graph.size())
+    {
+        for (int i=0; i<graph.size(); i++)
+        {
+            graph[i].visited = false;
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
+            {
+                graph[i].edgeList[j].discoveryEdge = false;
+            }
+        }
     }
 
     // Get the graph index of the vertex being visited.

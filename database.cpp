@@ -153,11 +153,7 @@ QVector<Edge> Database::returnGraphEdges()
         temp.weight = query.value(distanceId).toInt();
 
         edges.append(temp);
-
-        qDebug() << "Adding (" << temp.u << ", " << temp.v << ")";
     }
-
-    qDebug() << edges.size() << " edges added.";
 
     return edges;
 }
