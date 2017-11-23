@@ -249,8 +249,6 @@ QVector<Edge> Database::returnNewEdges()
         temp.weight = query.value(distanceId).toInt();
 
         newEdges.append(temp);
-
-        qDebug() << temp.u << temp.v;
     }
 
     return newEdges;

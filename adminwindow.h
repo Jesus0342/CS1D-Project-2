@@ -8,6 +8,12 @@ namespace Ui {
 class AdminWindow;
 }
 
+/**
+ * @brief AdminWindow Class
+ *
+ * This class provides a window for an administrator that allows them to
+ * modify the information in the database.
+ */
 class AdminWindow : public QDialog
 {
     Q_OBJECT

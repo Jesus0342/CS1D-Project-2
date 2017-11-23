@@ -38,6 +38,8 @@ public:
     QWidget *page_MST;
     QLabel *label_titleMST;
     QPushButton *pushButton_backMST;
+    QTableWidget *tableWidget_MST;
+    QLabel *label_distanceMST;
     QWidget *page_DFS;
     QLabel *label_titleDFS;
     QPushButton *pushButton_backDFS;
@@ -81,6 +83,16 @@ public:
         pushButton_backMST = new QPushButton(page_MST);
         pushButton_backMST->setObjectName(QStringLiteral("pushButton_backMST"));
         pushButton_backMST->setGeometry(QRect(10, 420, 75, 23));
+        tableWidget_MST = new QTableWidget(page_MST);
+        if (tableWidget_MST->columnCount() < 1)
+            tableWidget_MST->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget_MST->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        tableWidget_MST->setObjectName(QStringLiteral("tableWidget_MST"));
+        tableWidget_MST->setGeometry(QRect(160, 100, 231, 251));
+        label_distanceMST = new QLabel(page_MST);
+        label_distanceMST->setObjectName(QStringLiteral("label_distanceMST"));
+        label_distanceMST->setGeometry(QRect(130, 370, 281, 31));
         stackedWidget->addWidget(page_MST);
         page_DFS = new QWidget();
         page_DFS->setObjectName(QStringLiteral("page_DFS"));
@@ -93,8 +105,8 @@ public:
         tableWidget_DFS = new QTableWidget(page_DFS);
         if (tableWidget_DFS->columnCount() < 1)
             tableWidget_DFS->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        tableWidget_DFS->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget_DFS->setHorizontalHeaderItem(0, __qtablewidgetitem1);
         tableWidget_DFS->setObjectName(QStringLiteral("tableWidget_DFS"));
         tableWidget_DFS->setGeometry(QRect(160, 100, 231, 251));
         label_distanceDFS = new QLabel(page_DFS);
@@ -112,8 +124,8 @@ public:
         tableWidget_BFS = new QTableWidget(page_BFS);
         if (tableWidget_BFS->columnCount() < 1)
             tableWidget_BFS->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        tableWidget_BFS->setHorizontalHeaderItem(0, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget_BFS->setHorizontalHeaderItem(0, __qtablewidgetitem2);
         tableWidget_BFS->setObjectName(QStringLiteral("tableWidget_BFS"));
         tableWidget_BFS->setGeometry(QRect(160, 100, 231, 251));
         label_distanceBFS = new QLabel(page_BFS);
@@ -147,15 +159,18 @@ public:
         );
         label_titleMST->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Minimum Spanning Tree</span></p></body></html>", Q_NULLPTR));
         pushButton_backMST->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
-        label_titleDFS->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Depth-First Search</span></p></body></html>", Q_NULLPTR));
-        pushButton_backDFS->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget_DFS->horizontalHeaderItem(0);
+        QTableWidgetItem *___qtablewidgetitem = tableWidget_MST->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("traversegraph", "Stadium Name", Q_NULLPTR));
-        label_distanceDFS->setText(QString());
-        label_titleBFS->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Breadth-First Search</span></p></body></html>", Q_NULLPTR));
-        pushButton_backBFS->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget_BFS->horizontalHeaderItem(0);
+        label_distanceMST->setText(QString());
+        label_titleDFS->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">DFS - Starting at Hard Rock Stadium</span></p></body></html>", Q_NULLPTR));
+        pushButton_backDFS->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget_DFS->horizontalHeaderItem(0);
         ___qtablewidgetitem1->setText(QApplication::translate("traversegraph", "Stadium Name", Q_NULLPTR));
+        label_distanceDFS->setText(QString());
+        label_titleBFS->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:26pt;\">BFS - Starting at Lambeau Field</span></p></body></html>", Q_NULLPTR));
+        pushButton_backBFS->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget_BFS->horizontalHeaderItem(0);
+        ___qtablewidgetitem2->setText(QApplication::translate("traversegraph", "Stadium Name", Q_NULLPTR));
         label_distanceBFS->setText(QString());
     } // retranslateUi
 

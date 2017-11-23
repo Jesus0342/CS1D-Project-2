@@ -18,8 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Always opens the program to the home page of the stacked widget.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
-
-    Database::getInstance()->returnGraphEdges();
 }
 
 MainWindow::~MainWindow()
@@ -54,14 +52,18 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
     {
         ui->stackedWidget->setCurrentWidget(ui->page_viewNFLInfo);
     }
-    break;
+        break;
+    // Takes the fan to the Traverse Graph window.
     case 2 :
     {
-        traversegraph *window = new traversegraph;
+        traversegraph *traversalWindow = new traversegraph;
 
-        window->show();
-        break;
+        traversalWindow->show();
+
+        // Closes the homepage.
+        this->close();
     }
+        break;
     case 3:
         startAtFordField *s = new startAtFordField();
         s->show();

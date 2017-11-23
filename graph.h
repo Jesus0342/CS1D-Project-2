@@ -6,15 +6,21 @@
 #include <QtAlgorithms>
 using namespace std;
 
-// Struct representing an edge in the graph.
+/**
+ * @brief Edge Struct
+ *
+ * This struct represent an edge in the graph.
+ */
 struct Edge
 {
-    QString u; // Starting city.
-    QString v; // Ending city.
-    bool discoveryEdge; // Whether or not edge is a discovery edge.
-    int weight; // Distance between the cities.
+    QString u; /**< Starting stadium. */
+    QString v; /**< Ending stadium. */
+    bool discoveryEdge; /**< Whether or not edge is a discovery edge. */
+    int weight; /**< Distance between the two stadiums. */
 
-    // Edge object constructor.
+    /**
+     * @brief Default constructor.
+     */
     Edge()
     {
         u = "";
@@ -24,136 +30,207 @@ struct Edge
     }
 };
 
-// Struct representing a vertex in the graph.
+/**
+ * @brief Vertex Struct
+ *
+ * This struct represent a vertex in the graph.
+ */
 struct Vertex
 {
-    QString city; // Name of the city in the vertex.
-    bool visited; // Whether or not the vertex has already been visited.
-    QVector<Edge> edgeList; // List of incident edges.
+    QString stadium; /**< Name of the stadium in the vertex. */
+    bool visited; /**< Whether or not the vertex has already been visited. */
+    QVector<Edge> edgeList; /**<  List of incident edges. */
 
-    // Vertex object constructor.
+    /**
+     * @brief Default constructor.
+     */
     Vertex()
     {
-        city = "";
+        stadium = "";
         visited = false;
     }
 };
 
-// Graph class that uses an adjacency list to store edges.
+/**
+ * @brief Graph Class
+ *
+ * This class utilizes a QVector of Vertex objects each containing a QVector of
+ * Edges in order to represent the Graph ADT using an adjacency list.
+ */
 class Graph
 {
 public:
+    /**
+     * @brief Default constructor
+     */
     Graph();
+
+    /**
+     * @brief Destructor
+     */
     ~Graph();
 
-    // Returns true if the graph is empty, else returns false.
+    /**
+     * @brief Returns true if the graph is empty, else returns false.
+     */
     bool empty();
 
-    // Returns the number of vertices in the graph.
+    /**
+     * @brief Returns the number of vertices in the graph.
+     * @return graph.size()
+     */
     int size();
 
-    // Reads the edges from a text file and adds them to the graph.
-    // POST-CONDITION: The graph will be filled with the values in the text file.
+    /**
+     * @brief initializeGraph initializes the graph with the edges stored in the database.
+     */
     void initializeGraph();
 
-    // Inserts a vertex to the graph with the specified city name.
-    // PRE-CONDITIONS:
-    // city - City name of new vertex must be defined.
-    // POST-CONDITION: A new vertex is added to the graph.
-    void insertVertex(QString city);
+    /**
+     * @brief Inserts a vertex to the graph with the specified stadium name.
+     * @param stadium - Name of the stadium.
+     */
+    void insertVertex(QString stadium);
 
-    // Returns the graph index of the specified city.
-    // PRE-CONDITIONS:
-    // city - Name of city to be searched for must be defined.
-    int findVertex(QString city);
+    /**
+     * @brief Returns the graph index of the specified stadium.
+     * @param stadium - Name of the stadium whose graph index is needed.
+     * @return Graph index of the specified stadium.
+     */
+    int findVertex(QString stadium);
 
-    // Adds a new edge to the graph and a new vertex if a vertex with value "u"
-    // does not yet exist.
-    // PRE-CONDITIONS:
-    // u - Starting city must be defined.
-    // v - Ending city must be defined.
-    // weight - Distance between the cities must be defined.
-    // POST-CONDITION: A new edge is added to the edge list of vertex "u".
+    /**
+     * @brief insertEdge Adds a new edge to the graph AND creates a new vertex if a vertex
+     *        with the value "u" does not yet exist.
+     * @param u - Starting stadium
+     * @param v - Ending stadium
+     * @param weight - Distance between the stadiums
+     */
     void insertEdge(QString u, QString v, int weight);
 
-    // Returns a list of the vertices in the graph.
+    /**
+     * @brief Returns a list of the vertices in the graph.
+     * @return QVector of vertices
+     */
     QVector<QString> vertices();
 
-    // Returns a list of the edges in the graph.
+    /**
+     * @brief Returns a list of the edges in the graph.
+     * @return QVector of edges in (u, v) format.
+     */
     QVector<QString> edges();
 
-    // Performs a depth-first search on the graph starting at the indicated city
-    // using recursion.
-    // PRE-CONDITIONS:
-    // startingCity - City where the DFS will begin must be defined.
-    // dfs - Vector of city names in the order they were visited during DFS does
-    //		 not have to be defined.
-    // POST-CONDITION: The list of cities visited in the DFS order is returned.
-    int DFS(QString startingCity, QVector<QString> &dfs);
+    /**
+     * @brief Performs a depth-first search on the graph starting at the
+     *        indicated stadium and uses recursion to visit all other stadiums
+     *        in the most efficient order.
+     * @param startingStadium - Stadium where DFS will begin
+     * @param dfs - QVector of stadium names in the order they were visited.
+     * @return Total distance traveled on DFS discovery edges.
+     */
+    int DFS(QString startingStadium, QVector<QString> &dfs);
 
-    // Returns a list of the discovery edges created during the DFS.
-    // PRE-CONDITIONS:
-    // dfs - Vector of city names in the order they were visited during DFS must
-    // 		 be defined.
-    QVector<QString> getDiscoveryEdges(QVector<QString> &dfs);
+    /**
+     * @brief Performs a recursive breadth-first search on the graph starting at the
+     *        indicated stadium.
+     * @param startingStadium - Stadium where the BFS will begin
+     * @param bfs - QVector of stadium names in the order they were visited.
+     * @return Total distance traveled on BFS discovery edges.
+     */
+    int BFS(QString startingStadium, QVector<QString> &bfs);
 
-    // Returns a list of the back edges created by the DFS.
-    // PRE-CONDITIONS:
-    // dfs - Vector of city names in the order they were visited during DFS must
-    // 		 be defined.
-    QVector<QString> getBackEdges(QVector<QString> &dfs);
-
-    // Performs a recursive breadth-first search on the graph starting at the
-    // indicated city.
-    // PRE-CONDITIONS:
-    // startingCity - City where the BFS will begin must be defined.
-    // bfs - Vector of city names in the order they were visited during DFS does
-    //		 not have to be defined.
-    // POST-CONDITION: The bfs vector is modified to include the city names in BFS order.
-    int BFS(QString startingCity, QVector<QString> &bfs);
+    /**
+     * @brief Determines the minimum spanning tree of the graph using Prim-Jarnik's Algorithm.
+     * @param startingStadium - Stadium where MST will begin
+     * @param mst - QVector of stadium names in the order they were visited during MST.
+     * @return Total mileage of MST.
+     */
+    int primJarnikMST(QString startingStadium, QVector<QString> &mst);
 
 private:
-    // Finds the closest vertex to the current vertex and returns its graph index.
-    // PRE-CONDITIONS:
-    // currVertex - Index of the current vertex must be defined.
-    // dfs - Vector of cities visited during DFS must be defined.
+    /*******************
+     * PRIVATE METHODS *
+     *******************/
+
+    /**
+     * @brief Finds the closest vertex to the current vertex and returns its graph index.
+     * @param currVertex - Graph index of the current vertex.
+     * @param dfs - Vector of cities visited during DFS.
+     * @return Graph index of closest adjacent stadium.
+     */
     int smallestEdgeDFS(int currVertex, QVector<QString> &dfs);
 
-    // Returns the number of vertices that have been visited.
-    int verticesVisited();
-
-    // Returns the number of edges discovered from the specified vertex.
-    // PRE-CONDITIONS:
-    // currVertex - Graph index of the current vertex must be defined.
-    int edgesDiscovered(int currVertex);
-
-    // Deletes edge pairs that have the same u & v.
-    // If (u, v) already exists, all (v, u) edge pairs will be deleted.
-    void deleteDuplicates(QVector<Edge> &edgeList);
-
-    QVector<Vertex> graph; // Vector of vertices used to represent a graph.
-
-    int dfsDistance; // Distance traveled during DFS.
-
-    // When called by BFS(), carries out the recursive breadth-first search,
-    // continuing from each of the cities from previousLevel
-    // PRE-CONDITIONS:
-    // bfs - Vector of city names in the order they were visited during DFS does
-    //		 not have to be defined.
-    // previousLevel: the graph positions of all the cities visited in the previous level
-    // POST-CONDITION: The bfs vector is modified to include the city names in BFS order.
+    /**
+     * @brief When called by BFS(), carries out the recursive breadth-first search, continuing
+     *        from each of the cities from previousLevel
+     * @param bfs - Vector of stadium names in the order they were visited during DFS
+     * @param previousLevel - the graph positions of all the cities visited in the previous level
+     * @return Distance traveled on discovery edges to the newly discovered vertices
+     */
     int BFSRecur(QVector<QString> &bfs, QVector<int> previousLevel);
 
-    // Returns the city name of the vertex in an edge that is not startingCity
-    // PRE-CONDITIONS:
-    // currEdge - Edge in question that contains startingCity and the city to be found
-    // startingCity - city name of the vertex opposite of the city to be found
-    QString otherVertex(Edge currEdge, QString startingCity);
+    /**
+     * @brief Returns the stadium name of the vertex in an edge that is not startingStadium
+     * @param currEdge - Edge in question that contains startingStadium and the stadium to be found
+     * @param startingStadium - stadium name of the vertex opposite of the stadium to be found.
+     * @return stadium name of vertex in an edge that is not startingStadium
+     */
+    QString otherVertex(Edge currEdge, QString startingStadium);
 
-    // Returns the distance between two vertices
-    // PRE-CONDITIONS:
-    // v1, v2 - the vertices to find the distance between
+    /**
+     * @brief Returns the distance between two vertices
+     * @param v1 - Starting stadium
+     * @param v2 - Ending stadium
+     * @return distance between v1 and v2
+     */
     int distance(Vertex * v1, Vertex * v2);
+
+    /**
+     * @brief Finds the smallest edge from all of the previously visited vertices
+     *        and returns its graph index.
+     * @param mst - QVector of stadiums previously visited while determining MST
+     * @return Graph index of the vertex closest to all previously discovered vertices.
+     */
+    int smallestEdgeMST(QVector<QString> &mst);
+
+    /**
+     * @brief Returns the graph index of the closest edge of the indicated vertex.
+     * @param vertex - Vertex whose edge list will be traversed to find the closest
+     *                 unvisted edge.
+     * @return Graph index of the closest unvisited edge to vertex.
+     */
+    int smallestEdge(int vertex);
+
+    /**
+     * @brief distanceBetween returns the distance between two vertices
+     * @param v1 - Starting vertex
+     * @param v2 - Ending vertex
+     * @return distance between v1 and v2
+     */
+    int distanceBetween(int v1, int v2);
+
+    /**
+     * @brief Returns the number of vertices that have been visited.
+     * @return number of vertices visited.
+     */
+    int verticesVisited();
+
+    /**
+     * @brief Returns the number of edges discovered from the specified vertex.
+     * @param currVertex - Graph index of the vertex whose visited edges will be checked.
+     * @return number of adjacent edges that have been visited.
+     */
+    int edgesDiscovered(int currVertex);
+
+    /************************
+     * PRIVATE DATA MEMBERS *
+     ************************/
+
+    QVector<Vertex> graph; /**< Vector of Vertex objects used to represent a graph. */
+
+    int dfsDistance; /**< Distance traveled during DFS. */
+
+    int mstDistance; /**< Distance traveled while determining MST. */
 };
 
 #endif

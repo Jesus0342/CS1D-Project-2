@@ -1,7 +1,10 @@
 #include "traversegraph.h"
 #include "ui_traversegraph.h"
+#include "database.h"
 #include "mainwindow.h"
 #include "graph.h"
+
+#include <QDebug>
 
 traversegraph::traversegraph(QWidget *parent) :
     QDialog(parent),
@@ -10,6 +13,8 @@ traversegraph::traversegraph(QWidget *parent) :
     ui->setupUi(this);
 
     ui->stackedWidget->setCurrentWidget(ui->page_home);
+
+    Database::getInstance()->returnGraphEdges();
 }
 
 traversegraph::~traversegraph()
@@ -26,6 +31,43 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
     case 1 :
     {
         ui->stackedWidget->setCurrentWidget(ui->page_MST);
+
+        // QVector storing the order that the vertices were discovered in.
+        QVector<QString> mst;
+
+        int mstMileage = g.primJarnikMST("Hard Rock Stadium", mst);
+
+        int numCols = ui->tableWidget_MST->columnCount();
+
+        // Displays the order that the vertices were discovered in while determining the MST.
+        for(int i = 0; i < mst.size(); i++)
+        {
+            for(int j = 0; j < numCols; j++)
+            {
+                ui->tableWidget_MST->insertRow(ui->tableWidget_MST->rowCount());
+
+                ui->tableWidget_MST->setItem(i, j, new QTableWidgetItem(mst.at(i)));
+                j++;
+            }
+        }
+
+        ui->tableWidget_MST->resizeColumnsToContents();
+
+        QString mstMileStr = addCommas(mstMileage);
+
+        // Converts the total seating capacity into a string and puts it in the total open roof label.
+        ui->label_distanceMST->setText("Total Distance Traveled: " + mstMileStr);
+
+        // Changes the font in the totalRoofTxt label.
+        QFont font = ui->label_distanceMST->font();
+        font.setPointSize(12);
+        font.setBold(true);
+
+        // Sets the font.
+        ui->label_distanceMST->setFont(font);
+
+        // Sets the alignment of the label.
+        ui->label_distanceMST->setAlignment(Qt::AlignCenter);
     }
         break;
     case 2 :
@@ -34,11 +76,12 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
 
         QVector<QString> dfs;
 
+        // Performs a DFS starting at Hard Rock Stadium and returns the total distance.
         int dfsDistance = g.DFS("Hard Rock Stadium", dfs);
 
         int numCols = ui->tableWidget_DFS->columnCount();
 
-        // Sets the information for all teams on the table widget.
+        // Displays the order that the vertices were visited in while performing the DFS.
         for(int i = 0; i < dfs.size(); i++)
         {
             for(int j = 0; j < numCols; j++)
@@ -65,7 +108,7 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
         // Sets the font.
         ui->label_distanceDFS->setFont(font);
 
-        // Sets the font.
+        // Sets the alignment of the label.
         ui->label_distanceDFS->setAlignment(Qt::AlignCenter);
     }
         break;
@@ -106,10 +149,24 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
         // Sets the font.
         ui->label_distanceBFS->setFont(font);
 
-        // Sets the font.
+        // Sets the alignment of the label.
         ui->label_distanceBFS->setAlignment(Qt::AlignCenter);
     }
     }
+}
+
+/*************************
+ * BACK BUTTON FUNCTIONS *
+ *************************/
+
+void traversegraph::on_pushButton_backGraph_clicked()
+{
+    // Shows the homepage.
+    MainWindow *mainWindow = new MainWindow;
+
+    mainWindow->show();
+
+    this->close();
 }
 
 void traversegraph::on_pushButton_backMST_clicked()
@@ -117,6 +174,8 @@ void traversegraph::on_pushButton_backMST_clicked()
     ui->comboBox->setCurrentIndex(0);
 
     ui->stackedWidget->setCurrentWidget(ui->page_home);
+
+    ui->tableWidget_MST->setRowCount(0);
 }
 
 void traversegraph::on_pushButton_backDFS_clicked()

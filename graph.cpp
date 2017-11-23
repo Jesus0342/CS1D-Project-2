@@ -7,6 +7,8 @@ Graph::Graph()
     initializeGraph();
     
     dfsDistance = 0;
+
+    mstDistance = 0;
 }
 
 Graph::~Graph()
@@ -34,16 +36,16 @@ void Graph::initializeGraph()
     }
 }
 
-int Graph::findVertex(QString city)
+int Graph::findVertex(QString stadium)
 {
     int index = 0;
     bool found = false;
 
-    // Searches for the city in the graph and returns the index of the graph it
+    // Searches for the stadium in the graph and returns the index of the graph it
     // was found, else returns the size of the graph.
     while(index < graph.size() && !found)
     {
-        if(graph.at(index).city == city)
+        if(graph.at(index).stadium == stadium)
         {
             found = true;
         }
@@ -56,14 +58,14 @@ int Graph::findVertex(QString city)
     return index;
 }
 
-void Graph::insertVertex(QString city)
+void Graph::insertVertex(QString stadium)
 {
     // Adds the vertex to the graph if it does not yet exist.
-    if(findVertex(city) == graph.size())
+    if(findVertex(stadium) == graph.size())
     {
         Vertex newVertex;
 
-        newVertex.city = city;
+        newVertex.stadium = stadium;
         newVertex.visited = false;
 
         graph.push_back(newVertex);
@@ -97,15 +99,15 @@ void Graph::insertEdge(QString u, QString v, int weight)
 
 QVector<QString> Graph::vertices()
 {
-    QVector<QString> cityNames; // Vector of city names.
+    QVector<QString> stadiumNames; // Vector of stadium names.
 
     // Adds the names of the cities in the graph to the vector.
     for(int i = 0; i < graph.size(); i++)
     {
-        cityNames.push_back(graph[i].city);
+        stadiumNames.push_back(graph[i].stadium);
     }
 
-    return cityNames;
+    return stadiumNames;
 }
 
 QVector<QString> Graph::edges()
@@ -129,7 +131,7 @@ QVector<QString> Graph::edges()
     return edgeList;
 }
 
-int Graph::DFS(QString startingCity, QVector<QString> &dfs)
+int Graph::DFS(QString startingStadium, QVector<QString> &dfs)
 {
     // Reset the graph, this should be its own function
     if(verticesVisited() == graph.size())
@@ -145,108 +147,225 @@ int Graph::DFS(QString startingCity, QVector<QString> &dfs)
     }
 
     // Gets the graph index of the vertex being visited.
-    int currVertex = findVertex(startingCity);
+    int currVertex = findVertex(startingStadium);
 
     // Visits the vertex.
     graph[currVertex].visited = true;
 
-    // Searches the vector of visited vertices for the city being visited.
-    QVector<QString>::iterator nextCityIt = find(dfs.begin(), dfs.end(), startingCity);
+    // Searches the vector of visited vertices for the stadium being visited.
+    QVector<QString>::iterator nextStadiumIt = find(dfs.begin(), dfs.end(), startingStadium);
 
     // Adds the vertex to the vector if it is not already in the vector.
-    if(nextCityIt == dfs.end())
+    if(nextStadiumIt == dfs.end())
     {
-        dfs.push_back(startingCity);
+        dfs.push_back(startingStadium);
     }
 
     // Performs a recursive call on itself to visit all vertices in the graph.
     if(verticesVisited() != graph.size())
     {
-        // Gets the graph index of the next closest city in the graph.
+        // Gets the graph index of the next closest stadium in the graph.
         int nextVertex = smallestEdgeDFS(currVertex, dfs);
 
-        // Performs recursive call to visit the next closest city.
-        DFS(graph.at(nextVertex).city, dfs);
+        // Performs recursive call to visit the next closest stadium.
+        DFS(graph.at(nextVertex).stadium, dfs);
     }
 
     return dfsDistance;
 }
 
-QVector<QString> Graph::getDiscoveryEdges(QVector<QString> &dfs)
+int Graph::primJarnikMST(QString startingStadium, QVector<QString> &mst)
 {
-    QVector<Edge> discEdges; // Vector of the discovery edges.
-
-    // Adds the discovery edges to the vector in the order they were discovered.
-    for(int i = 0; i < graph.size(); i++)
+    // Reset the graph, this should be its own function
+    if(verticesVisited() == graph.size())
     {
-        int dfsIndex = findVertex(dfs.at(i));
-
-        for(int j = 0; j < graph.at(dfsIndex).edgeList.size(); j++)
+        for (int i=0; i<graph.size(); i++)
         {
-            // Only adds the edge to the vector if it is a discovery edge.
-            if(graph.at(dfsIndex).edgeList.at(j).discoveryEdge)
+            graph[i].visited = false;
+
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
             {
-                discEdges.push_back(graph.at(dfsIndex).edgeList.at(j));
+                graph[i].edgeList[j].discoveryEdge = false;
             }
         }
+
+        mstDistance = 0;
     }
 
-    // Deletes edges with the same vertices to avoid duplicates.
-    deleteDuplicates(discEdges);
+    // Gets the graph index of the vertex being visited.
+    int currVertex = findVertex(startingStadium);
 
-    // Iterator to the beginning of the vector of discovery edges.
-    QVector<Edge>::iterator edgeIt = discEdges.begin();
+    // Visits the vertex.
+    graph[currVertex].visited = true;
 
-    QVector<QString> discoveryEdges; // Vector of discovery edge pairs.
+    // Adds the vertex to the MST vector.
+    mst.push_back(startingStadium);
 
-    // Adds the discovery edges to the QString vector in (u, v) format.
-    while(edgeIt != discEdges.end())
+    // Performs a recursive call on itself to visit all vertices in the graph.
+    if(mst.size() != size())
     {
-        discoveryEdges.push_back("(" + edgeIt->u + ", " + edgeIt->v + ")");
+        // Gets the graph index of the next closest stadium in the graph.
+        int nextVertex = smallestEdgeMST(mst);
 
-        edgeIt++;
+        // Performs recursive call to visit the next closest stadium.
+        primJarnikMST(graph.at(nextVertex).stadium, mst);
     }
 
-    return discoveryEdges;
+    return mstDistance;
 }
 
-QVector<QString> Graph::getBackEdges(QVector<QString> &dfs)
+int Graph::smallestEdgeMST(QVector<QString> &mst)
 {
-    QVector<Edge> backEdges; // Vector of back edges.
-
-    // Adds the back edges to the vector in the order they were discovered.
-    for(int i = 0; i < graph.size(); i++)
+    // Finds the closest stadium to the root if it is the only vertex in T, else
+    // finds the edge with the smallest weight among the edges adjacent to T.
+    if(mst.size() == 1)
     {
-        int dfsIndex = findVertex(dfs.at(i));
+        // Graph vertex of the stadium closest to the root.
+        int smallestVertex = smallestEdge(findVertex(mst.front()));
 
-        for(int j = 0; j < graph.at(dfsIndex).edgeList.size(); j++)
+        // Accumulates total distance.
+        mstDistance += distanceBetween(findVertex(mst.front()), smallestVertex);
+
+        // Prints the edge.
+//        qDebug() << "(" << mst.front() << ", " << graph[smallestVertex].stadium << ")\n";
+
+        return smallestEdge(findVertex(mst.front()));
+    }
+    else
+    {
+        // MST index of the stadium with the smallest edge and the index of the
+        // stadium it is being compared to.
+        int smallId = 0;
+        int compId = smallId + 1;
+
+        // Size of T.
+        int size = mst.size();
+
+        // Compares the smallest edge of smallId to all other smallest edges of
+        // the cities in T.
+        while(compId < size)
         {
-            // Only adds the edge to the vector if it is a back edge.
-            if(!(graph.at(dfsIndex).edgeList.at(j).discoveryEdge))
+            // Graph indexes of the stadium in MST with the smallest edge and stadium
+            // it is being compared to.
+            int smallVer = findVertex(mst[smallId]);
+            int compVer = findVertex(mst[compId]);
+
+            // Increments smallId to the next stadium in MST if all of the edges
+            // of smallVer have already been visited, else checks if all the
+            // edges of compVer have been visited.
+            if(graph[smallVer].edgeList.size() == edgesDiscovered(smallVer))
             {
-                backEdges.push_back(graph.at(dfsIndex).edgeList.at(j));
-                //QDebug() << "Added edge (" << graph.at(dfsIndex).edgeList.at(j).u << ", " << graph.at(dfsIndex).edgeList.at(j).v << ")\n";
+                smallId++;
+            }
+            else
+            {
+                // Compares the smallest edge of smallVer and compVer if compVer's
+                // edges have not all been visited.
+                if(graph[compVer].edgeList.size() != edgesDiscovered(compVer))
+                {
+                    // Distance between smallVer and its smallest edge.
+                    int smallDist = distanceBetween(smallVer, smallestEdge(smallVer));
+
+                    // Distance between compVer and its smallest edge.
+                    int compDist =  distanceBetween(compVer, smallestEdge(compVer));
+
+                    // Assigns compId to smallId if compVer has a smaller
+                    // edge than the current smallest vertex.
+                    if(smallDist > compDist)
+                    {
+                        smallId = compId;
+                    }
+                }
+            }
+
+            // Increments compId so that it is always at least 1 index ahead of
+            // smallId.
+            compId++;
+        }
+
+        // Accumulates the total MST distance.
+        mstDistance += distanceBetween(findVertex(mst[smallId]), smallestEdge(findVertex(mst[smallId])));
+
+        // Graph index of the stadium with the closest edge.
+        int smallestVertex = findVertex(mst[smallId]);
+
+        // Gets the name of the stadium that is the closest to the stadium with the
+        // closest edge.
+        QString nextStadium = graph.at(smallestEdge(smallestVertex)).stadium;
+
+        // Prints the smallest edge (next edge to be visited).
+//        qDebug() << "(" << mst[smallId] << ", " << nextStadium << ")\n";
+
+        // Finds the graph index of the closest stadium.
+        smallId = findVertex(nextStadium);
+
+        return smallId;
+    }
+}
+
+int Graph::smallestEdge(int vertex)
+{
+    // Edge list vertex of the closest stadium.
+    int smallestIndex = 0;
+
+    // Edge list vertex of the stadium whose distance is being compared to the
+    // stadium at edgeList.at(smallestIndex).
+    int compIndex = smallestIndex + 1;
+
+    // Gets the size of the edgeList for the current vertex.
+    int size = graph.at(vertex).edgeList.size();
+
+    // Finds the next closest stadium that has not been visited yet.
+    while(compIndex < size)
+    {
+        // Gets the graph index of the next closest stadium.
+        int smallestVertex = findVertex(graph.at(vertex).edgeList.at(smallestIndex).v);
+
+        // Gets the graph index of the stadium in the edge list being comapred
+        // to the stadium at edgeList.at(smallestIndex).
+        int compVertex = findVertex(graph.at(vertex).edgeList.at(compIndex).v);
+
+        // If the vertex at graph.at(smallestVertex) has already been visited,
+        // increments smallest index and does nothing, else checks if the
+        // vertex it is being compared to has been visited.
+        if(graph.at(smallestVertex).visited)
+        {
+            smallestIndex++;
+        }
+        else
+        {
+            // If the vertex smallestVertex is being compared to has not been
+            // visited, compares their weights, else does nothing.
+            if(!(graph.at(compVertex).visited))
+            {
+                if(graph.at(vertex).edgeList.at(smallestIndex).weight >= graph.at(vertex).edgeList.at(compIndex).weight)
+                {
+                    smallestIndex = compIndex;
+                }
             }
         }
+
+        // Increments compIndex so that it is always the after smallestIndex.
+        compIndex++;
     }
 
-    // Deletes edges with the same vertices to avoid duplicates.
-    deleteDuplicates(backEdges);
+    // Finds the graph index of the closest stadium.
+    smallestIndex = findVertex(graph.at(vertex).edgeList.at(smallestIndex).v);
 
-    // Iterator to the beginning of the vector of back edges.
-    QVector<Edge>::iterator edgeIt = backEdges.begin();
+    return smallestIndex;
+}
 
-    QVector<QString> backEdgeList; // Vector of back edge pairs.
+int Graph::distanceBetween(int v1, int v2)
+{
+    int i = 0;
 
-    // Adds the back edges to the QString vector in (u, v) format.
-    while(edgeIt != backEdges.end())
+    // Finds v2 in v1's edge list.
+    while(graph[v1].edgeList[i].v != graph[v2].stadium)
     {
-        backEdgeList.push_back("(" + edgeIt->u + ", " + edgeIt->v + ")");
-
-        edgeIt++;
+        i++;
     }
 
-    return backEdgeList;
+    return graph[v1].edgeList[i].weight;
 }
 
 int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
@@ -256,24 +375,24 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
     // not all been discovered.
     if(edgesDiscovered(currVertex) != graph.at(currVertex).edgeList.size())
     {
-        // Edge list vertex of the closest city.
+        // Edge list vertex of the closest stadium.
         int smallestIndex = 0;
 
-        // Edge list vertex of the city whose distance is being compared to the
-        // city at edgeList.at(smallestIndex).
+        // Edge list vertex of the stadium whose distance is being compared to the
+        // stadium at edgeList.at(smallestIndex).
         int compIndex = smallestIndex + 1;
 
         // Gets the size of the edgeList for the current vertex.
         int size = graph.at(currVertex).edgeList.size();
 
-        // Finds the next closest city that has not been visited yet.
+        // Finds the next closest stadium that has not been visited yet.
         while(compIndex < size)
         {
-            // Gets the graph index of the next closest city.
+            // Gets the graph index of the next closest stadium.
             int smallestVertex = findVertex(graph.at(currVertex).edgeList.at(smallestIndex).v);
 
-            // Gets the graph index of the city in the edge list being comapred
-            // to the city at edgeList.at(smallestIndex).
+            // Gets the graph index of the stadium in the edge list being comapred
+            // to the stadium at edgeList.at(smallestIndex).
             int compVertex = findVertex(graph.at(currVertex).edgeList.at(compIndex).v);
 
             // If the vertex at graph.at(smallestVertex) has already been visited,
@@ -309,15 +428,15 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
         // Adds the distance to the overall distance traveled.
         dfsDistance += graph.at(currVertex).edgeList.at(smallestIndex).weight;
 
-        // Gets the name of the city that is the closest to the current city.
-        QString nextCity = graph.at(currVertex).edgeList.at(smallestIndex).v;
+        // Gets the name of the stadium that is the closest to the current stadium.
+        QString nextStadium = graph.at(currVertex).edgeList.at(smallestIndex).v;
 
-        // Finds the graph index of the closest city.
-        smallestIndex = findVertex(nextCity);
+        // Finds the graph index of the closest stadium.
+        smallestIndex = findVertex(nextStadium);
 
         for(int i = 0; i < graph.at(smallestIndex).edgeList.size(); i++)
         {
-            if(graph.at(currVertex).city == graph.at(smallestIndex).edgeList.at(i).v)
+            if(graph.at(currVertex).stadium == graph.at(smallestIndex).edgeList.at(i).v)
             {
                 graph[smallestIndex].edgeList[i].discoveryEdge = true;
             }
@@ -327,24 +446,24 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
     }
     else
     {
-        // Iterator that gets the location of the current city in the vector of
+        // Iterator that gets the location of the current stadium in the vector of
         // names that contains the cities in the order they were visited.
         QVector<QString>::iterator dfsIt = find(dfs.begin(), dfs.end(),
-                                              graph.at(currVertex).city);
+                                              graph.at(currVertex).stadium);
 
-        // Decrements the iterator to the previous city visited.
+        // Decrements the iterator to the previous stadium visited.
         dfsIt--;
 
-        // Finds the graph index of the previous city visited.
+        // Finds the graph index of the previous stadium visited.
         int backIndex = findVertex(*dfsIt);
 
-        // Preforms a recursive call to check if the previous city visited has
+        // Preforms a recursive call to check if the previous stadium visited has
         // any unvisited edges to continue the DFS.
         return smallestEdgeDFS(backIndex, dfs);
     }
 }
 
-int Graph::BFS(QString startingCity, QVector<QString> &bfs)
+int Graph::BFS(QString startingStadium, QVector<QString> &bfs)
 {
     // Reset the graph, this should be its own function
     if(verticesVisited() == graph.size())
@@ -360,7 +479,7 @@ int Graph::BFS(QString startingCity, QVector<QString> &bfs)
     }
 
     // Get the graph index of the vertex being visited.
-    int currVertex = findVertex(startingCity);
+    int currVertex = findVertex(startingStadium);
 
     // Visit the starting vertex
     graph[currVertex].visited = true;
@@ -369,7 +488,7 @@ int Graph::BFS(QString startingCity, QVector<QString> &bfs)
     // the 1st vertex, and add the first vertex to the bfs vector
     QVector<int> newLevel;
     newLevel.push_back(currVertex);
-    bfs.push_back(startingCity);
+    bfs.push_back(startingStadium);
 
     // Start recursion
     return BFSRecur(bfs, newLevel);
@@ -395,7 +514,7 @@ int Graph::BFSRecur(QVector<QString> &bfs, QVector<int> previousLevel)
         for (int j=0; j<currEdgeList->size(); j++)
         {
             // Add all non-visited levels to the next level, in closest order
-            currVertexID = findVertex(otherVertex(currEdgeList->at(j),startingVertex->city));
+            currVertexID = findVertex(otherVertex(currEdgeList->at(j),startingVertex->stadium));
             currVertex = &graph[currVertexID];
             if (!currVertex->visited)
             {
@@ -409,7 +528,7 @@ int Graph::BFSRecur(QVector<QString> &bfs, QVector<int> previousLevel)
                 // Also mark the reverse edge as a discovery edge
                 for(int i = 0; i < currVertex->edgeList.size(); i++)
                 {
-                    if(currVertex->edgeList.at(i).v == startingVertex->city)
+                    if(currVertex->edgeList.at(i).v == startingVertex->stadium)
                         currVertex->edgeList[i].discoveryEdge = true;
                 }
 
@@ -424,13 +543,13 @@ int Graph::BFSRecur(QVector<QString> &bfs, QVector<int> previousLevel)
                     }
                 }
                 if (!inserted)
-                    currLevel.push_back(findVertex(currVertex->city));
+                    currLevel.push_back(findVertex(currVertex->stadium));
             }
         }
 
         // Add the current level vertices to the the end of the bfs vector
         for (int m=0; m<currLevel.size(); m++) {
-            bfs.push_back(graph.at(currLevel.at(m)).city);
+            bfs.push_back(graph.at(currLevel.at(m)).stadium);
         }
 
         // Add the current level vertices to the end of the newLevel vector
@@ -456,15 +575,15 @@ int Graph::distance(Vertex * v1, Vertex * v2)
 {
     // find connecting edge
     for (int i=0; i<v1->edgeList.size(); i++) {
-        if (v1->edgeList.at(i).u == v2->city || v1->edgeList.at(i).v == v2->city)
+        if (v1->edgeList.at(i).u == v2->stadium || v1->edgeList.at(i).v == v2->stadium)
             return v1->edgeList.at(i).weight;
     }
     return -1;
 }
 
-QString Graph::otherVertex(Edge currEdge, QString startingCity)
+QString Graph::otherVertex(Edge currEdge, QString startingStadium)
 {
-    if(currEdge.u == startingCity)
+    if(currEdge.u == startingStadium)
         return currEdge.v;
     else
         return currEdge.u;
@@ -505,35 +624,4 @@ int Graph::edgesDiscovered(int currVertex)
     }
 
     return numVisited;
-}
-
-void Graph::deleteDuplicates(QVector<Edge> &edgeList)
-{
-    QVector<Edge>::iterator listIt = edgeList.begin();
-
-    // Traverses the list of edges to delete pairs that are the same.
-    while(listIt != edgeList.end())
-    {
-        QVector<Edge>::iterator compIt = listIt + 1;
-
-        bool deleted = false;
-
-        // Deletes the first instance of an edge that has the same pair as
-        // the edge pointed to by listIt.
-        while(compIt != edgeList.end() && !deleted)
-        {
-            if(listIt->u == compIt->v && listIt->v == compIt->u)
-            {
-                edgeList.erase(compIt);
-
-                deleted = true;
-            }
-            else
-            {
-                compIt++;
-            }
-        }
-
-        listIt++;
-    }
 }
