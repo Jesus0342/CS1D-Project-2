@@ -144,6 +144,8 @@ int Graph::DFS(QString startingStadium, QVector<QString> &dfs)
                 graph[i].edgeList[j].discoveryEdge = false;
             }
         }
+        
+        dfsDistance = 0;
     }
 
     // Gets the graph index of the vertex being visited.
