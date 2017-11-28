@@ -171,4 +171,6 @@ void buySouvenir::setReceipt()
 void buySouvenir::on_pushButton_clicked()
 {
     this->close();
+
+    ui->comboBox_stadiumName->clear();
 }
