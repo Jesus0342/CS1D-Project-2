@@ -56,7 +56,7 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
         QString mstMileStr = addCommas(mstMileage);
 
         // Converts the total seating capacity into a string and puts it in the total open roof label.
-        ui->label_distanceMST->setText("Total Distance Traveled: " + mstMileStr);
+        ui->label_distanceMST->setText("Total Distance Traveled: " + mstMileStr + " mi");
 
         // Changes the font in the totalRoofTxt label.
         QFont font = ui->label_distanceMST->font();
@@ -98,7 +98,7 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
         QString dfsDistStr = addCommas(dfsDistance);
 
         // Converts the total seating capacity into a string and puts it in the total open roof label.
-        ui->label_distanceDFS->setText("Total Distance Traveled: " + dfsDistStr);
+        ui->label_distanceDFS->setText("Total Distance Traveled: " + dfsDistStr + " mi");
 
         // Changes the font in the totalRoofTxt label.
         QFont font = ui->label_distanceDFS->font();
@@ -139,7 +139,7 @@ void traversegraph::on_comboBox_currentIndexChanged(int index)
         QString bfsDistStr = addCommas(bfsDistance);
 
         // Converts the total seating capacity into a string and puts it in the total open roof label.
-        ui->label_distanceBFS->setText("Total Distance Traveled: " + bfsDistStr);
+        ui->label_distanceBFS->setText("Total Distance Traveled: " + bfsDistStr + " mi");
 
         // Changes the font in the totalRoofTxt label.
         QFont font = ui->label_distanceBFS->font();
