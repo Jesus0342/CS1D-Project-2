@@ -19,6 +19,9 @@ startAtFordField::startAtFordField(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bg);
     this->setPalette(palette);
+
+    MainWindow *w = new MainWindow();
+    w->connectToDatabase();
 }
 
 startAtFordField::~startAtFordField()

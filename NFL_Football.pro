@@ -35,7 +35,8 @@ SOURCES += main.cpp\
         login.cpp \
         startatfordfield.cpp \
         traversegraph.cpp \
-        graph.cpp
+        graph.cpp \
+    startlosangeles.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
@@ -47,11 +48,13 @@ HEADERS  += mainwindow.h \
     login.h \
     startatfordfield.h \
     traversegraph.h \
-    graph.h
+    graph.h \
+    startlosangeles.h
 
 FORMS    += mainwindow.ui \
     buysouvenir.ui \
     adminwindow.ui \
     login.ui \
     startatfordfield.ui \
-    traversegraph.ui
+    traversegraph.ui \
+    startlosangeles.ui

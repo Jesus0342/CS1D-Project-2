@@ -120,7 +120,7 @@ public:
         label_home->setGeometry(QRect(180, 10, 271, 91));
         comboBox_selectAction = new QComboBox(page_home);
         comboBox_selectAction->setObjectName(QStringLiteral("comboBox_selectAction"));
-        comboBox_selectAction->setGeometry(QRect(220, 410, 191, 22));
+        comboBox_selectAction->setGeometry(QRect(150, 410, 351, 22));
         pushButton_login = new QPushButton(page_home);
         pushButton_login->setObjectName(QStringLiteral("pushButton_login"));
         pushButton_login->setGeometry(QRect(470, 10, 141, 23));
@@ -382,7 +382,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 651, 20));
+        menuBar->setGeometry(QRect(0, 0, 651, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -393,7 +393,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         comboBox_selectAction->setCurrentIndex(0);
         comboBox_displayOptions->setCurrentIndex(0);
 
@@ -411,6 +411,7 @@ public:
          << QApplication::translate("MainWindow", "1 - View NFL Information", Q_NULLPTR)
          << QApplication::translate("MainWindow", "2 - Traverse Graph", Q_NULLPTR)
          << QApplication::translate("MainWindow", "3 - Visit All Starting at Ford Field", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "4 - Visit Stadiums Starting at LA Memorial Coliseum", Q_NULLPTR)
         );
         pushButton_login->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
         comboBox_displayOptions->clear();

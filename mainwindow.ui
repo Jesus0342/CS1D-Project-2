@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
@@ -37,9 +37,9 @@
        <widget class="QComboBox" name="comboBox_selectAction">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>150</x>
           <y>410</y>
-          <width>191</width>
+          <width>351</width>
           <height>22</height>
          </rect>
         </property>
@@ -64,6 +64,11 @@
         <item>
          <property name="text">
           <string>3 - Visit All Starting at Ford Field</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>4 - Visit Stadiums Starting at LA Memorial Coliseum</string>
          </property>
         </item>
        </widget>
@@ -889,7 +894,7 @@
      <x>0</x>
      <y>0</y>
      <width>651</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

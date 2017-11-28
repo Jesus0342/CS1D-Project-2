@@ -3,6 +3,7 @@
 #include "buysouvenir.h"
 #include "startatfordfield.h"
 #include "traversegraph.h"
+#include "startlosangeles.h"
 
 #include <QtAlgorithms>
 #include <QObject>
@@ -65,10 +66,21 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
     }
         break;
     case 3:
+    {
         startAtFordField *s = new startAtFordField();
         s->show();
         break;
     }
+    case 4:
+    {
+        startlosangeles *l = new startlosangeles();
+        l->show();
+        break;
+    }
+    }
+
+
+
 
     ui->comboBox_selectAction->setCurrentIndex(0);
 }

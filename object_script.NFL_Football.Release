@@ -11,10 +11,12 @@ INPUT(
 ./release\startatfordfield.o
 ./release\traversegraph.o
 ./release\graph.o
+./release\startlosangeles.o
 ./release\moc_mainwindow.o
 ./release\moc_buysouvenir.o
 ./release\moc_adminwindow.o
 ./release\moc_login.o
 ./release\moc_startatfordfield.o
 ./release\moc_traversegraph.o
+./release\moc_startlosangeles.o
 );
