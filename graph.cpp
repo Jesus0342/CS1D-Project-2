@@ -176,6 +176,100 @@ int Graph::DFS(QString startingStadium, QVector<QString> &dfs)
     return dfsDistance;
 }
 
+int Graph::BFS(QString startingStadium, QVector<QString> &bfs)
+{
+    // Reset the graph, this should be its own function
+    if(verticesVisited() == graph.size())
+    {
+        for (int i=0; i<graph.size(); i++)
+        {
+            graph[i].visited = false;
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
+            {
+                graph[i].edgeList[j].discoveryEdge = false;
+            }
+        }
+    }
+
+    // Get the graph index of the vertex being visited.
+    int currVertex = findVertex(startingStadium);
+
+    // Visit the starting vertex
+    graph[currVertex].visited = true;
+
+    // Create a newLevel vector to hold the current level, containing only
+    // the 1st vertex, and add the first vertex to the bfs vector
+    QVector<int> newLevel;
+    newLevel.push_back(currVertex);
+    bfs.push_back(startingStadium);
+
+    // Start recursion
+    return BFSRecur(bfs, newLevel);
+}
+
+void Graph::shortestPathsDijkstra(QString startingStadium, QVector<QString> &T, int costs[], int parent[])
+{
+    // Reset the graph, this should be its own function
+    if(verticesVisited() == graph.size())
+    {
+        for (int i=0; i<graph.size(); i++)
+        {
+            graph[i].visited = false;
+
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
+            {
+                graph[i].edgeList[j].discoveryEdge = false;
+            }
+        }
+    }
+
+    // Returns the graph vertex of the starting city "s".
+    int currVertex = findVertex(startingStadium);
+
+    // Adds "s" to T.
+    T.push_back(graph[currVertex].stadium);
+
+    // Sets the cost of "s" to 0 and its parent to -1.
+    costs[currVertex] = 0;
+    parent[currVertex] = -1;
+
+    // Marks "s" as visited.
+    graph[currVertex].visited = true;
+
+    // Finds the next closest vertex to the vertices in the graph until all
+    // vertices have been added to T.
+    while(T.size() != size())
+    {
+        findClosest(T, costs, parent);
+    }
+}
+
+QVector<QString> Graph::returnPath(QString start, QString end, int parent[])
+{
+    // Vector of the names of the cities in the path from start to end.
+    QVector<QString> path;
+
+    // Returns the graph index of end.
+    int vertex = findVertex(end);
+
+    // Pushes the parent of the current vertex onto the path vector until
+    // "s" is reached.
+    while(parent[vertex] != -1)
+    {
+        path.push_back(graph[vertex].stadium);
+
+        vertex = parent[vertex];
+    }
+
+    // Adds "s" to the path vector.
+    path.push_back(graph[vertex].stadium);
+
+    // Reverese the path vector so that "s" is first and end is last.
+    reverse(path.begin(), path.end());
+
+    return path;
+}
+
 int Graph::primJarnikMST(QString startingStadium, QVector<QString> &mst)
 {
     // Reset the graph, this should be its own function
@@ -465,37 +559,6 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
     }
 }
 
-int Graph::BFS(QString startingStadium, QVector<QString> &bfs)
-{
-    // Reset the graph, this should be its own function
-    if(verticesVisited() == graph.size())
-    {
-        for (int i=0; i<graph.size(); i++)
-        {
-            graph[i].visited = false;
-            for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            {
-                graph[i].edgeList[j].discoveryEdge = false;
-            }
-        }
-    }
-
-    // Get the graph index of the vertex being visited.
-    int currVertex = findVertex(startingStadium);
-
-    // Visit the starting vertex
-    graph[currVertex].visited = true;
-
-    // Create a newLevel vector to hold the current level, containing only
-    // the 1st vertex, and add the first vertex to the bfs vector
-    QVector<int> newLevel;
-    newLevel.push_back(currVertex);
-    bfs.push_back(startingStadium);
-
-    // Start recursion
-    return BFSRecur(bfs, newLevel);
-}
-
 int Graph::BFSRecur(QVector<QString> &bfs, QVector<int> previousLevel)
 {
     QVector<int> newLevel;
@@ -589,6 +652,128 @@ QString Graph::otherVertex(Edge currEdge, QString startingStadium)
         return currEdge.v;
     else
         return currEdge.u;
+}
+
+void Graph::findClosest(QVector<QString> &T, int costs[], int parent[])
+{
+    // Finds the closest city to the root if it is the only vertex in T, else
+    // finds the edge with the smallest weight among the edges adjacent to T.
+    if(T.size() == 1)
+    {
+        // Returns the graph index of "s".
+        int frontVer = findVertex(T.front());
+
+        // Returns the graph index of the closest vertex to "s".
+        int nextVer = smallestEdge(frontVer);
+
+        // Stores the cost and parent of the closest vertex.
+        costs[nextVer] = distanceBetween(frontVer, nextVer);
+        parent[nextVer] = frontVer;
+
+        // Marks the closest vertex as visited.
+        graph[nextVer].visited = true;
+
+        // Adds the closest vertex to T.
+        T.push_back(graph[nextVer].stadium);
+    }
+    else
+    {
+        // T index of the city with the smallest edge and the index of the
+        // city it is being compared to.
+        int smallId = 0;
+        int compId = smallId + 1;
+
+        // Smallest distance and comparison distance.
+        int smallDist;
+        int compDist;
+
+        // Size of T.
+        int size = T.size();
+
+        // Compares the smallest edge of smallId to all other smallest edges of
+        // the cities in T.
+        while(compId < size)
+        {
+            // Graph indexes of the city in MST with the smallest edge and city
+            // it is being compared to.
+            int smallVer = findVertex(T[smallId]);
+            int compVer = findVertex(T[compId]);
+
+            // Increments smallId to the next city in T if all of the edges
+            // of smallVer have already been visited, else checks if all the
+            // edges of compVer have been visited.
+            if(graph[smallVer].edgeList.size() == edgesDiscovered(smallVer))
+            {
+                smallId++;
+            }
+            else
+            {
+                // Compares the smallest edge of smallVer and compVer if compVer's
+                // edges have not all been visited.
+                if(graph[compVer].edgeList.size() != edgesDiscovered(compVer))
+                {
+                    // Distance between smallVer and its smallest edge.
+                    smallDist = distanceBetween(smallVer, smallestEdge(smallVer))
+                                + distanceFromStart(graph[smallVer].stadium, costs,
+                                                    parent);
+
+                    // Distance between compVer and its smallest edge.
+                    compDist =  distanceBetween(compVer, smallestEdge(compVer))
+                                + distanceFromStart(graph[compVer].stadium, costs,
+                                                    parent);
+
+                    // Assigns compId to smallId if compVer has a smaller
+                    // edge than the current smallest vertex.
+                    if(smallDist > compDist)
+                    {
+                        smallId = compId;
+
+                        smallDist = compDist;
+                    }
+                }
+            }
+
+            // Increments compId so that it is always at least 1 index ahead of
+            // smallId.
+            compId++;
+        }
+
+        // Graph index of the city with the closest edge.
+        int smallestVertex = smallestEdge(findVertex(T[smallId]));
+
+        // Stores the cost and parent of the next closest vertex.
+        costs[smallestVertex] = smallDist;
+        parent[smallestVertex] = findVertex(T[smallId]);
+
+        // Marks the next closest vertex as visited.
+        graph[smallestVertex].visited = true;
+
+        // Adds the next closest vertex to T.
+        T.push_back(graph[smallestVertex].stadium);
+    }
+
+}
+
+int Graph::distanceFromStart(QString city, int costs[], int parent[])
+{
+    // Distance accumulator.
+    int distance = 0;
+
+    // Graph index of the city whose distance from "s" will be found.
+    int vertex = findVertex(city);
+
+    // While vertex is not "s", finds the distance between the current vertex
+    // and  its parent.
+    while(costs[vertex] != 0)
+    {
+        // Accumulates distance.
+        distance += distanceBetween(vertex, parent[vertex]);
+
+        // Assigns the value of the parent of the current vertex to vertex.
+        vertex = parent[vertex];
+    }
+
+    return distance;
 }
 
 int Graph::verticesVisited()

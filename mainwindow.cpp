@@ -19,6 +19,38 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Always opens the program to the home page of the stacked widget.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
+
+    // *** MAKE SURE TO HAVE THIS WHENEVER YOU USE THE GRAPH CLASS ***
+    Database::getInstance()->returnGraphEdges();
+
+    Graph g;
+
+    int size = g.size();
+
+    QVector<QString> T;
+    int costs[size];
+    int parents[size];
+
+    g.shortestPathsDijkstra("Hard Rock Stadium", T, costs, parents);
+
+    for(int i = 0; i < T.size(); i++)
+    {
+        QVector<QString> paths = g.returnPath("Hard Rock Stadium", T[i], parents);
+
+        qDebug() << "Hard Rock Stadium to " << T[i] << "\n";
+
+        for(int j = 0; j < paths.size(); j++)
+        {
+            qDebug() << paths[j];
+
+            if(j + 1 != paths.size())
+            {
+                qDebug() << " -> ";
+            }
+        }
+
+        qDebug() << "\nTotal Distance: " << costs[g.findVertex(T[i])] << "\n";
+    }
 }
 
 MainWindow::~MainWindow()

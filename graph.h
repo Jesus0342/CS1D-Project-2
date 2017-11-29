@@ -139,6 +139,23 @@ public:
      */
     int BFS(QString startingStadium, QVector<QString> &bfs);
 
+    // Determines the shortest path from the starting vertex "s" and all other
+    // vertices in the graph.
+    // PRE-CONDITIONS:
+    // startingStadium - Starting city "s" must be defined.
+    // T - Vector of vertices that have been visited.
+    // costs[] - Array of costs of each vertex from "s".
+    // parent[] - Array storing the parents of all visited vertices.
+    void shortestPathsDijkstra(QString startingStadium, QVector<QString> &T,
+                               int costs[], int parent[]);
+
+    // Returns the shortest path from start to end.
+    // PRE-CONDITIONS:
+    // start - Starting city must be defined.
+    // end - Destination city must be defined.
+    // parent - Array of parents must be defined.
+    QVector<QString> returnPath(QString start, QString end, int parent[]);
+
     /**
      * @brief Determines the minimum spanning tree of the graph using Prim-Jarnik's Algorithm.
      * @param startingStadium - Stadium where MST will begin
@@ -184,6 +201,21 @@ private:
      * @return distance between v1 and v2
      */
     int distance(Vertex * v1, Vertex * v2);
+
+    // Determines the next closest vertex to all previously discovered vertices
+    // by calculating their distance from the "s".
+    // PRE-CONDITIONS:
+    // T - Vector of vertices that have been visited.
+    // costs[] - Array of costs of each vertex from "s".
+    // parent[] - Array storing the parents of all visited vertices.
+    void findClosest(QVector<QString> &T, int costs[], int parent[]);
+
+    // Returns the distance of a vertex from "s".
+    // PRE-CONDITIONS:
+    // city - Name of city whose distance from "s" will be found.
+    // costs[] - Array of costs of each vertex from "s".
+    // parent[] - Array storing the parents of all visited vertices.
+    int distanceFromStart(QString city, int costs[], int parent[]);
 
     /**
      * @brief Finds the smallest edge from all of the previously visited vertices
