@@ -2,7 +2,7 @@
 CS1D Project 2
 
 ## Coding Standards
-Use [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) standards that are applicable to C++.
+Use [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) as a general guideline using C++.
 
 ### Variables
 * Descriptive names
@@ -35,7 +35,7 @@ if (boolVal) {
 * Notify others before working on a user story
 * Let others know when you've completed something
 * No fighting please
-* Keep yourself online on Discord as much as possible. Never know when something new will come up that we have to fix quickly.
+* Keep yourself online on Discord as much as possible. Never know when something new will come up that we will have to fix quickly.
 
 ## Program Requirements
 
