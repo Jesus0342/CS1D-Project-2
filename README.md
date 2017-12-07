@@ -103,8 +103,6 @@ Please let me know your partners by October 18th (three points will be deducted 
 9.	Identify all the data structures used. 
 10.	Submit your coding standards and team rules.
 11.	Each team must use a version control system, graphical user interface tool, automated documentation tool, and an Agile management tool. (GITHUB, DOXYGEN, WAFFIO.IO, QT, etc.)
-12.	All artifacts are due on December 5th.
-
 
 
 Schedule:
@@ -113,13 +111,3 @@ First checkpoint – November 1st – 5 points
 Second checkpoint – November 15th – 5 points
 
 Final checkpoint – December 11th – 30 points
-
-
-
-
-
-
-
-The assignment will be graded using the following scale:
-
- 
