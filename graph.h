@@ -254,6 +254,11 @@ private:
      */
     int edgesDiscovered(int currVertex);
 
+    /**
+     * @brief Marks all vertices as unvisited and edges as undiscovered.
+     */
+    void resetGraph();
+
     /************************
      * PRIVATE DATA MEMBERS *
      ************************/

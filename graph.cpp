@@ -133,20 +133,7 @@ QVector<QString> Graph::edges()
 
 int Graph::DFS(QString startingStadium, QVector<QString> &dfs)
 {
-    // Reset the graph, this should be its own function
-    if(verticesVisited() == graph.size())
-    {
-        for (int i=0; i<graph.size(); i++)
-        {
-            graph[i].visited = false;
-            for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            {
-                graph[i].edgeList[j].discoveryEdge = false;
-            }
-        }
-        
-        dfsDistance = 0;
-    }
+    resetGraph();
 
     // Gets the graph index of the vertex being visited.
     int currVertex = findVertex(startingStadium);
@@ -178,18 +165,7 @@ int Graph::DFS(QString startingStadium, QVector<QString> &dfs)
 
 int Graph::BFS(QString startingStadium, QVector<QString> &bfs)
 {
-    // Reset the graph, this should be its own function
-    if(verticesVisited() == graph.size())
-    {
-        for (int i=0; i<graph.size(); i++)
-        {
-            graph[i].visited = false;
-            for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            {
-                graph[i].edgeList[j].discoveryEdge = false;
-            }
-        }
-    }
+    resetGraph();
 
     // Get the graph index of the vertex being visited.
     int currVertex = findVertex(startingStadium);
@@ -209,19 +185,7 @@ int Graph::BFS(QString startingStadium, QVector<QString> &bfs)
 
 void Graph::shortestPathsDijkstra(QString startingStadium, QVector<QString> &T, int costs[], int parent[])
 {
-    // Reset the graph, this should be its own function
-    if(verticesVisited() == graph.size())
-    {
-        for (int i=0; i<graph.size(); i++)
-        {
-            graph[i].visited = false;
-
-            for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            {
-                graph[i].edgeList[j].discoveryEdge = false;
-            }
-        }
-    }
+    resetGraph();
 
     // Returns the graph vertex of the starting city "s".
     int currVertex = findVertex(startingStadium);
@@ -272,21 +236,7 @@ QVector<QString> Graph::returnPath(QString start, QString end, int parent[])
 
 int Graph::primJarnikMST(QString startingStadium, QVector<QString> &mst)
 {
-    // Reset the graph, this should be its own function
-    if(verticesVisited() == graph.size())
-    {
-        for (int i=0; i<graph.size(); i++)
-        {
-            graph[i].visited = false;
-
-            for (int j=0; j< graph.at(i).edgeList.size(); j++)
-            {
-                graph[i].edgeList[j].discoveryEdge = false;
-            }
-        }
-
-        mstDistance = 0;
-    }
+    resetGraph();
 
     // Gets the graph index of the vertex being visited.
     int currVertex = findVertex(startingStadium);
@@ -811,4 +761,23 @@ int Graph::edgesDiscovered(int currVertex)
     }
 
     return numVisited;
+}
+
+void Graph::resetGraph()
+{
+    // Reset the graph, this should be its own function
+    if(verticesVisited() == graph.size())
+    {
+        for (int i=0; i<graph.size(); i++)
+        {
+            graph[i].visited = false;
+            for (int j=0; j< graph.at(i).edgeList.size(); j++)
+            {
+                graph[i].edgeList[j].discoveryEdge = false;
+            }
+        }
+
+        dfsDistance = 0;
+        mstDistance = 0;
+    }
 }
