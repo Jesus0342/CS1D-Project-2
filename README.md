@@ -35,6 +35,7 @@ if (boolVal) {
 * Notify others before working on a user story
 * Let others know when you've completed something
 * No fighting please
+* Keep yourself online on Discord as much as possible. Never know when something new will come up that we have to fix quickly.
 
 ## Program Requirements
 
