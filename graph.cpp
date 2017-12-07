@@ -765,7 +765,6 @@ int Graph::edgesDiscovered(int currVertex)
 
 void Graph::resetGraph()
 {
-    // Reset the graph, this should be its own function
     if(verticesVisited() == graph.size())
     {
         for (int i=0; i<graph.size(); i++)

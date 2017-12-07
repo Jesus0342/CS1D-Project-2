@@ -31,13 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
     int costs[size];
     int parents[size];
 
-    g.shortestPathsDijkstra("Hard Rock Stadium", T, costs, parents);
+    g.shortestPathsDijkstra("Los Angeles Memorial Coliseum", T, costs, parents);
 
     for(int i = 0; i < T.size(); i++)
     {
         QVector<QString> paths = g.returnPath("Hard Rock Stadium", T[i], parents);
 
-        qDebug() << "Hard Rock Stadium to " << T[i] << "\n";
+        qDebug() << "Los Angeles Memorial Coliseum to " << T[i] << "\n";
 
         for(int j = 0; j < paths.size(); j++)
         {
