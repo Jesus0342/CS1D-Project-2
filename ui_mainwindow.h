@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.8.0
+** Created by: Qt User Interface Compiler version 5.9.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -412,6 +412,7 @@ public:
          << QApplication::translate("MainWindow", "2 - Traverse Graph", Q_NULLPTR)
          << QApplication::translate("MainWindow", "3 - Visit All Starting at Ford Field", Q_NULLPTR)
          << QApplication::translate("MainWindow", "4 - Visit Stadiums Starting at LA Memorial Coliseum", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "5 - Plan Custom Vacation", Q_NULLPTR)
         );
         pushButton_login->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
         comboBox_displayOptions->clear();

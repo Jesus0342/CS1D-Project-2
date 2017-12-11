@@ -4,6 +4,7 @@
 #include "startatfordfield.h"
 #include "traversegraph.h"
 #include "startlosangeles.h"
+#include "customtour.h"
 
 #include <QtAlgorithms>
 #include <QObject>
@@ -107,6 +108,12 @@ void MainWindow::on_comboBox_selectAction_currentIndexChanged(int index)
     {
         startlosangeles *l = new startlosangeles();
         l->show();
+        break;
+    }
+    case 5:
+    {
+        CustomTour *c = new CustomTour();
+        c->show();
         break;
     }
     }

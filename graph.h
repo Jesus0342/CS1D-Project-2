@@ -109,6 +109,13 @@ public:
     void insertEdge(QString u, QString v, int weight);
 
     /**
+     * @brief Returns the name of the stadium with the specified index
+     * @param index - Graph index of stadium in question
+     * @return QString of stadium name
+     */
+    QString vertexName(int index);
+
+    /**
      * @brief Returns a list of the vertices in the graph.
      * @return QVector of vertices
      */

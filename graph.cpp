@@ -97,6 +97,10 @@ void Graph::insertEdge(QString u, QString v, int weight)
     }
 }
 
+QString Graph::vertexName(int index) {
+    return graph[index].stadium;
+}
+
 QVector<QString> Graph::vertices()
 {
     QVector<QString> stadiumNames; // Vector of stadium names.
