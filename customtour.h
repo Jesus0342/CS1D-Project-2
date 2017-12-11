@@ -36,6 +36,13 @@ private:
      */
     int calcEfficientPath();
 
+    /**
+     * @brief Calculates path in order inputted.
+     * @return Total distance travelled throughout the path.
+     */
+
+    int calcOrderedPath();
+
     QVector<int> selectedStadiums;
     QList<QString> stadiumList;
 
