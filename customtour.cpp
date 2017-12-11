@@ -2,6 +2,7 @@
 #include "customtour.h"
 #include "graph.h"
 #include "ui_customtour.h"
+#include <QSqlQuery>
 #include <QDebug>
 
 CustomTour::CustomTour(QWidget *parent) :
@@ -19,6 +20,8 @@ CustomTour::CustomTour(QWidget *parent) :
     ui->tableWidget_selected->setColumnWidth(1,58);
 
     pathCalculated = false;
+
+    ui->pushButton_souvenirs->setEnabled(false);
 }
 
 CustomTour::~CustomTour()
@@ -44,9 +47,11 @@ void CustomTour::on_pushButton_add_clicked()
         ui->comboBox_stadiums->removeItem(currentIndex);
 
         ui->label_error->clear();
+
     }
-    else
+    else {
         ui->label_error->setText("Error: Please reset stadiums first");
+    }
 }
 
 void CustomTour::on_pushButton_reset_clicked()
@@ -65,6 +70,11 @@ void CustomTour::on_pushButton_reset_clicked()
     ui->label_1->setAlignment(Qt::AlignHCenter);
 
     pathCalculated = false;
+
+    //clear stadiums and team names
+    stadiums.clear();
+    teamNames.clear();
+    ui->pushButton_souvenirs->setEnabled(false);
 }
 
 void CustomTour::on_pushButton_back_clicked()
@@ -74,6 +84,15 @@ void CustomTour::on_pushButton_back_clicked()
 
 void CustomTour::on_pushButton_calculateTrip_clicked()
 {
+    //get list of stadiums from table widget
+    for (int i =0; i < ui->tableWidget_selected->rowCount(); i++)
+    {
+        QString a = ui->tableWidget_selected->item(i,0)->text();
+        stadiums.append(a);
+
+        QTextStream (stdout) << "STADIUMS:" << stadiums.at(i) << endl;
+    }
+
     int totalDist = 0;
 
     if (ui->radioButton_short->isChecked()) {
@@ -92,24 +111,55 @@ void CustomTour::on_pushButton_calculateTrip_clicked()
 
     ui->label_error->clear();
     pathCalculated = true;
+
+    //enable buy souvenirs
+    ui->pushButton_souvenirs->setEnabled(true);
 }
 
 void CustomTour::on_pushButton_souvenirs_clicked()
 {
-    if (pathCalculated) {
-        buySouvenir *b = new buySouvenir();
-        b->show();
+    //get starting pt from list widget
+    startingPt = ui->listWidget->item(0)->text();
 
-        QList<QString> stadiumNames;
-        for (int i=0; i<selectedStadiums.size(); i++) {
-            stadiumNames.push_back(g.vertexName(selectedStadiums.at(i)));
-        }
 
-        b->setData(ui->listWidget->item(0)->text(), stadiumNames);
-        b->populateDropdown();
+    //convert to teamNames
+    convertToTeamNames();
+
+    buySouvenir *s = new buySouvenir();
+    s->show();
+
+    s->setData(startingPt, teamNames);
+    s->populateDropdown();
+}
+
+void CustomTour::convertToTeamNames()
+{
+    QSqlQuery q;
+    q.exec("select TeamName from NFL_INFORMATION where StadiumName='"+startingPt+"'");
+    QString first;
+    while(q.next()) {
+        first= q.value(0).toString();
+        startingPt = first;
     }
-    else {
-        ui->label_error->setText("Error: Please calculate trip first");
+
+    for (int i = 0; i <stadiums.size(); i++)
+    {
+        QSqlQuery q;
+        q.exec("select TeamName from NFL_INFORMATION where StadiumName='"+stadiums.at(i)+"'");
+        QString addThis;
+        int j =0;
+        while(q.next()) {
+            addThis= q.value(0).toString();
+            teamNames.append(addThis);
+            j++;
+        }
+    }
+
+
+    //output teamnames
+    for (int i =0; i < teamNames.size(); i++)
+    {
+    QTextStream (stdout) << "TEAMNAMES:" << teamNames.at(i) << endl;
     }
 }
 

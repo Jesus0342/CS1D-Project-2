@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'customtour.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -89,7 +89,7 @@ public:
         label->setGeometry(QRect(10, 30, 211, 16));
         pushButton_reset = new QPushButton(groupBox);
         pushButton_reset->setObjectName(QStringLiteral("pushButton_reset"));
-        pushButton_reset->setGeometry(QRect(10, 120, 211, 23));
+        pushButton_reset->setGeometry(QRect(10, 360, 211, 23));
         pushButton_reset->setFont(font);
         tableWidget_selected = new QTableWidget(groupBox);
         if (tableWidget_selected->columnCount() < 2)
@@ -116,7 +116,7 @@ public:
         listWidget->setFont(font);
         groupBox_2 = new QGroupBox(groupBox);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 160, 211, 91));
+        groupBox_2->setGeometry(QRect(10, 120, 211, 91));
         radioButton_selected = new QRadioButton(groupBox_2);
         radioButton_selected->setObjectName(QStringLiteral("radioButton_selected"));
         radioButton_selected->setGeometry(QRect(10, 20, 131, 16));

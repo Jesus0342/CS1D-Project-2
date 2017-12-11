@@ -26,6 +26,7 @@ private slots:
     void on_pushButton_calculateTrip_clicked();
 
     void on_pushButton_souvenirs_clicked();
+    void convertToTeamNames();
 
 private:
     Ui::CustomTour *ui;
@@ -43,6 +44,11 @@ private:
     bool pathCalculated;
 
     Graph g;
+
+    QList<QString> stadiums;
+    QString startingPt;
+
+    QList<QString> teamNames;
 };
 
 #endif // CUSTOMTOUR_H
