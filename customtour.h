@@ -25,15 +25,22 @@ private slots:
 
     void on_pushButton_calculateTrip_clicked();
 
+    void on_pushButton_souvenirs_clicked();
+
 private:
     Ui::CustomTour *ui;
 
-    int currentRow;
-    int tripType; // 0 = selected order
-                  // 1 = shortest order
+    /**
+     * @brief Calculates shortest path, fills in table, and returns total distance.
+     * @return Total distance travelled throughout the path.
+     */
+    int calcEfficientPath();
 
     QVector<int> selectedStadiums;
     QList<QString> stadiumList;
+
+    // if the path is not calculated, cannot buy souvenirs
+    bool pathCalculated;
 
     Graph g;
 };
