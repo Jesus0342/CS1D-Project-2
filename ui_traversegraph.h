@@ -67,13 +67,18 @@ public:
         label_graphHome->setGeometry(QRect(100, 10, 351, 91));
         pushButton_backGraph = new QPushButton(page_home);
         pushButton_backGraph->setObjectName(QStringLiteral("pushButton_backGraph"));
-        pushButton_backGraph->setGeometry(QRect(10, 420, 75, 23));
+        pushButton_backGraph->setGeometry(QRect(190, 402, 101, 41));
+        QIcon icon;
+        icon.addFile(QStringLiteral("Resources/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_backGraph->setIcon(icon);
+        pushButton_backGraph->setIconSize(QSize(100, 100));
+        pushButton_backGraph->setFlat(true);
         label_graphImage = new QLabel(page_home);
         label_graphImage->setObjectName(QStringLiteral("label_graphImage"));
         label_graphImage->setGeometry(QRect(40, 100, 471, 221));
         comboBox = new QComboBox(page_home);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(150, 350, 251, 22));
+        comboBox->setGeometry(QRect(220, 140, 251, 22));
         stackedWidget->addWidget(page_home);
         page_MST = new QWidget();
         page_MST->setObjectName(QStringLiteral("page_MST"));
@@ -89,10 +94,10 @@ public:
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget_MST->setHorizontalHeaderItem(0, __qtablewidgetitem);
         tableWidget_MST->setObjectName(QStringLiteral("tableWidget_MST"));
-        tableWidget_MST->setGeometry(QRect(160, 100, 231, 251));
+        tableWidget_MST->setGeometry(QRect(30, 100, 231, 251));
         label_distanceMST = new QLabel(page_MST);
         label_distanceMST->setObjectName(QStringLiteral("label_distanceMST"));
-        label_distanceMST->setGeometry(QRect(130, 370, 281, 31));
+        label_distanceMST->setGeometry(QRect(270, 160, 281, 31));
         stackedWidget->addWidget(page_MST);
         page_DFS = new QWidget();
         page_DFS->setObjectName(QStringLiteral("page_DFS"));
@@ -108,10 +113,10 @@ public:
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget_DFS->setHorizontalHeaderItem(0, __qtablewidgetitem1);
         tableWidget_DFS->setObjectName(QStringLiteral("tableWidget_DFS"));
-        tableWidget_DFS->setGeometry(QRect(160, 100, 231, 251));
+        tableWidget_DFS->setGeometry(QRect(30, 100, 231, 251));
         label_distanceDFS = new QLabel(page_DFS);
         label_distanceDFS->setObjectName(QStringLiteral("label_distanceDFS"));
-        label_distanceDFS->setGeometry(QRect(130, 370, 281, 31));
+        label_distanceDFS->setGeometry(QRect(270, 170, 281, 31));
         stackedWidget->addWidget(page_DFS);
         page_BFS = new QWidget();
         page_BFS->setObjectName(QStringLiteral("page_BFS"));
@@ -127,10 +132,10 @@ public:
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         tableWidget_BFS->setHorizontalHeaderItem(0, __qtablewidgetitem2);
         tableWidget_BFS->setObjectName(QStringLiteral("tableWidget_BFS"));
-        tableWidget_BFS->setGeometry(QRect(160, 100, 231, 251));
+        tableWidget_BFS->setGeometry(QRect(30, 100, 231, 251));
         label_distanceBFS = new QLabel(page_BFS);
         label_distanceBFS->setObjectName(QStringLiteral("label_distanceBFS"));
-        label_distanceBFS->setGeometry(QRect(130, 370, 281, 31));
+        label_distanceBFS->setGeometry(QRect(270, 190, 281, 31));
         stackedWidget->addWidget(page_BFS);
 
         verticalLayout->addWidget(stackedWidget);
@@ -138,7 +143,7 @@ public:
 
         retranslateUi(traversegraph);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(traversegraph);
@@ -148,7 +153,7 @@ public:
     {
         traversegraph->setWindowTitle(QApplication::translate("traversegraph", "Dialog", Q_NULLPTR));
         label_graphHome->setText(QApplication::translate("traversegraph", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Traverse Graph</span></p></body></html>", Q_NULLPTR));
-        pushButton_backGraph->setText(QApplication::translate("traversegraph", "Back", Q_NULLPTR));
+        pushButton_backGraph->setText(QString());
         label_graphImage->setText(QString());
         comboBox->clear();
         comboBox->insertItems(0, QStringList()

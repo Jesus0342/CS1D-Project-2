@@ -45,7 +45,7 @@ public:
     {
         if (startAtFordField->objectName().isEmpty())
             startAtFordField->setObjectName(QStringLiteral("startAtFordField"));
-        startAtFordField->resize(500, 544);
+        startAtFordField->resize(537, 544);
         centralwidget = new QWidget(startAtFordField);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         pushButton_seePrefRoute = new QPushButton(centralwidget);
@@ -57,31 +57,31 @@ public:
         label->setStyleSheet(QStringLiteral("font: 16pt \"Rockwell\";"));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(70, 160, 111, 20));
+        label_2->setGeometry(QRect(50, 160, 121, 20));
         label_2->setStyleSheet(QStringLiteral("font: 12pt \"Rockwell\";"));
         lcdNumber_distanceTravelled = new QLCDNumber(centralwidget);
         lcdNumber_distanceTravelled->setObjectName(QStringLiteral("lcdNumber_distanceTravelled"));
-        lcdNumber_distanceTravelled->setGeometry(QRect(370, 210, 101, 31));
+        lcdNumber_distanceTravelled->setGeometry(QRect(330, 250, 141, 51));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(250, 180, 231, 20));
+        label_3->setGeometry(QRect(250, 220, 231, 20));
         label_3->setStyleSheet(QStringLiteral("font: 16pt \"Rockwell\";"));
         pushButton_buySouvenirs = new QPushButton(centralwidget);
         pushButton_buySouvenirs->setObjectName(QStringLiteral("pushButton_buySouvenirs"));
-        pushButton_buySouvenirs->setGeometry(QRect(190, 420, 281, 31));
+        pushButton_buySouvenirs->setGeometry(QRect(240, 420, 281, 31));
         label_5_dateToday = new QLabel(centralwidget);
         label_5_dateToday->setObjectName(QStringLiteral("label_5_dateToday"));
         label_5_dateToday->setGeometry(QRect(500, 40, 291, 81));
         pushButton_buySouvenirs_2 = new QPushButton(centralwidget);
         pushButton_buySouvenirs_2->setObjectName(QStringLiteral("pushButton_buySouvenirs_2"));
-        pushButton_buySouvenirs_2->setGeometry(QRect(190, 460, 281, 31));
+        pushButton_buySouvenirs_2->setGeometry(QRect(240, 460, 281, 31));
         tableWidget_routes = new QTableWidget(centralwidget);
         tableWidget_routes->setObjectName(QStringLiteral("tableWidget_routes"));
-        tableWidget_routes->setGeometry(QRect(30, 180, 151, 311));
+        tableWidget_routes->setGeometry(QRect(30, 180, 141, 311));
         startAtFordField->setCentralWidget(centralwidget);
         menubar = new QMenuBar(startAtFordField);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 500, 20));
+        menubar->setGeometry(QRect(0, 0, 537, 21));
         startAtFordField->setMenuBar(menubar);
         statusbar = new QStatusBar(startAtFordField);
         statusbar->setObjectName(QStringLiteral("statusbar"));

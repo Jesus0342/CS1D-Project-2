@@ -18,6 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //background
+    QPixmap bg("Resources/bg1.jpg");
+    bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bg);
+    this->setPalette(palette);
+
     // Always opens the program to the home page of the stacked widget.
     ui->stackedWidget->setCurrentWidget(ui->page_home);
 

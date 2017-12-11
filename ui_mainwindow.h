@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.2
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -104,7 +104,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(651, 575);
+        MainWindow->resize(651, 622);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -117,28 +117,38 @@ public:
         page_home->setObjectName(QStringLiteral("page_home"));
         label_home = new QLabel(page_home);
         label_home->setObjectName(QStringLiteral("label_home"));
-        label_home->setGeometry(QRect(180, 10, 271, 91));
+        label_home->setGeometry(QRect(170, 50, 271, 91));
         comboBox_selectAction = new QComboBox(page_home);
         comboBox_selectAction->setObjectName(QStringLiteral("comboBox_selectAction"));
-        comboBox_selectAction->setGeometry(QRect(150, 410, 351, 22));
+        comboBox_selectAction->setGeometry(QRect(150, 400, 351, 22));
         pushButton_login = new QPushButton(page_home);
         pushButton_login->setObjectName(QStringLiteral("pushButton_login"));
-        pushButton_login->setGeometry(QRect(470, 10, 141, 23));
+        pushButton_login->setGeometry(QRect(430, 70, 151, 41));
+        QIcon icon;
+        icon.addFile(QStringLiteral("Resources/login.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_login->setIcon(icon);
+        pushButton_login->setIconSize(QSize(100, 100));
+        pushButton_login->setFlat(true);
         stackedWidget->addWidget(page_home);
         page_viewNFLInfo = new QWidget();
         page_viewNFLInfo->setObjectName(QStringLiteral("page_viewNFLInfo"));
         comboBox_displayOptions = new QComboBox(page_viewNFLInfo);
         comboBox_displayOptions->setObjectName(QStringLiteral("comboBox_displayOptions"));
-        comboBox_displayOptions->setGeometry(QRect(210, 150, 181, 22));
+        comboBox_displayOptions->setGeometry(QRect(210, 200, 181, 22));
         pushButton_backViewNFLInfo = new QPushButton(page_viewNFLInfo);
         pushButton_backViewNFLInfo->setObjectName(QStringLiteral("pushButton_backViewNFLInfo"));
-        pushButton_backViewNFLInfo->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backViewNFLInfo->setGeometry(QRect(200, 420, 161, 61));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("Resources/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_backViewNFLInfo->setIcon(icon1);
+        pushButton_backViewNFLInfo->setIconSize(QSize(100, 100));
+        pushButton_backViewNFLInfo->setFlat(true);
         label_viewNFLInfo = new QLabel(page_viewNFLInfo);
         label_viewNFLInfo->setObjectName(QStringLiteral("label_viewNFLInfo"));
-        label_viewNFLInfo->setGeometry(QRect(30, 10, 561, 91));
+        label_viewNFLInfo->setGeometry(QRect(30, 60, 561, 91));
         label_NFLInfoPrompt = new QLabel(page_viewNFLInfo);
         label_NFLInfoPrompt->setObjectName(QStringLiteral("label_NFLInfoPrompt"));
-        label_NFLInfoPrompt->setGeometry(QRect(150, 110, 311, 21));
+        label_NFLInfoPrompt->setGeometry(QRect(150, 160, 311, 21));
         stackedWidget->addWidget(page_viewNFLInfo);
         page_viewTeamInfo = new QWidget();
         page_viewTeamInfo->setObjectName(QStringLiteral("page_viewTeamInfo"));
@@ -162,25 +172,28 @@ public:
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         tableWidget_teamInfo->setHorizontalHeaderItem(7, __qtablewidgetitem7);
         tableWidget_teamInfo->setObjectName(QStringLiteral("tableWidget_teamInfo"));
-        tableWidget_teamInfo->setGeometry(QRect(21, 80, 591, 311));
+        tableWidget_teamInfo->setGeometry(QRect(21, 130, 591, 291));
         pushButton_backViewTeamInfo = new QPushButton(page_viewTeamInfo);
         pushButton_backViewTeamInfo->setObjectName(QStringLiteral("pushButton_backViewTeamInfo"));
-        pushButton_backViewTeamInfo->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backViewTeamInfo->setGeometry(QRect(10, 510, 111, 41));
+        pushButton_backViewTeamInfo->setIcon(icon1);
+        pushButton_backViewTeamInfo->setIconSize(QSize(100, 100));
+        pushButton_backViewTeamInfo->setFlat(true);
         comboBox_selectTeam = new QComboBox(page_viewTeamInfo);
         comboBox_selectTeam->setObjectName(QStringLiteral("comboBox_selectTeam"));
-        comboBox_selectTeam->setGeometry(QRect(210, 440, 221, 22));
+        comboBox_selectTeam->setGeometry(QRect(210, 470, 221, 22));
         label_TeamInfoTitle = new QLabel(page_viewTeamInfo);
         label_TeamInfoTitle->setObjectName(QStringLiteral("label_TeamInfoTitle"));
-        label_TeamInfoTitle->setGeometry(QRect(80, 10, 481, 51));
+        label_TeamInfoTitle->setGeometry(QRect(80, 70, 481, 51));
         label_teamInfoPrompt = new QLabel(page_viewTeamInfo);
         label_teamInfoPrompt->setObjectName(QStringLiteral("label_teamInfoPrompt"));
-        label_teamInfoPrompt->setGeometry(QRect(150, 410, 331, 20));
+        label_teamInfoPrompt->setGeometry(QRect(150, 440, 331, 20));
         stackedWidget->addWidget(page_viewTeamInfo);
         page_viewTeams = new QWidget();
         page_viewTeams->setObjectName(QStringLiteral("page_viewTeams"));
         label_viewTeamsTitle = new QLabel(page_viewTeams);
         label_viewTeamsTitle->setObjectName(QStringLiteral("label_viewTeamsTitle"));
-        label_viewTeamsTitle->setGeometry(QRect(80, 10, 481, 51));
+        label_viewTeamsTitle->setGeometry(QRect(80, 70, 481, 51));
         tableWidget_teams = new QTableWidget(page_viewTeams);
         if (tableWidget_teams->columnCount() < 8)
             tableWidget_teams->setColumnCount(8);
@@ -201,16 +214,19 @@ public:
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
         tableWidget_teams->setHorizontalHeaderItem(7, __qtablewidgetitem15);
         tableWidget_teams->setObjectName(QStringLiteral("tableWidget_teams"));
-        tableWidget_teams->setGeometry(QRect(20, 80, 591, 311));
+        tableWidget_teams->setGeometry(QRect(20, 140, 591, 311));
         pushButton_backViewTeams = new QPushButton(page_viewTeams);
         pushButton_backViewTeams->setObjectName(QStringLiteral("pushButton_backViewTeams"));
-        pushButton_backViewTeams->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backViewTeams->setGeometry(QRect(10, 470, 101, 51));
+        pushButton_backViewTeams->setIcon(icon1);
+        pushButton_backViewTeams->setIconSize(QSize(100, 100));
+        pushButton_backViewTeams->setFlat(true);
         stackedWidget->addWidget(page_viewTeams);
         page_viewStadiums = new QWidget();
         page_viewStadiums->setObjectName(QStringLiteral("page_viewStadiums"));
         label_viewStadiumsTitle = new QLabel(page_viewStadiums);
         label_viewStadiumsTitle->setObjectName(QStringLiteral("label_viewStadiumsTitle"));
-        label_viewStadiumsTitle->setGeometry(QRect(80, 10, 481, 51));
+        label_viewStadiumsTitle->setGeometry(QRect(80, 50, 481, 51));
         tableWidget_viewStadiums = new QTableWidget(page_viewStadiums);
         if (tableWidget_viewStadiums->columnCount() < 2)
             tableWidget_viewStadiums->setColumnCount(2);
@@ -219,17 +235,20 @@ public:
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         tableWidget_viewStadiums->setHorizontalHeaderItem(1, __qtablewidgetitem17);
         tableWidget_viewStadiums->setObjectName(QStringLiteral("tableWidget_viewStadiums"));
-        tableWidget_viewStadiums->setGeometry(QRect(130, 110, 361, 311));
+        tableWidget_viewStadiums->setGeometry(QRect(130, 120, 361, 311));
         tableWidget_viewStadiums->setMinimumSize(QSize(341, 0));
         pushButton_backViewStadiums = new QPushButton(page_viewStadiums);
         pushButton_backViewStadiums->setObjectName(QStringLiteral("pushButton_backViewStadiums"));
-        pushButton_backViewStadiums->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backViewStadiums->setGeometry(QRect(10, 462, 121, 41));
+        pushButton_backViewStadiums->setIcon(icon1);
+        pushButton_backViewStadiums->setIconSize(QSize(100, 100));
+        pushButton_backViewStadiums->setFlat(true);
         stackedWidget->addWidget(page_viewStadiums);
         page_viewConferences = new QWidget();
         page_viewConferences->setObjectName(QStringLiteral("page_viewConferences"));
         label_ConferencesTitle = new QLabel(page_viewConferences);
         label_ConferencesTitle->setObjectName(QStringLiteral("label_ConferencesTitle"));
-        label_ConferencesTitle->setGeometry(QRect(70, 10, 491, 51));
+        label_ConferencesTitle->setGeometry(QRect(70, 50, 491, 51));
         tableWidget_conferences = new QTableWidget(page_viewConferences);
         if (tableWidget_conferences->columnCount() < 2)
             tableWidget_conferences->setColumnCount(2);
@@ -238,25 +257,28 @@ public:
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
         tableWidget_conferences->setHorizontalHeaderItem(1, __qtablewidgetitem19);
         tableWidget_conferences->setObjectName(QStringLiteral("tableWidget_conferences"));
-        tableWidget_conferences->setGeometry(QRect(150, 80, 341, 311));
+        tableWidget_conferences->setGeometry(QRect(150, 120, 341, 311));
         pushButton_backConferences = new QPushButton(page_viewConferences);
         pushButton_backConferences->setObjectName(QStringLiteral("pushButton_backConferences"));
-        pushButton_backConferences->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backConferences->setGeometry(QRect(10, 480, 131, 51));
+        pushButton_backConferences->setIcon(icon1);
+        pushButton_backConferences->setIconSize(QSize(100, 100));
+        pushButton_backConferences->setFlat(true);
         checkBox_americanConference = new QCheckBox(page_viewConferences);
         checkBox_americanConference->setObjectName(QStringLiteral("checkBox_americanConference"));
-        checkBox_americanConference->setGeometry(QRect(120, 410, 191, 17));
+        checkBox_americanConference->setGeometry(QRect(120, 450, 191, 17));
         checkBox_nationalConference = new QCheckBox(page_viewConferences);
         checkBox_nationalConference->setObjectName(QStringLiteral("checkBox_nationalConference"));
-        checkBox_nationalConference->setGeometry(QRect(330, 410, 191, 17));
+        checkBox_nationalConference->setGeometry(QRect(330, 450, 191, 17));
         stackedWidget->addWidget(page_viewConferences);
         page_viewRoof = new QWidget();
         page_viewRoof->setObjectName(QStringLiteral("page_viewRoof"));
         pushButton_getRetraRoofs = new QPushButton(page_viewRoof);
         pushButton_getRetraRoofs->setObjectName(QStringLiteral("pushButton_getRetraRoofs"));
-        pushButton_getRetraRoofs->setGeometry(QRect(250, 470, 141, 23));
+        pushButton_getRetraRoofs->setGeometry(QRect(240, 490, 141, 23));
         label_roofTitle = new QLabel(page_viewRoof);
         label_roofTitle->setObjectName(QStringLiteral("label_roofTitle"));
-        label_roofTitle->setGeometry(QRect(80, 10, 481, 61));
+        label_roofTitle->setGeometry(QRect(80, 70, 481, 61));
         tableWidget_roof = new QTableWidget(page_viewRoof);
         if (tableWidget_roof->columnCount() < 2)
             tableWidget_roof->setColumnCount(2);
@@ -265,46 +287,52 @@ public:
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
         tableWidget_roof->setHorizontalHeaderItem(1, __qtablewidgetitem21);
         tableWidget_roof->setObjectName(QStringLiteral("tableWidget_roof"));
-        tableWidget_roof->setGeometry(QRect(150, 80, 341, 311));
+        tableWidget_roof->setGeometry(QRect(150, 140, 341, 281));
         label_totalRoofTxt = new QLabel(page_viewRoof);
         label_totalRoofTxt->setObjectName(QStringLiteral("label_totalRoofTxt"));
-        label_totalRoofTxt->setGeometry(QRect(160, 400, 231, 31));
+        label_totalRoofTxt->setGeometry(QRect(160, 430, 231, 31));
         pushButton_getFixedRoofs = new QPushButton(page_viewRoof);
         pushButton_getFixedRoofs->setObjectName(QStringLiteral("pushButton_getFixedRoofs"));
-        pushButton_getFixedRoofs->setGeometry(QRect(330, 440, 141, 23));
+        pushButton_getFixedRoofs->setGeometry(QRect(320, 460, 141, 23));
         pushButton_getOpenRoofs = new QPushButton(page_viewRoof);
         pushButton_getOpenRoofs->setObjectName(QStringLiteral("pushButton_getOpenRoofs"));
-        pushButton_getOpenRoofs->setGeometry(QRect(170, 440, 141, 23));
+        pushButton_getOpenRoofs->setGeometry(QRect(160, 460, 141, 23));
         pushButton_backRoofs = new QPushButton(page_viewRoof);
         pushButton_backRoofs->setObjectName(QStringLiteral("pushButton_backRoofs"));
-        pushButton_backRoofs->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backRoofs->setGeometry(QRect(10, 480, 111, 51));
+        pushButton_backRoofs->setIcon(icon1);
+        pushButton_backRoofs->setIconSize(QSize(100, 100));
+        pushButton_backRoofs->setFlat(true);
         stackedWidget->addWidget(page_viewRoof);
         page_viewStarPlayers = new QWidget();
         page_viewStarPlayers->setObjectName(QStringLiteral("page_viewStarPlayers"));
         label_starPlayersTitle = new QLabel(page_viewStarPlayers);
         label_starPlayersTitle->setObjectName(QStringLiteral("label_starPlayersTitle"));
-        label_starPlayersTitle->setGeometry(QRect(80, 10, 481, 51));
+        label_starPlayersTitle->setGeometry(QRect(80, 70, 481, 51));
         tableWidget_starPlayers = new QTableWidget(page_viewStarPlayers);
         tableWidget_starPlayers->setObjectName(QStringLiteral("tableWidget_starPlayers"));
-        tableWidget_starPlayers->setGeometry(QRect(30, 80, 301, 411));
+        tableWidget_starPlayers->setGeometry(QRect(30, 140, 301, 351));
         comboBox_starPlayer = new QComboBox(page_viewStarPlayers);
         comboBox_starPlayer->setObjectName(QStringLiteral("comboBox_starPlayer"));
-        comboBox_starPlayer->setGeometry(QRect(340, 230, 291, 31));
+        comboBox_starPlayer->setGeometry(QRect(340, 290, 231, 31));
         radioButton_starPlayer_all = new QRadioButton(page_viewStarPlayers);
         radioButton_starPlayer_all->setObjectName(QStringLiteral("radioButton_starPlayer_all"));
-        radioButton_starPlayer_all->setGeometry(QRect(400, 210, 84, 19));
+        radioButton_starPlayer_all->setGeometry(QRect(350, 270, 84, 19));
         radioButton_starPlayer_filter = new QRadioButton(page_viewStarPlayers);
         radioButton_starPlayer_filter->setObjectName(QStringLiteral("radioButton_starPlayer_filter"));
-        radioButton_starPlayer_filter->setGeometry(QRect(500, 210, 101, 19));
+        radioButton_starPlayer_filter->setGeometry(QRect(470, 270, 101, 19));
         pushButton_starPlayers_backMenu = new QPushButton(page_viewStarPlayers);
         pushButton_starPlayers_backMenu->setObjectName(QStringLiteral("pushButton_starPlayers_backMenu"));
-        pushButton_starPlayers_backMenu->setGeometry(QRect(489, 460, 111, 21));
+        pushButton_starPlayers_backMenu->setGeometry(QRect(10, 500, 141, 41));
+        pushButton_starPlayers_backMenu->setIcon(icon1);
+        pushButton_starPlayers_backMenu->setIconSize(QSize(100, 100));
+        pushButton_starPlayers_backMenu->setFlat(true);
         stackedWidget->addWidget(page_viewStarPlayers);
         page_viewSeatingCapacity = new QWidget();
         page_viewSeatingCapacity->setObjectName(QStringLiteral("page_viewSeatingCapacity"));
         label_seatingCapacityTitle = new QLabel(page_viewSeatingCapacity);
         label_seatingCapacityTitle->setObjectName(QStringLiteral("label_seatingCapacityTitle"));
-        label_seatingCapacityTitle->setGeometry(QRect(20, 10, 601, 61));
+        label_seatingCapacityTitle->setGeometry(QRect(20, 60, 601, 61));
         tableWidget_seatingCapacity = new QTableWidget(page_viewSeatingCapacity);
         if (tableWidget_seatingCapacity->columnCount() < 3)
             tableWidget_seatingCapacity->setColumnCount(3);
@@ -315,10 +343,13 @@ public:
         QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
         tableWidget_seatingCapacity->setHorizontalHeaderItem(2, __qtablewidgetitem24);
         tableWidget_seatingCapacity->setObjectName(QStringLiteral("tableWidget_seatingCapacity"));
-        tableWidget_seatingCapacity->setGeometry(QRect(90, 80, 461, 341));
+        tableWidget_seatingCapacity->setGeometry(QRect(90, 120, 461, 301));
         pushButton_backSeatingCapacity = new QPushButton(page_viewSeatingCapacity);
         pushButton_backSeatingCapacity->setObjectName(QStringLiteral("pushButton_backSeatingCapacity"));
-        pushButton_backSeatingCapacity->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backSeatingCapacity->setGeometry(QRect(10, 480, 131, 41));
+        pushButton_backSeatingCapacity->setIcon(icon1);
+        pushButton_backSeatingCapacity->setIconSize(QSize(100, 100));
+        pushButton_backSeatingCapacity->setFlat(true);
         label_totalCapacityTxt = new QLabel(page_viewSeatingCapacity);
         label_totalCapacityTxt->setObjectName(QStringLiteral("label_totalCapacityTxt"));
         label_totalCapacityTxt->setGeometry(QRect(160, 430, 231, 31));
@@ -330,7 +361,7 @@ public:
         page_viewSurfaceType->setObjectName(QStringLiteral("page_viewSurfaceType"));
         label_surfaceTypeTitle = new QLabel(page_viewSurfaceType);
         label_surfaceTypeTitle->setObjectName(QStringLiteral("label_surfaceTypeTitle"));
-        label_surfaceTypeTitle->setGeometry(QRect(80, 10, 481, 61));
+        label_surfaceTypeTitle->setGeometry(QRect(80, 60, 481, 61));
         tableWidget_surfaceType = new QTableWidget(page_viewSurfaceType);
         if (tableWidget_surfaceType->columnCount() < 4)
             tableWidget_surfaceType->setColumnCount(4);
@@ -343,16 +374,22 @@ public:
         QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
         tableWidget_surfaceType->setHorizontalHeaderItem(3, __qtablewidgetitem28);
         tableWidget_surfaceType->setObjectName(QStringLiteral("tableWidget_surfaceType"));
-        tableWidget_surfaceType->setGeometry(QRect(40, 80, 561, 341));
+        tableWidget_surfaceType->setGeometry(QRect(40, 120, 561, 301));
         pushButton_backSurfaceType = new QPushButton(page_viewSurfaceType);
         pushButton_backSurfaceType->setObjectName(QStringLiteral("pushButton_backSurfaceType"));
-        pushButton_backSurfaceType->setGeometry(QRect(10, 480, 75, 23));
+        pushButton_backSurfaceType->setGeometry(QRect(0, 450, 121, 51));
+        pushButton_backSurfaceType->setIcon(icon1);
+        pushButton_backSurfaceType->setIconSize(QSize(100, 100));
+        pushButton_backSurfaceType->setFlat(true);
         stackedWidget->addWidget(page_viewSurfaceType);
         page_displaySouvenirs = new QWidget();
         page_displaySouvenirs->setObjectName(QStringLiteral("page_displaySouvenirs"));
         pushButton_backViewSouvenirs = new QPushButton(page_displaySouvenirs);
         pushButton_backViewSouvenirs->setObjectName(QStringLiteral("pushButton_backViewSouvenirs"));
-        pushButton_backViewSouvenirs->setGeometry(QRect(10, 470, 75, 23));
+        pushButton_backViewSouvenirs->setGeometry(QRect(10, 480, 121, 41));
+        pushButton_backViewSouvenirs->setIcon(icon1);
+        pushButton_backViewSouvenirs->setIconSize(QSize(100, 100));
+        pushButton_backViewSouvenirs->setFlat(true);
         tableWidget_souvenirs = new QTableWidget(page_displaySouvenirs);
         if (tableWidget_souvenirs->columnCount() < 2)
             tableWidget_souvenirs->setColumnCount(2);
@@ -361,20 +398,20 @@ public:
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
         tableWidget_souvenirs->setHorizontalHeaderItem(1, __qtablewidgetitem30);
         tableWidget_souvenirs->setObjectName(QStringLiteral("tableWidget_souvenirs"));
-        tableWidget_souvenirs->setGeometry(QRect(380, 110, 201, 171));
+        tableWidget_souvenirs->setGeometry(QRect(380, 170, 201, 171));
         label_displaySouvenirs = new QLabel(page_displaySouvenirs);
         label_displaySouvenirs->setObjectName(QStringLiteral("label_displaySouvenirs"));
-        label_displaySouvenirs->setGeometry(QRect(70, 0, 481, 61));
+        label_displaySouvenirs->setGeometry(QRect(70, 70, 481, 61));
         tableWidget_stadiums = new QTableWidget(page_displaySouvenirs);
         if (tableWidget_stadiums->columnCount() < 1)
             tableWidget_stadiums->setColumnCount(1);
         QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
         tableWidget_stadiums->setHorizontalHeaderItem(0, __qtablewidgetitem31);
         tableWidget_stadiums->setObjectName(QStringLiteral("tableWidget_stadiums"));
-        tableWidget_stadiums->setGeometry(QRect(50, 110, 241, 281));
+        tableWidget_stadiums->setGeometry(QRect(50, 170, 241, 281));
         label_displaySouvenirPrompt = new QLabel(page_displaySouvenirs);
         label_displaySouvenirPrompt->setObjectName(QStringLiteral("label_displaySouvenirPrompt"));
-        label_displaySouvenirPrompt->setGeometry(QRect(110, 70, 421, 21));
+        label_displaySouvenirPrompt->setGeometry(QRect(110, 130, 421, 21));
         stackedWidget->addWidget(page_displaySouvenirs);
 
         verticalLayout->addWidget(stackedWidget);
@@ -393,7 +430,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(10);
         comboBox_selectAction->setCurrentIndex(0);
         comboBox_displayOptions->setCurrentIndex(0);
 
@@ -404,7 +441,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        label_home->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Home</span></p></body></html>", Q_NULLPTR));
+        label_home->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; color:#000000;\">Home</span></p></body></html>", Q_NULLPTR));
         comboBox_selectAction->clear();
         comboBox_selectAction->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
@@ -414,7 +451,7 @@ public:
          << QApplication::translate("MainWindow", "4 - Visit Stadiums Starting at LA Memorial Coliseum", Q_NULLPTR)
          << QApplication::translate("MainWindow", "5 - Plan Custom Vacation", Q_NULLPTR)
         );
-        pushButton_login->setText(QApplication::translate("MainWindow", "Login as Administrator", Q_NULLPTR));
+        pushButton_login->setText(QString());
         comboBox_displayOptions->clear();
         comboBox_displayOptions->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "<Select Here>", Q_NULLPTR)
@@ -428,7 +465,7 @@ public:
          << QApplication::translate("MainWindow", "8 - Stadium Surface Type", Q_NULLPTR)
          << QApplication::translate("MainWindow", "9 - Team Souvenirs", Q_NULLPTR)
         );
-        pushButton_backViewNFLInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backViewNFLInfo->setText(QString());
         label_viewNFLInfo->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Information</span></p></body></html>", Q_NULLPTR));
         label_NFLInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the information that you would like to view.</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_teamInfo->horizontalHeaderItem(0);
@@ -447,7 +484,7 @@ public:
         ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Stadium Roof Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_teamInfo->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
-        pushButton_backViewTeamInfo->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backViewTeamInfo->setText(QString());
         label_TeamInfoTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Information</span></p></body></html>", Q_NULLPTR));
         label_teamInfoPrompt->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Select the name of a team to view their information.</span></p></body></html>", Q_NULLPTR));
         label_viewTeamsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Teams</span></p></body></html>", Q_NULLPTR));
@@ -467,19 +504,19 @@ public:
         ___qtablewidgetitem14->setText(QApplication::translate("MainWindow", "Stadium Roof Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem15 = tableWidget_teams->horizontalHeaderItem(7);
         ___qtablewidgetitem15->setText(QApplication::translate("MainWindow", "Star Player", Q_NULLPTR));
-        pushButton_backViewTeams->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backViewTeams->setText(QString());
         label_viewStadiumsTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Stadiums</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem16 = tableWidget_viewStadiums->horizontalHeaderItem(0);
         ___qtablewidgetitem16->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem17 = tableWidget_viewStadiums->horizontalHeaderItem(1);
         ___qtablewidgetitem17->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
-        pushButton_backViewStadiums->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backViewStadiums->setText(QString());
         label_ConferencesTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Team Conferences</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem18 = tableWidget_conferences->horizontalHeaderItem(0);
         ___qtablewidgetitem18->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem19 = tableWidget_conferences->horizontalHeaderItem(1);
         ___qtablewidgetitem19->setText(QApplication::translate("MainWindow", "Conference", Q_NULLPTR));
-        pushButton_backConferences->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backConferences->setText(QString());
         checkBox_americanConference->setText(QApplication::translate("MainWindow", "American Football Conference Only", Q_NULLPTR));
         checkBox_nationalConference->setText(QApplication::translate("MainWindow", "National Football Conference Only", Q_NULLPTR));
         pushButton_getRetraRoofs->setText(QApplication::translate("MainWindow", "Retractable Roof Stadiums", Q_NULLPTR));
@@ -491,11 +528,11 @@ public:
         label_totalRoofTxt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Total Open Roof Stadiums:</span></p></body></html>", Q_NULLPTR));
         pushButton_getFixedRoofs->setText(QApplication::translate("MainWindow", "Fixed Roof Stadiums", Q_NULLPTR));
         pushButton_getOpenRoofs->setText(QApplication::translate("MainWindow", "Open Roof Stadiums", Q_NULLPTR));
-        pushButton_backRoofs->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backRoofs->setText(QString());
         label_starPlayersTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">NFL Star Players</span></p></body></html>", Q_NULLPTR));
         radioButton_starPlayer_all->setText(QApplication::translate("MainWindow", "View All", Q_NULLPTR));
         radioButton_starPlayer_filter->setText(QApplication::translate("MainWindow", "Filter by Team", Q_NULLPTR));
-        pushButton_starPlayers_backMenu->setText(QApplication::translate("MainWindow", "Back to Main Menu", Q_NULLPTR));
+        pushButton_starPlayers_backMenu->setText(QString());
         label_seatingCapacityTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Seating Capacity</span></p></body></html>", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem22 = tableWidget_seatingCapacity->horizontalHeaderItem(0);
         ___qtablewidgetitem22->setText(QApplication::translate("MainWindow", "Team Name", Q_NULLPTR));
@@ -503,7 +540,7 @@ public:
         ___qtablewidgetitem23->setText(QApplication::translate("MainWindow", "Stadium Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem24 = tableWidget_seatingCapacity->horizontalHeaderItem(2);
         ___qtablewidgetitem24->setText(QApplication::translate("MainWindow", "Seating Capacity", Q_NULLPTR));
-        pushButton_backSeatingCapacity->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backSeatingCapacity->setText(QString());
         label_totalCapacityTxt->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Total NFL Seating Capacity:</span></p></body></html>", Q_NULLPTR));
         label_totalCapacity->setText(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", Q_NULLPTR));
         label_surfaceTypeTitle->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Stadium Surface Type</span></p></body></html>", Q_NULLPTR));
@@ -515,8 +552,8 @@ public:
         ___qtablewidgetitem27->setText(QApplication::translate("MainWindow", "Location", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem28 = tableWidget_surfaceType->horizontalHeaderItem(3);
         ___qtablewidgetitem28->setText(QApplication::translate("MainWindow", "Surface Type", Q_NULLPTR));
-        pushButton_backSurfaceType->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
-        pushButton_backViewSouvenirs->setText(QApplication::translate("MainWindow", "Back", Q_NULLPTR));
+        pushButton_backSurfaceType->setText(QString());
+        pushButton_backViewSouvenirs->setText(QString());
         QTableWidgetItem *___qtablewidgetitem29 = tableWidget_souvenirs->horizontalHeaderItem(0);
         ___qtablewidgetitem29->setText(QApplication::translate("MainWindow", "Souvenir Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem30 = tableWidget_souvenirs->horizontalHeaderItem(1);

@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="page_home">
       <widget class="QLabel" name="label_graphHome">
@@ -36,14 +36,27 @@
       <widget class="QPushButton" name="pushButton_backGraph">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>420</y>
-         <width>75</width>
-         <height>23</height>
+         <x>190</x>
+         <y>402</y>
+         <width>101</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
-        <string>Back</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Resources/back.png</normaloff>Resources/back.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label_graphImage">
@@ -62,8 +75,8 @@
       <widget class="QComboBox" name="comboBox">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>350</y>
+         <x>220</x>
+         <y>140</y>
          <width>251</width>
          <height>22</height>
         </rect>
@@ -120,7 +133,7 @@
       <widget class="QTableWidget" name="tableWidget_MST">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>30</x>
          <y>100</y>
          <width>231</width>
          <height>251</height>
@@ -135,8 +148,8 @@
       <widget class="QLabel" name="label_distanceMST">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>370</y>
+         <x>270</x>
+         <y>160</y>
          <width>281</width>
          <height>31</height>
         </rect>
@@ -176,7 +189,7 @@
       <widget class="QTableWidget" name="tableWidget_DFS">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>30</x>
          <y>100</y>
          <width>231</width>
          <height>251</height>
@@ -191,8 +204,8 @@
       <widget class="QLabel" name="label_distanceDFS">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>370</y>
+         <x>270</x>
+         <y>170</y>
          <width>281</width>
          <height>31</height>
         </rect>
@@ -232,7 +245,7 @@
       <widget class="QTableWidget" name="tableWidget_BFS">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>30</x>
          <y>100</y>
          <width>231</width>
          <height>251</height>
@@ -247,8 +260,8 @@
       <widget class="QLabel" name="label_distanceBFS">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>370</y>
+         <x>270</x>
+         <y>180</y>
          <width>281</width>
          <height>31</height>
         </rect>

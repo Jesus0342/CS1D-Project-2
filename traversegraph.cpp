@@ -12,6 +12,13 @@ traversegraph::traversegraph(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //background
+    QPixmap bg("Resources/bg2.jpg");
+    bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bg);
+    this->setPalette(palette);
+
     ui->stackedWidget->setCurrentWidget(ui->page_home);
 
     Database::getInstance()->returnGraphEdges();
