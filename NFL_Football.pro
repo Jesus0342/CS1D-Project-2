@@ -36,7 +36,8 @@ SOURCES += main.cpp\
         startatfordfield.cpp \
         traversegraph.cpp \
         graph.cpp \
-    startlosangeles.cpp
+    startlosangeles.cpp \
+    customtour.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
@@ -49,7 +50,8 @@ HEADERS  += mainwindow.h \
     startatfordfield.h \
     traversegraph.h \
     graph.h \
-    startlosangeles.h
+    startlosangeles.h \
+    customtour.h
 
 FORMS    += mainwindow.ui \
     buysouvenir.ui \
@@ -57,4 +59,5 @@ FORMS    += mainwindow.ui \
     login.ui \
     startatfordfield.ui \
     traversegraph.ui \
-    startlosangeles.ui
+    startlosangeles.ui \
+    customtour.ui
