@@ -101,7 +101,7 @@ void CustomTour::on_pushButton_calculateTrip_clicked()
         ui->label_1->setAlignment(Qt::AlignHCenter);
     }
     else {
-        // Implement custom tour in selected order
+        totalDist = calcOrderedPath();
         ui->label_1->setText("Selected Stadiums in Selected Order");
         ui->label_1->setAlignment(Qt::AlignHCenter);
     }
@@ -232,6 +232,64 @@ int CustomTour::calcEfficientPath() {
         // Remove the visited stadium
         startVertex = g.vertexName(selectedStadiums[lowestIndex]);
         selectedStadiums.removeAt(lowestIndex);
+    }
+
+    return totalDist;
+}
+
+int CustomTour::calcOrderedPath() {
+    // Redraw selected stadiums to be in the right order
+    ui->tableWidget_selected->setRowCount(0);
+    ui->tableWidget_selected->setColumnCount(2);
+
+    // Initialize total distance and start vertex
+    int totalDist = 0;
+    QString startVertex = ui->listWidget->item(0)->text();
+
+    // Find path by repatedly checking for nearest vertex
+    while(selectedStadiums.size() > 0) {
+        // Use Dijkstra's to find the distance to all the vertices
+        QVector<QString> T;
+        int costs[g.size()];
+        int parents[g.size()];
+        g.shortestPathsDijkstra(startVertex,T,costs,parents);
+
+        // Update the total distance
+        int currentVertex = selectedStadiums.at(0);
+        totalDist += costs[currentVertex];
+
+
+        // Show the stadiums passed by on the way there
+        QVector<int> ancestors;
+        QVector<int> ancestorDists;
+
+
+        // Store those stadiums in the ancestors vector
+        while (currentVertex != -1 && parents[currentVertex] != -1) {
+           ancestors.push_back(currentVertex);
+           ancestorDists.push_back(costs[currentVertex]-costs[parents[currentVertex]]);
+           //qDebug() << "Dist from " << g.vertexName(currentVertex) << " to " << parents[currentVertex] << ": " << ancestorDists.at(ancestorDists.size()-1) << endl;
+           currentVertex = parents[currentVertex];
+        }
+
+        // Put all the stadiums in the table
+        for (int i=ancestors.size()-1; i>-1; i--) {
+            ui->tableWidget_selected->insertRow(ui->tableWidget_selected->rowCount());
+            ui->tableWidget_selected->setItem(ui->tableWidget_selected->rowCount()-1,1,new QTableWidgetItem(QString::number(ancestorDists.at(i))));
+
+            if (i>0) // passing by this point
+                ui->tableWidget_selected->setItem(ui->tableWidget_selected->rowCount()-1,0,new QTableWidgetItem("Passed " + g.vertexName(ancestors.at(i))));
+            else { // reached destination
+                ui->tableWidget_selected->setItem(ui->tableWidget_selected->rowCount()-1,0,new QTableWidgetItem("Reached " + g.vertexName(ancestors.at(i)) + "!"));
+                QFont boldFont;
+                boldFont.setBold(true);
+                ui->tableWidget_selected->item(ui->tableWidget_selected->rowCount()-1,0)->setFont(boldFont);
+            }
+        }
+
+        // Remove the visited stadium
+        startVertex = g.vertexName(selectedStadiums[0]);
+        selectedStadiums.removeAt(0);
     }
 
     return totalDist;

@@ -273,7 +273,11 @@ release/moc_mainwindow.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMai
 		mainwindow.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_buysouvenir.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -382,7 +386,11 @@ release/moc_buysouvenir.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMa
 		buysouvenir.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward buysouvenir.h -o release\moc_buysouvenir.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward buysouvenir.h -o release\moc_buysouvenir.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_adminwindow.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QDialog \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qdialog.h \
@@ -515,7 +523,11 @@ release/moc_adminwindow.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QDi
 		adminwindow.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward adminwindow.h -o release\moc_adminwindow.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward adminwindow.h -o release\moc_adminwindow.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_login.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QDialog \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qdialog.h \
@@ -622,7 +634,11 @@ release/moc_login.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QDialog \
 		login.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward login.h -o release\moc_login.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward login.h -o release\moc_login.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_startatfordfield.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -731,7 +747,11 @@ release/moc_startatfordfield.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidget
 		startatfordfield.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward startatfordfield.h -o release\moc_startatfordfield.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward startatfordfield.h -o release\moc_startatfordfield.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_traversegraph.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QDialog \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qdialog.h \
@@ -838,7 +858,11 @@ release/moc_traversegraph.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/Q
 		traversegraph.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward traversegraph.h -o release\moc_traversegraph.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward traversegraph.h -o release\moc_traversegraph.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_startlosangeles.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -947,7 +971,11 @@ release/moc_startlosangeles.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets
 		startlosangeles.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward startlosangeles.h -o release\moc_startlosangeles.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward startlosangeles.h -o release\moc_startlosangeles.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 release/moc_customtour.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.8/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -1060,7 +1088,11 @@ release/moc_customtour.cpp: ../../../../Qt/5.8/mingw53_32/include/QtWidgets/QMai
 		customtour.h \
 		release/moc_predefs.h \
 		../../../../Qt/5.8/mingw53_32/bin/moc.exe
+<<<<<<< HEAD
 	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/fohide0/Desktop/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward customtour.h -o release\moc_customtour.cpp
+=======
+	C:\Qt\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/levans15/Documents/CS1D-Project-2 -IC:/Qt/5.8/mingw53_32/include -IC:/Qt/5.8/mingw53_32/include/QtWidgets -IC:/Qt/5.8/mingw53_32/include/QtGui -IC:/Qt/5.8/mingw53_32/include/QtANGLE -IC:/Qt/5.8/mingw53_32/include/QtSql -IC:/Qt/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward customtour.h -o release\moc_customtour.cpp
+>>>>>>> 299551ca1a71c69c980397008cc81bf3dd23367f
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:

@@ -135,7 +135,7 @@ public:
         tableWidget_BFS->setGeometry(QRect(30, 100, 231, 251));
         label_distanceBFS = new QLabel(page_BFS);
         label_distanceBFS->setObjectName(QStringLiteral("label_distanceBFS"));
-        label_distanceBFS->setGeometry(QRect(270, 190, 281, 31));
+        label_distanceBFS->setGeometry(QRect(270, 180, 281, 31));
         stackedWidget->addWidget(page_BFS);
 
         verticalLayout->addWidget(stackedWidget);

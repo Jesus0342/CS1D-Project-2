@@ -21,6 +21,8 @@ private slots:
 
     void on_pushButton_buySouv_clicked();
 
+    void on_pushButton_back_clicked();
+
 private:
     Ui::startlosangeles *ui;
     int count;

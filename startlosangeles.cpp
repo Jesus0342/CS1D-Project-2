@@ -106,3 +106,8 @@ void startlosangeles::on_pushButton_buySouv_clicked()
     b->setData("Los Angeles Rams", teamNames);
     b->populateDropdown();
 }
+
+void startlosangeles::on_pushButton_back_clicked()
+{
+    this->close();
+}
