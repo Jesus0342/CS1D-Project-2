@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'startatfordfield.ui'
 **
-** Created by: Qt User Interface Compiler version 5.8.0
+** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -61,14 +61,19 @@ public:
         label_2->setStyleSheet(QStringLiteral("font: 12pt \"Rockwell\";"));
         lcdNumber_distanceTravelled = new QLCDNumber(centralwidget);
         lcdNumber_distanceTravelled->setObjectName(QStringLiteral("lcdNumber_distanceTravelled"));
-        lcdNumber_distanceTravelled->setGeometry(QRect(330, 250, 141, 51));
+        lcdNumber_distanceTravelled->setGeometry(QRect(320, 270, 141, 51));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(250, 220, 231, 20));
+        label_3->setGeometry(QRect(240, 240, 231, 20));
         label_3->setStyleSheet(QStringLiteral("font: 16pt \"Rockwell\";"));
         pushButton_buySouvenirs = new QPushButton(centralwidget);
         pushButton_buySouvenirs->setObjectName(QStringLiteral("pushButton_buySouvenirs"));
-        pushButton_buySouvenirs->setGeometry(QRect(240, 420, 281, 31));
+        pushButton_buySouvenirs->setGeometry(QRect(190, 170, 171, 51));
+        QIcon icon;
+        icon.addFile(QStringLiteral("Resources/buy.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_buySouvenirs->setIcon(icon);
+        pushButton_buySouvenirs->setIconSize(QSize(150, 150));
+        pushButton_buySouvenirs->setFlat(true);
         label_5_dateToday = new QLabel(centralwidget);
         label_5_dateToday->setObjectName(QStringLiteral("label_5_dateToday"));
         label_5_dateToday->setGeometry(QRect(500, 40, 291, 81));
@@ -81,7 +86,7 @@ public:
         startAtFordField->setCentralWidget(centralwidget);
         menubar = new QMenuBar(startAtFordField);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 537, 21));
+        menubar->setGeometry(QRect(0, 0, 537, 20));
         startAtFordField->setMenuBar(menubar);
         statusbar = new QStatusBar(startAtFordField);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -94,14 +99,14 @@ public:
 
     void retranslateUi(QMainWindow *startAtFordField)
     {
-        startAtFordField->setWindowTitle(QApplication::translate("startAtFordField", "MainWindow", Q_NULLPTR));
-        pushButton_seePrefRoute->setText(QApplication::translate("startAtFordField", "Click to See Preferred Routes", Q_NULLPTR));
-        label->setText(QApplication::translate("startAtFordField", "Visiting All Stadiums Starting At Ford Field", Q_NULLPTR));
-        label_2->setText(QApplication::translate("startAtFordField", "Preferred Route", Q_NULLPTR));
-        label_3->setText(QApplication::translate("startAtFordField", "Total Distance Travelled", Q_NULLPTR));
-        pushButton_buySouvenirs->setText(QApplication::translate("startAtFordField", "Buy Souvenirs", Q_NULLPTR));
+        startAtFordField->setWindowTitle(QApplication::translate("startAtFordField", "MainWindow", 0));
+        pushButton_seePrefRoute->setText(QApplication::translate("startAtFordField", "Click to See Preferred Routes", 0));
+        label->setText(QApplication::translate("startAtFordField", "Visiting All Stadiums Starting At Ford Field", 0));
+        label_2->setText(QApplication::translate("startAtFordField", "Preferred Route", 0));
+        label_3->setText(QApplication::translate("startAtFordField", "Total Distance Travelled", 0));
+        pushButton_buySouvenirs->setText(QString());
         label_5_dateToday->setText(QString());
-        pushButton_buySouvenirs_2->setText(QApplication::translate("startAtFordField", "Back to Main Menu", Q_NULLPTR));
+        pushButton_buySouvenirs_2->setText(QApplication::translate("startAtFordField", "Back to Main Menu", 0));
     } // retranslateUi
 
 };

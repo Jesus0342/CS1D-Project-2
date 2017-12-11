@@ -14,7 +14,7 @@ startAtFordField::startAtFordField(QWidget *parent) :
     ui->setupUi(this);
 
     //background
-    QPixmap bg("Resources/mapbg.png");
+    QPixmap bg("Resources/bg4.jpg");
     bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bg);
@@ -22,6 +22,8 @@ startAtFordField::startAtFordField(QWidget *parent) :
 
     MainWindow *w = new MainWindow();
     w->connectToDatabase();
+
+    ui->pushButton_buySouvenirs->setEnabled(false);
 }
 
 startAtFordField::~startAtFordField()
@@ -51,6 +53,8 @@ void startAtFordField::populateTable()
         ui->tableWidget_routes->insertRow(j);
         ui->tableWidget_routes->setItem(j, 0, kk);
     }
+
+    ui->pushButton_buySouvenirs->setEnabled(true);
 
 }
 

@@ -11,6 +11,14 @@ CustomTour::CustomTour(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
+    //background
+    QPixmap bg("Resources/bg4.jpg");
+    bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bg);
+    this->setPalette(palette);
+
     stadiumList = g.vertices().toList();
     ui->comboBox_stadiums->addItems(stadiumList);
 

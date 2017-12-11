@@ -12,11 +12,21 @@ startlosangeles::startlosangeles(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
+    //background
+    QPixmap bg("Resources/bg4.jpg");
+    bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bg);
+    this->setPalette(palette);
+
     MainWindow *w = new MainWindow();
     w->connectToDatabase();
     populateCombobox();
 
     count =0;
+
+    ui->pushButton_buySouv->setEnabled(false);
 }
 
 void startlosangeles::populateCombobox()
@@ -36,6 +46,8 @@ void startlosangeles::populateCombobox()
 
 void startlosangeles::on_pushButton_visit_clicked()
 {
+    ui->pushButton_buySouv->setEnabled(true);
+
     teamNames.clear();
 
     // Stadium that will be visited.

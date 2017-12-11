@@ -18,14 +18,14 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>10</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_home">
        <widget class="QLabel" name="label_home">
         <property name="geometry">
          <rect>
           <x>170</x>
-          <y>50</y>
+          <y>160</y>
           <width>271</width>
           <height>91</height>
          </rect>
@@ -37,10 +37,10 @@
        <widget class="QComboBox" name="comboBox_selectAction">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>400</y>
+          <x>130</x>
+          <y>250</y>
           <width>351</width>
-          <height>22</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="currentIndex">
@@ -1042,7 +1042,7 @@
      <x>0</x>
      <y>0</y>
      <width>651</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

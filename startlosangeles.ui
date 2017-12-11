@@ -38,26 +38,52 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>480</y>
-      <width>71</width>
-      <height>23</height>
+      <y>452</y>
+      <width>121</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Back</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>Resources/back.png</normaloff>Resources/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_buySouv">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>320</y>
+      <x>220</x>
+      <y>290</y>
       <width>211</width>
-      <height>23</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Buy Souvenir</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>Resources/buy.jpg</normaloff>Resources/buy.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>150</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_visit">
@@ -106,7 +132,7 @@
      <x>0</x>
      <y>0</y>
      <width>660</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
