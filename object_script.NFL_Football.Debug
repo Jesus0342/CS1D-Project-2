@@ -12,6 +12,7 @@ INPUT(
 ./debug\traversegraph.o
 ./debug\graph.o
 ./debug\startlosangeles.o
+./debug\customtour.o
 ./debug\moc_mainwindow.o
 ./debug\moc_buysouvenir.o
 ./debug\moc_adminwindow.o
@@ -19,4 +20,5 @@ INPUT(
 ./debug\moc_startatfordfield.o
 ./debug\moc_traversegraph.o
 ./debug\moc_startlosangeles.o
+./debug\moc_customtour.o
 );

@@ -12,6 +12,7 @@ INPUT(
 ./release\traversegraph.o
 ./release\graph.o
 ./release\startlosangeles.o
+./release\customtour.o
 ./release\moc_mainwindow.o
 ./release\moc_buysouvenir.o
 ./release\moc_adminwindow.o
@@ -19,4 +20,5 @@ INPUT(
 ./release\moc_startatfordfield.o
 ./release\moc_traversegraph.o
 ./release\moc_startlosangeles.o
+./release\moc_customtour.o
 );
