@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page_modifyStadiums">
       <widget class="QLabel" name="label_adminTitle_6">
@@ -43,7 +43,7 @@
         </rect>
        </property>
        <property name="title">
-        <string>Modify Stadiums</string>
+        <string/>
        </property>
        <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
@@ -63,7 +63,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Team Name:</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Team Name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -114,7 +114,7 @@
             <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
-            <string>Stadium Name:             </string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stadium Name:             &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -156,7 +156,7 @@
             <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
-            <string>Seating Capacity:          </string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Seating Capacity:          &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -194,7 +194,7 @@
             <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
-            <string>Location:                      </string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Location:                      &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -232,7 +232,7 @@
             <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
-            <string>Surface Type:               </string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Surface Type:               &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -270,7 +270,7 @@
             <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
-            <string>Stadium Roof Type:       </string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stadium Roof Type:       &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
