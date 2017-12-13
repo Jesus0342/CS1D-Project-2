@@ -43,29 +43,8 @@ public:
     QPushButton *confirmModifyStadiums;
     QWidget *layoutWidget_7;
     QHBoxLayout *horizontalLayout_9;
-    QLabel *label_10;
-    QLineEdit *lineEdit_stadiumName;
-    QLabel *label_stadiumNameModified;
-    QWidget *layoutWidget_8;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *label_11;
-    QLineEdit *lineEdit_stadiumSeatingCapacity;
-    QLabel *label_seatingCapacityModified;
-    QWidget *layoutWidget_9;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *label_12;
-    QLineEdit *lineEdit_stadiumLocation;
-    QLabel *label_locationModified;
-    QWidget *layoutWidget_10;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *label_13;
-    QLineEdit *lineEdit_stadiumSurfaceType;
-    QLabel *label_surfaceTypeModified;
-    QWidget *layoutWidget_11;
-    QHBoxLayout *horizontalLayout_13;
-    QLabel *label_14;
-    QLineEdit *lineEdit_stadiumRoofType;
-    QLabel *label_roofTypeModified;
+    QLabel *label_9;
+    QComboBox *comboBox_newStadium;
     QPushButton *pushButton_backModifyStadiums;
     QWidget *page_adminHome;
     QLabel *label_adminTitle_2;
@@ -138,10 +117,10 @@ public:
         label_adminTitle_6->setGeometry(QRect(10, 10, 561, 81));
         groupBox_3 = new QGroupBox(page_modifyStadiums);
         groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        groupBox_3->setGeometry(QRect(70, 90, 431, 261));
+        groupBox_3->setGeometry(QRect(70, 90, 431, 151));
         layoutWidget_5 = new QWidget(groupBox_3);
         layoutWidget_5->setObjectName(QStringLiteral("layoutWidget_5"));
-        layoutWidget_5->setGeometry(QRect(20, 20, 311, 24));
+        layoutWidget_5->setGeometry(QRect(20, 20, 391, 24));
         horizontalLayout_7 = new QHBoxLayout(layoutWidget_5);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -166,122 +145,22 @@ public:
 
         confirmModifyStadiums = new QPushButton(groupBox_3);
         confirmModifyStadiums->setObjectName(QStringLiteral("confirmModifyStadiums"));
-        confirmModifyStadiums->setGeometry(QRect(150, 220, 131, 21));
+        confirmModifyStadiums->setGeometry(QRect(150, 110, 131, 21));
         layoutWidget_7 = new QWidget(groupBox_3);
         layoutWidget_7->setObjectName(QStringLiteral("layoutWidget_7"));
-        layoutWidget_7->setGeometry(QRect(20, 60, 391, 24));
+        layoutWidget_7->setGeometry(QRect(20, 60, 391, 31));
         horizontalLayout_9 = new QHBoxLayout(layoutWidget_7);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        label_10 = new QLabel(layoutWidget_7);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
+        label_9 = new QLabel(layoutWidget_7);
+        label_9->setObjectName(QStringLiteral("label_9"));
 
-        horizontalLayout_9->addWidget(label_10);
+        horizontalLayout_9->addWidget(label_9);
 
-        lineEdit_stadiumName = new QLineEdit(layoutWidget_7);
-        lineEdit_stadiumName->setObjectName(QStringLiteral("lineEdit_stadiumName"));
-        lineEdit_stadiumName->setEnabled(true);
+        comboBox_newStadium = new QComboBox(layoutWidget_7);
+        comboBox_newStadium->setObjectName(QStringLiteral("comboBox_newStadium"));
 
-        horizontalLayout_9->addWidget(lineEdit_stadiumName);
-
-        label_stadiumNameModified = new QLabel(layoutWidget_7);
-        label_stadiumNameModified->setObjectName(QStringLiteral("label_stadiumNameModified"));
-        label_stadiumNameModified->setMinimumSize(QSize(40, 0));
-
-        horizontalLayout_9->addWidget(label_stadiumNameModified);
-
-        layoutWidget_8 = new QWidget(groupBox_3);
-        layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
-        layoutWidget_8->setGeometry(QRect(20, 90, 391, 24));
-        horizontalLayout_10 = new QHBoxLayout(layoutWidget_8);
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_11 = new QLabel(layoutWidget_8);
-        label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
-
-        horizontalLayout_10->addWidget(label_11);
-
-        lineEdit_stadiumSeatingCapacity = new QLineEdit(layoutWidget_8);
-        lineEdit_stadiumSeatingCapacity->setObjectName(QStringLiteral("lineEdit_stadiumSeatingCapacity"));
-
-        horizontalLayout_10->addWidget(lineEdit_stadiumSeatingCapacity);
-
-        label_seatingCapacityModified = new QLabel(layoutWidget_8);
-        label_seatingCapacityModified->setObjectName(QStringLiteral("label_seatingCapacityModified"));
-        label_seatingCapacityModified->setMinimumSize(QSize(40, 0));
-
-        horizontalLayout_10->addWidget(label_seatingCapacityModified);
-
-        layoutWidget_9 = new QWidget(groupBox_3);
-        layoutWidget_9->setObjectName(QStringLiteral("layoutWidget_9"));
-        layoutWidget_9->setGeometry(QRect(20, 120, 391, 24));
-        horizontalLayout_11 = new QHBoxLayout(layoutWidget_9);
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
-        label_12 = new QLabel(layoutWidget_9);
-        label_12->setObjectName(QStringLiteral("label_12"));
-        label_12->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
-
-        horizontalLayout_11->addWidget(label_12);
-
-        lineEdit_stadiumLocation = new QLineEdit(layoutWidget_9);
-        lineEdit_stadiumLocation->setObjectName(QStringLiteral("lineEdit_stadiumLocation"));
-
-        horizontalLayout_11->addWidget(lineEdit_stadiumLocation);
-
-        label_locationModified = new QLabel(layoutWidget_9);
-        label_locationModified->setObjectName(QStringLiteral("label_locationModified"));
-        label_locationModified->setMinimumSize(QSize(40, 0));
-
-        horizontalLayout_11->addWidget(label_locationModified);
-
-        layoutWidget_10 = new QWidget(groupBox_3);
-        layoutWidget_10->setObjectName(QStringLiteral("layoutWidget_10"));
-        layoutWidget_10->setGeometry(QRect(20, 150, 391, 24));
-        horizontalLayout_12 = new QHBoxLayout(layoutWidget_10);
-        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        horizontalLayout_12->setContentsMargins(0, 0, 0, 0);
-        label_13 = new QLabel(layoutWidget_10);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
-
-        horizontalLayout_12->addWidget(label_13);
-
-        lineEdit_stadiumSurfaceType = new QLineEdit(layoutWidget_10);
-        lineEdit_stadiumSurfaceType->setObjectName(QStringLiteral("lineEdit_stadiumSurfaceType"));
-
-        horizontalLayout_12->addWidget(lineEdit_stadiumSurfaceType);
-
-        label_surfaceTypeModified = new QLabel(layoutWidget_10);
-        label_surfaceTypeModified->setObjectName(QStringLiteral("label_surfaceTypeModified"));
-        label_surfaceTypeModified->setMinimumSize(QSize(40, 0));
-
-        horizontalLayout_12->addWidget(label_surfaceTypeModified);
-
-        layoutWidget_11 = new QWidget(groupBox_3);
-        layoutWidget_11->setObjectName(QStringLiteral("layoutWidget_11"));
-        layoutWidget_11->setGeometry(QRect(20, 180, 391, 24));
-        horizontalLayout_13 = new QHBoxLayout(layoutWidget_11);
-        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
-        label_14 = new QLabel(layoutWidget_11);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setStyleSheet(QStringLiteral("font: 10pt \"MS Shell Dlg 2\";"));
-
-        horizontalLayout_13->addWidget(label_14);
-
-        lineEdit_stadiumRoofType = new QLineEdit(layoutWidget_11);
-        lineEdit_stadiumRoofType->setObjectName(QStringLiteral("lineEdit_stadiumRoofType"));
-
-        horizontalLayout_13->addWidget(lineEdit_stadiumRoofType);
-
-        label_roofTypeModified = new QLabel(layoutWidget_11);
-        label_roofTypeModified->setObjectName(QStringLiteral("label_roofTypeModified"));
-        label_roofTypeModified->setMinimumSize(QSize(40, 0));
-
-        horizontalLayout_13->addWidget(label_roofTypeModified);
+        horizontalLayout_9->addWidget(comboBox_newStadium);
 
         pushButton_backModifyStadiums = new QPushButton(page_modifyStadiums);
         pushButton_backModifyStadiums->setObjectName(QStringLiteral("pushButton_backModifyStadiums"));
@@ -520,20 +399,11 @@ public:
     void retranslateUi(QDialog *AdminWindow)
     {
         AdminWindow->setWindowTitle(QApplication::translate("AdminWindow", "Dialog", Q_NULLPTR));
-        label_adminTitle_6->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Modify Stadiums</span></p></body></html>", Q_NULLPTR));
+        label_adminTitle_6->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; color:#ffffff;\">Modify Stadiums</span></p></body></html>", Q_NULLPTR));
         groupBox_3->setTitle(QString());
         label_7->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Team Name:</span></p></body></html>", Q_NULLPTR));
-        confirmModifyStadiums->setText(QApplication::translate("AdminWindow", "Modify", Q_NULLPTR));
-        label_10->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Stadium Name:             </span></p></body></html>", Q_NULLPTR));
-        label_stadiumNameModified->setText(QString());
-        label_11->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Seating Capacity:          </span></p></body></html>", Q_NULLPTR));
-        label_seatingCapacityModified->setText(QString());
-        label_12->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Location:                      </span></p></body></html>", Q_NULLPTR));
-        label_locationModified->setText(QString());
-        label_13->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Surface Type:               </span></p></body></html>", Q_NULLPTR));
-        label_surfaceTypeModified->setText(QString());
-        label_14->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Stadium Roof Type:       </span></p></body></html>", Q_NULLPTR));
-        label_roofTypeModified->setText(QString());
+        confirmModifyStadiums->setText(QApplication::translate("AdminWindow", "Move Team", Q_NULLPTR));
+        label_9->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ffffff;\">New Stadium:</span></p></body></html>", Q_NULLPTR));
         pushButton_backModifyStadiums->setText(QApplication::translate("AdminWindow", "Back", Q_NULLPTR));
         label_adminTitle_2->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; color:#ffff00;\">Administrator Window</span></p></body></html>", Q_NULLPTR));
         pushButton_logout->setText(QApplication::translate("AdminWindow", "Logout", Q_NULLPTR));

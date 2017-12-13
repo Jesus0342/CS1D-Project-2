@@ -1,4 +1,5 @@
 #include "database.h"
+#include "adminwindow.h"
 
 Database::Database() : QSqlDatabase(addDatabase("QSQLITE"))
 {
@@ -333,6 +334,18 @@ void Database::addStadium(Team stadium)
 
         // Adds the stadium to the database.
         query.exec();
+
+        query.prepare("INSERT INTO NFL_STADIUMS(StadiumName, SeatingCapacity, Location, SurfaceType, StadiumRoofType)\n"
+                      "VALUES(:stadium, :capacity, :location, :surface, :roof);");
+
+        // Binds the values.
+        query.bindValue(":stadium", stadiumName);
+        query.bindValue(":capacity", seatingCapacity);
+        query.bindValue(":location", location);
+        query.bindValue(":surface", surfaceType);
+        query.bindValue(":roof", roofType);
+
+        query.exec();
     }
 }
 
@@ -396,6 +409,14 @@ void Database::removeStadium(Team stadium)
         query.bindValue(":stadiumName", stadiumName);
 
         query.exec();
+
+        query.prepare("DELETE FROM NFL_STADIUMS WHERE StadiumName = :stadiumName");
+
+        query.bindValue(":stadiumName", stadiumName);
+
+        if(query.exec()) {
+            qDebug() << "success 2";
+        }
     }
 }
 
@@ -455,14 +476,50 @@ void Database::editSouvenirPrice(Souvenir souvenir, double newPrice)
     }
 }
 
-void Database::editStadium(QString team, QString field, QString newValue)
+void Database::editStadium(QString team, QString newStadium)
 {
     QSqlQuery query;
 
-    query.prepare("UPDATE NFL_INFORMATION SET " + field + " = :newValue WHERE TeamName = :team");
+    query.prepare("SELECT SeatingCapacity, Location, SurfaceType, StadiumRoofType FROM NFL_STADIUMS WHERE StadiumName = :newStadium");
+    query.bindValue(":newStadium", newStadium);
 
-    query.bindValue(":newValue", newValue);
+    if(!(query.exec()))
+    {
+        qDebug() << "failed";
+    }
+
+    QString capacity;
+    QString location;
+    QString surface;
+    QString roof;
+
+    while(query.next()) {
+        capacity = query.value(0).toString();
+        location = query.value(1).toString();
+        surface = query.value(2).toString();
+        roof = query.value(3).toString();
+    }
+
+    query.prepare("UPDATE NFL_INFORMATION SET StadiumName = :stadium, SeatingCapacity = :capacity, Location = :location, SurfaceType = :surface, StadiumRoofType = :roof\n"
+                  "WHERE TeamName = :team");
+
     query.bindValue(":team", team);
+    query.bindValue(":stadium", newStadium);
+    query.bindValue(":capacity", capacity);
+    query.bindValue(":location", location);
+    query.bindValue(":surface", surface);
+    query.bindValue(":roof", roof);
 
-    query.exec();
+    if(query.exec()) {
+        qDebug() << "Success";
+    }
+
+//    QSqlQuery query;
+
+//    query.prepare("UPDATE NFL_INFORMATION SET " + field + " = :newValue WHERE TeamName = :team");
+
+//    query.bindValue(":newValue", newValue);
+//    query.bindValue(":team", team);
+
+//    query.exec();
 }

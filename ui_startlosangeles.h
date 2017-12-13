@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'startlosangeles.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -93,12 +93,12 @@ public:
 
     void retranslateUi(QMainWindow *startlosangeles)
     {
-        startlosangeles->setWindowTitle(QApplication::translate("startlosangeles", "MainWindow", 0));
+        startlosangeles->setWindowTitle(QApplication::translate("startlosangeles", "MainWindow", Q_NULLPTR));
         pushButton_back->setText(QString());
         pushButton_buySouv->setText(QString());
-        pushButton_visit->setText(QApplication::translate("startlosangeles", "Visit", 0));
-        label->setText(QApplication::translate("startlosangeles", "<html><head/><body><p><span style=\" font-size:12pt;\">Please select the stadium that you would like to visit</span></p><p><span style=\" font-size:12pt;\">starting from Los Angeles Memorial Coliseum.</span></p></body></html>", 0));
-        label_2->setText(QApplication::translate("startlosangeles", "<html><head/><body><p><span style=\" font-size:12pt; text-decoration: underline;\">Total Distance Traveled</span></p></body></html>", 0));
+        pushButton_visit->setText(QApplication::translate("startlosangeles", "Visit", Q_NULLPTR));
+        label->setText(QApplication::translate("startlosangeles", "<html><head/><body><p><span style=\" font-size:12pt;\">Please select the stadium that you would like to visit</span></p><p><span style=\" font-size:12pt;\">starting from Los Angeles Memorial Coliseum.</span></p></body></html>", Q_NULLPTR));
+        label_2->setText(QApplication::translate("startlosangeles", "<html><head/><body><p><span style=\" font-size:12pt; text-decoration: underline;\">Total Distance Traveled</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

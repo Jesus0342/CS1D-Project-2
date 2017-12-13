@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'startatfordfield.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -99,14 +99,14 @@ public:
 
     void retranslateUi(QMainWindow *startAtFordField)
     {
-        startAtFordField->setWindowTitle(QApplication::translate("startAtFordField", "MainWindow", 0));
-        pushButton_seePrefRoute->setText(QApplication::translate("startAtFordField", "Click to See Preferred Routes", 0));
-        label->setText(QApplication::translate("startAtFordField", "Visiting All Stadiums Starting At Ford Field", 0));
-        label_2->setText(QApplication::translate("startAtFordField", "Preferred Route", 0));
-        label_3->setText(QApplication::translate("startAtFordField", "Total Distance Travelled", 0));
+        startAtFordField->setWindowTitle(QApplication::translate("startAtFordField", "MainWindow", Q_NULLPTR));
+        pushButton_seePrefRoute->setText(QApplication::translate("startAtFordField", "Click to See Preferred Routes", Q_NULLPTR));
+        label->setText(QApplication::translate("startAtFordField", "Visiting All Stadiums Starting At Ford Field", Q_NULLPTR));
+        label_2->setText(QApplication::translate("startAtFordField", "Preferred Route", Q_NULLPTR));
+        label_3->setText(QApplication::translate("startAtFordField", "Total Distance Travelled", Q_NULLPTR));
         pushButton_buySouvenirs->setText(QString());
         label_5_dateToday->setText(QString());
-        pushButton_buySouvenirs_2->setText(QApplication::translate("startAtFordField", "Back to Main Menu", 0));
+        pushButton_buySouvenirs_2->setText(QApplication::translate("startAtFordField", "Back to Main Menu", Q_NULLPTR));
     } // retranslateUi
 
 };

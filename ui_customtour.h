@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'customtour.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -159,25 +159,25 @@ public:
 
     void retranslateUi(QMainWindow *CustomTour)
     {
-        CustomTour->setWindowTitle(QApplication::translate("CustomTour", "MainWindow", 0));
+        CustomTour->setWindowTitle(QApplication::translate("CustomTour", "MainWindow", Q_NULLPTR));
         pushButton_back->setText(QString());
-        label_title->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">Plan a vacation</span></p></body></html>", 0));
-        groupBox->setTitle(QApplication::translate("CustomTour", "Stadium Selection", 0));
-        pushButton_add->setText(QApplication::translate("CustomTour", "Add this stadium", 0));
-        label_2->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Starting Stadium</span></p></body></html>", 0));
-        label_1->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Selected Stadiums</span></p></body></html>", 0));
-        label->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Available Stadiums</span></p></body></html>", 0));
-        pushButton_reset->setText(QApplication::translate("CustomTour", "Reset stadiums", 0));
+        label_title->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">Plan a vacation</span></p></body></html>", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("CustomTour", "Stadium Selection", Q_NULLPTR));
+        pushButton_add->setText(QApplication::translate("CustomTour", "Add this stadium", Q_NULLPTR));
+        label_2->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Starting Stadium</span></p></body></html>", Q_NULLPTR));
+        label_1->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Selected Stadiums</span></p></body></html>", Q_NULLPTR));
+        label->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Available Stadiums</span></p></body></html>", Q_NULLPTR));
+        pushButton_reset->setText(QApplication::translate("CustomTour", "Reset stadiums", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_selected->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("CustomTour", "Stadium", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("CustomTour", "Stadium", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_selected->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("CustomTour", "Distance", 0));
-        label_dist->setText(QApplication::translate("CustomTour", "<html><head/><body><p><span style=\" font-size:10pt;\">Total Distance: </span></p></body></html>", 0));
-        label_distNum->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"right\"><br/></p></body></html>", 0));
-        groupBox_2->setTitle(QApplication::translate("CustomTour", "Order to Visit", 0));
-        radioButton_selected->setText(QApplication::translate("CustomTour", "Selected Order", 0));
-        radioButton_short->setText(QApplication::translate("CustomTour", "Shortest Order", 0));
-        pushButton_calculateTrip->setText(QApplication::translate("CustomTour", "Calculate Trip", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("CustomTour", "Distance", Q_NULLPTR));
+        label_dist->setText(QApplication::translate("CustomTour", "<html><head/><body><p><span style=\" font-size:10pt;\">Total Distance: </span></p></body></html>", Q_NULLPTR));
+        label_distNum->setText(QApplication::translate("CustomTour", "<html><head/><body><p align=\"right\"><br/></p></body></html>", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("CustomTour", "Order to Visit", Q_NULLPTR));
+        radioButton_selected->setText(QApplication::translate("CustomTour", "Selected Order", Q_NULLPTR));
+        radioButton_short->setText(QApplication::translate("CustomTour", "Shortest Order", Q_NULLPTR));
+        pushButton_calculateTrip->setText(QApplication::translate("CustomTour", "Calculate Trip", Q_NULLPTR));
         label_error->setText(QString());
         pushButton_souvenirs->setText(QString());
     } // retranslateUi

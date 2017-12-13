@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QSqlError>
+#include <QMessageBox>
 
 AdminWindow::AdminWindow(QWidget *parent) :
     QDialog(parent),
@@ -153,6 +154,13 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         qry->exec();
         mod->setQuery(*qry);
         ui->comboBox_teamList->setModel(mod);
+
+        QSqlQueryModel *mod2 = new QSqlQueryModel();
+        QSqlQuery *qry2 = new QSqlQuery();
+        qry2->prepare("SELECT DISTINCT StadiumName FROM NFL_STADIUMS");
+        qry2->exec();
+        mod2->setQuery(*qry2);
+        ui->comboBox_newStadium->setModel(mod2);
     }
     }
 }
@@ -356,32 +364,11 @@ void AdminWindow::on_comboBox_teamList_2_currentIndexChanged(const QString &arg1
 void AdminWindow::on_confirmModifyStadiums_clicked()
 {
     QString teamName = ui->comboBox_teamList->currentText();
-    QString newStadiumName = ui->lineEdit_stadiumName->text();
-    QString newSeatingCapacity = ui->lineEdit_stadiumSeatingCapacity->text();
-    QString newLocation = ui->lineEdit_stadiumLocation->text();
-    QString newSurfaceType = ui->lineEdit_stadiumSurfaceType->text();
-    QString newRoofType = ui->lineEdit_stadiumRoofType->text();
+    QString newStadium = ui->comboBox_newStadium->currentText();
 
-    if (!newStadiumName.isEmpty()) {
-        ui->label_stadiumNameModified->setText("Modified");
-        Database::editStadium(teamName,"StadiumName",newStadiumName);
-    }
-    if (!newSeatingCapacity.isEmpty()) { // we should also check if it matches the current one
-        ui->label_seatingCapacityModified->setText("Modified");
-        Database::editStadium(teamName,"SeatingCapacity",newSeatingCapacity);
-    }
-    if (!newLocation.isEmpty()) {
-        ui->label_locationModified->setText("Modified");
-        Database::editStadium(teamName,"Location",newLocation);
-    }
-    if (!newSurfaceType.isEmpty()) {
-        ui->label_surfaceTypeModified->setText("Modified");
-        Database::editStadium(teamName,"SurfaceType",newSurfaceType);
-    }
-    if (!newRoofType.isEmpty()) {
-        ui->label_roofTypeModified->setText("Modified");
-        Database::editStadium(teamName,"RoofType",newRoofType);
-    }
+    Database::editStadium(teamName, newStadium);
+
+    QMessageBox::information(this, "Success", teamName + " was successfully moved to " + newStadium + ".");
 }
 
 void AdminWindow::on_comboBox_teamList_2_currentTextChanged(const QString &arg2)

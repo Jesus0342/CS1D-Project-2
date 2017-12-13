@@ -39,7 +39,7 @@
          <x>70</x>
          <y>90</y>
          <width>431</width>
-         <height>261</height>
+         <height>151</height>
         </rect>
        </property>
        <property name="title">
@@ -50,7 +50,7 @@
          <rect>
           <x>20</x>
           <y>20</y>
-          <width>311</width>
+          <width>391</width>
           <height>24</height>
          </rect>
         </property>
@@ -89,13 +89,13 @@
         <property name="geometry">
          <rect>
           <x>150</x>
-          <y>220</y>
+          <y>110</y>
           <width>131</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
-         <string>Modify</string>
+         <string>Move Team</string>
         </property>
        </widget>
        <widget class="QWidget" name="layoutWidget_7">
@@ -104,191 +104,19 @@
           <x>20</x>
           <y>60</y>
           <width>391</width>
-          <height>24</height>
+          <height>31</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
-          <widget class="QLabel" name="label_10">
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-           </property>
+          <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stadium Name:             &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;New Stadium:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_stadiumName">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_stadiumNameModified">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_8">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>90</y>
-          <width>391</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_10">
-         <item>
-          <widget class="QLabel" name="label_11">
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Seating Capacity:          &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_stadiumSeatingCapacity"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_seatingCapacityModified">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_9">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>120</y>
-          <width>391</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
-         <item>
-          <widget class="QLabel" name="label_12">
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Location:                      &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_stadiumLocation"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_locationModified">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_10">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>150</y>
-          <width>391</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <item>
-          <widget class="QLabel" name="label_13">
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Surface Type:               &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_stadiumSurfaceType"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_surfaceTypeModified">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_11">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>180</y>
-          <width>391</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_13">
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Stadium Roof Type:       &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_stadiumRoofType"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_roofTypeModified">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
+          <widget class="QComboBox" name="comboBox_newStadium"/>
          </item>
         </layout>
        </widget>

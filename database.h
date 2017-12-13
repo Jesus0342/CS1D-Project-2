@@ -140,7 +140,7 @@ public:
     static void editSouvenirPrice(Souvenir souvenir, double newPrice);
 
 
-    static void editStadium(QString team, QString field, QString newValue);
+    static void editStadium(QString team, QString newStadium);
 };
 
 #endif // DATABASE_H
