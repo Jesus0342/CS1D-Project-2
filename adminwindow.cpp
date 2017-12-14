@@ -154,13 +154,6 @@ void AdminWindow::on_comboBox_adminFunctions_currentIndexChanged(int index)
         qry->exec();
         mod->setQuery(*qry);
         ui->comboBox_teamList->setModel(mod);
-
-        QSqlQueryModel *mod2 = new QSqlQueryModel();
-        QSqlQuery *qry2 = new QSqlQuery();
-        qry2->prepare("SELECT DISTINCT StadiumName FROM NFL_STADIUMS");
-        qry2->exec();
-        mod2->setQuery(*qry2);
-        ui->comboBox_newStadium->setModel(mod2);
     }
     }
 }
@@ -364,11 +357,9 @@ void AdminWindow::on_comboBox_teamList_2_currentIndexChanged(const QString &arg1
 void AdminWindow::on_confirmModifyStadiums_clicked()
 {
     QString teamName = ui->comboBox_teamList->currentText();
-    QString newStadium = ui->comboBox_newStadium->currentText();
+    Database::editStadium(teamName, ui->lineEdit_stadiumName->text());
 
-    Database::editStadium(teamName, newStadium);
-
-    QMessageBox::information(this, "Success", teamName + " was successfully moved to " + newStadium + ".");
+    QMessageBox::information(this, "Success", teamName + " was successfully moved to " + ui->lineEdit_stadiumName->text() + ".");
 }
 
 void AdminWindow::on_comboBox_teamList_2_currentTextChanged(const QString &arg2)

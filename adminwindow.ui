@@ -95,7 +95,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Move Team</string>
+         <string>Modify</string>
         </property>
        </widget>
        <widget class="QWidget" name="layoutWidget_7">
@@ -116,7 +116,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_newStadium"/>
+          <widget class="QLineEdit" name="lineEdit_stadiumName"/>
          </item>
         </layout>
        </widget>

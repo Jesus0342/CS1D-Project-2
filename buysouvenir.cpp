@@ -63,6 +63,9 @@ void buySouvenir::populateDropdown()
         itemPrice = q.value(0).toDouble();
     }
     ui->lcdNumber_itemxqty->display(itemPrice);
+
+
+
 }
 
 void buySouvenir::on_comboBox_stadiumName_currentIndexChanged(const QString &arg1)
@@ -98,13 +101,15 @@ void buySouvenir::on_comboBox_souvenir_currentIndexChanged(const QString &arg1)
     //update item price
     QSqlQuery q;
     double itemPrice;
-    q.exec("SELECT Price from NFL_SOUVENIRS where SouvenirName='"+arg1+"'");
+    q.exec("SELECT Price from NFL_SOUVENIRS where SouvenirName='"+arg1+"' and TeamName = '"+ui->comboBox_stadiumName->currentText()+"'");
     while(q.next()) {
         itemPrice = q.value(0).toDouble();
     }
     ui->lcdNumber_itemxqty->display(itemPrice);
 
     ui->spinBox_qty_input->setValue(1);
+
+      QTextStream(stdout) << startingStadium << " " <<  arg1 << " " << itemPrice;
 }
 
 void buySouvenir::on_pushButton_addToCart_clicked()

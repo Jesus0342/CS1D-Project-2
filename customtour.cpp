@@ -302,3 +302,36 @@ int CustomTour::calcOrderedPath() {
 
     return totalDist;
 }
+
+void CustomTour::on_pushButton_addAll_clicked()
+{
+    if (ui->listWidget->count() > 0) {
+        QSqlQuery q;
+        q.exec("select StadiumName from NFL_INFORMATION where StadiumName !='"+ui->listWidget->item(0)->text()+"'");
+        QList<QString> addThis;
+        QString aa;
+        int j =0;
+
+        while(q.next()) {
+            aa = q.value(0).toString();
+            addThis.append(aa);
+
+            j++;
+        }
+
+
+        for (int i =0; i<addThis.size(); i++)
+        {
+            ui->tableWidget_selected->insertRow(ui->tableWidget_selected->rowCount());
+            ui->tableWidget_selected->setItem(ui->tableWidget_selected->rowCount() -1 , 0, new QTableWidgetItem(addThis.at(i)));
+        }
+
+        int firstStadium = g.findVertex(ui->listWidget->item(0)->text());
+
+        for (int i=0; i<g.size(); i++) {
+            if (i != firstStadium)
+                selectedStadiums.push_back(i);
+        }
+
+    }
+}

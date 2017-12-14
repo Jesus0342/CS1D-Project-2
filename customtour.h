@@ -28,6 +28,8 @@ private slots:
     void on_pushButton_souvenirs_clicked();
     void convertToTeamNames();
 
+    void on_pushButton_addAll_clicked();
+
 private:
     Ui::CustomTour *ui;
 

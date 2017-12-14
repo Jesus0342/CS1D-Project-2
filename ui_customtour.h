@@ -50,6 +50,7 @@ public:
     QRadioButton *radioButton_short;
     QPushButton *pushButton_calculateTrip;
     QLabel *label_error;
+    QPushButton *pushButton_addAll;
     QPushButton *pushButton_souvenirs;
     QStatusBar *statusbar;
     QMenuBar *menubar;
@@ -134,6 +135,9 @@ public:
         label_error = new QLabel(groupBox);
         label_error->setObjectName(QStringLiteral("label_error"));
         label_error->setGeometry(QRect(20, 260, 201, 20));
+        pushButton_addAll = new QPushButton(groupBox);
+        pushButton_addAll->setObjectName(QStringLiteral("pushButton_addAll"));
+        pushButton_addAll->setGeometry(QRect(20, 220, 191, 23));
         pushButton_souvenirs = new QPushButton(centralwidget);
         pushButton_souvenirs->setObjectName(QStringLiteral("pushButton_souvenirs"));
         pushButton_souvenirs->setGeometry(QRect(490, 500, 141, 41));
@@ -149,7 +153,7 @@ public:
         CustomTour->setStatusBar(statusbar);
         menubar = new QMenuBar(CustomTour);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 651, 20));
+        menubar->setGeometry(QRect(0, 0, 651, 21));
         CustomTour->setMenuBar(menubar);
 
         retranslateUi(CustomTour);
@@ -179,6 +183,7 @@ public:
         radioButton_short->setText(QApplication::translate("CustomTour", "Shortest Order", Q_NULLPTR));
         pushButton_calculateTrip->setText(QApplication::translate("CustomTour", "Calculate Trip", Q_NULLPTR));
         label_error->setText(QString());
+        pushButton_addAll->setText(QApplication::translate("CustomTour", "Add All", Q_NULLPTR));
         pushButton_souvenirs->setText(QString());
     } // retranslateUi
 

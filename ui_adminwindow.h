@@ -44,7 +44,7 @@ public:
     QWidget *layoutWidget_7;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_9;
-    QComboBox *comboBox_newStadium;
+    QLineEdit *lineEdit_stadiumName;
     QPushButton *pushButton_backModifyStadiums;
     QWidget *page_adminHome;
     QLabel *label_adminTitle_2;
@@ -157,10 +157,10 @@ public:
 
         horizontalLayout_9->addWidget(label_9);
 
-        comboBox_newStadium = new QComboBox(layoutWidget_7);
-        comboBox_newStadium->setObjectName(QStringLiteral("comboBox_newStadium"));
+        lineEdit_stadiumName = new QLineEdit(layoutWidget_7);
+        lineEdit_stadiumName->setObjectName(QStringLiteral("lineEdit_stadiumName"));
 
-        horizontalLayout_9->addWidget(comboBox_newStadium);
+        horizontalLayout_9->addWidget(lineEdit_stadiumName);
 
         pushButton_backModifyStadiums = new QPushButton(page_modifyStadiums);
         pushButton_backModifyStadiums->setObjectName(QStringLiteral("pushButton_backModifyStadiums"));
@@ -402,7 +402,7 @@ public:
         label_adminTitle_6->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; color:#ffffff;\">Modify Stadiums</span></p></body></html>", Q_NULLPTR));
         groupBox_3->setTitle(QString());
         label_7->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Team Name:</span></p></body></html>", Q_NULLPTR));
-        confirmModifyStadiums->setText(QApplication::translate("AdminWindow", "Move Team", Q_NULLPTR));
+        confirmModifyStadiums->setText(QApplication::translate("AdminWindow", "Modify", Q_NULLPTR));
         label_9->setText(QApplication::translate("AdminWindow", "<html><head/><body><p><span style=\" font-size:10pt; color:#ffffff;\">New Stadium:</span></p></body></html>", Q_NULLPTR));
         pushButton_backModifyStadiums->setText(QApplication::translate("AdminWindow", "Back", Q_NULLPTR));
         label_adminTitle_2->setText(QApplication::translate("AdminWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; color:#ffff00;\">Administrator Window</span></p></body></html>", Q_NULLPTR));

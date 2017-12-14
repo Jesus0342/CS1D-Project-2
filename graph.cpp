@@ -507,6 +507,8 @@ int Graph::smallestEdgeDFS(int currVertex, QVector<QString> &dfs)
         // Finds the graph index of the previous stadium visited.
         int backIndex = findVertex(*dfsIt);
 
+        dfsDistance += distanceBetween(backIndex, findVertex(*(dfsIt + 1)));
+
         // Preforms a recursive call to check if the previous stadium visited has
         // any unvisited edges to continue the DFS.
         return smallestEdgeDFS(backIndex, dfs);
