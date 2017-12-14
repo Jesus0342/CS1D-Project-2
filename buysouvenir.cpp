@@ -86,7 +86,7 @@ void buySouvenir::on_spinBox_qty_input_valueChanged(int arg1)
     double disp;
     QSqlQuery query;
     double itemPrice;
-    query.exec("SELECT Price from NFL_SOUVENIRS where SouvenirName =\""+item+"\"");
+    query.exec("SELECT Price from NFL_SOUVENIRS where SouvenirName =\""+item+"\"and TeamName = '"+ui->comboBox_stadiumName->currentText()+"'");
        while(query.next()) {
            itemPrice = query.value(0).toDouble();
     }
